@@ -1,7 +1,7 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "node build-vercel.js",
   "outputDirectory": "client/build",
-  "installCommand": "npm run install-all",
+  "installCommand": "npm install",
   "framework": "create-react-app",
   "rewrites": [
     {
