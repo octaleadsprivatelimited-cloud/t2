@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "cd client && npm run build",
+  "buildCommand": "npm run vercel-build",
   "outputDirectory": "client/build",
-  "installCommand": "npm install && cd client && npm install",
+  "installCommand": "npm run install-all",
   "framework": "create-react-app",
   "routes": [
     {
@@ -11,7 +11,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/client/build/$1"
+      "dest": "/index.html"
     }
   ]
 }

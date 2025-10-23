@@ -3,9 +3,9 @@ node_modules/
 client/node_modules/
 server/node_modules/
 
-# Build outputs
-client/build/
-server/dist/
+# Build outputs (keep for deployment)
+# client/build/
+# server/dist/
 
 # Development files
 .env.local
