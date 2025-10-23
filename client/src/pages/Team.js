@@ -26,7 +26,7 @@ const HeroSection = styled.section`
   min-height: 90vh;
   display: flex;
   align-items: center;
-  background: url('/insurtech/hero/leader-ship.webp') center/cover no-repeat;
+  background: url('/insurtech/hero/women_cyber.webp') center/cover no-repeat;
   padding: 140px 0 100px;
   position: relative;
   overflow: hidden;

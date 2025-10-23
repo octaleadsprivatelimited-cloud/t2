@@ -18,15 +18,6 @@ const PageContainer = styled.div`
   overflow-x: hidden;
 `;
 
-const HeroBackgroundImage = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-`;
 
 const HeroSection = styled.section`
   min-height: 90vh;

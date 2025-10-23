@@ -166,7 +166,7 @@ const IndustryLeaders = () => {
     { name: 'Sri Lanka Telecom', logo: '/insurtech/leaders/srilanka_telecom.png' },
     { name: 'Persistent', logo: '/insurtech/leaders/presistent.png' },
     { name: 'Mediassist', logo: '/insurtech/leaders/mediassist.png' },
-    { name: 'Latent View', logo: '/insurtech/leaders/latent view.png' },
+    { name: 'Latent View', logo: '/insurtech/leaders/latent_view.png' },
     { name: 'IndoSpace', logo: '/insurtech/leaders/indospace.png' },
     { name: 'Fyndna', logo: '/insurtech/leaders/fyndna.png' },
     { name: 'Games 24x7', logo: '/insurtech/leaders/games_24_seven.png' },

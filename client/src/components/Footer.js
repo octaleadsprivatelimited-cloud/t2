@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaLinkedin, FaFacebook, FaInstagram, FaArrowRight, FaEnvelope, FaPhone, FaMapMarkerAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt, FaChevronDown } from 'react-icons/fa';
 
 const FooterContainer = styled.footer`
   background: url('/insurtech/Background/homepage.webp') center top/cover no-repeat;
@@ -45,79 +45,10 @@ const Container = styled.div`
   }
 `;
 
-const CTASection = styled.div`
-  padding: 50px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
 
-  @media (max-width: 968px) {
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 0;
-  }
-`;
 
-const CTAContent = styled.div`
-  flex: 1;
-`;
 
-const CTATitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 10px;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
 
-  @media (max-width: 768px) {
-    font-size: 1.6rem;
-  }
-`;
-
-const CTASubtitle = styled.p`
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  max-width: 550px;
-
-  @media (max-width: 968px) {
-    margin: 0 auto;
-  }
-`;
-
-const CTAButton = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 28px;
-  background: #ffffff;
-  color: #1e3a8a;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-
-  &:hover {
-    background: #f8f9fa;
-    transform: translateX(5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  }
-
-  svg {
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: translateX(5px);
-  }
-`;
 
 const FooterMain = styled.div`
   padding: 30px 0 20px 0;
@@ -360,20 +291,6 @@ const ImagesRow = styled.div`
   }
 `;
 
-const ColumnTitle = styled.h4`
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 15px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-
-  @media (max-width: 768px) {
-    font-size: 0.85rem;
-    margin-bottom: 12px;
-  }
-`;
 
 const LinkList = styled.ul`
   list-style: none;

@@ -49,18 +49,6 @@ const Title = styled.h2`
   }
 `;
 
-const Subtitle = styled.p`
-  font-size: 1.1rem;
-  color: #6c757d;
-  max-width: 400px;
-  margin: 0;
-  line-height: 1.6;
-  font-weight: 400;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
 
 
 
