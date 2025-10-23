@@ -4,7 +4,6 @@
   "outputDirectory": "client/build",
   "installCommand": "npm install --no-audit --no-fund && cd client && npm install --no-audit --no-fund",
   "framework": "create-react-app",
-  "nodeVersion": "18.x",
   "functions": {
     "api/index.js": {
       "runtime": "@vercel/node@3.0.7"
