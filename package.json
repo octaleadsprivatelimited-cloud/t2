@@ -11,7 +11,12 @@
     "start": "cd server && npm start",
     "install-all": "npm install && cd client && npm install && cd ../server && npm install"
   },
-  "keywords": ["cybersecurity", "threat-protection", "security-platform", "risk-management"],
+  "keywords": [
+    "cybersecurity",
+    "threat-protection",
+    "security-platform",
+    "risk-management"
+  ],
   "author": "Trans Asia Tech",
   "license": "MIT",
   "engines": {
