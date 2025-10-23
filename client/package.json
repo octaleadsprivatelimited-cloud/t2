@@ -42,6 +42,12 @@
   "devDependencies": {
     "react-scripts": "5.0.1"
   },
+  "resolutions": {
+    "svgo": "^2.8.0"
+  },
+  "overrides": {
+    "svgo": "^2.8.0"
+  },
   "engines": {
     "node": "22.x"
   },
