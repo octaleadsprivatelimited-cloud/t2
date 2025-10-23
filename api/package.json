@@ -4,11 +4,11 @@
   "description": "Trans Asia Tech API",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.18.2",
+    "express": "^4.21.2",
     "cors": "^2.8.5",
-    "helmet": "^7.1.0",
-    "compression": "^1.7.4",
-    "express-rate-limit": "^7.1.5"
+    "helmet": "^8.0.0",
+    "compression": "^1.7.5",
+    "express-rate-limit": "^7.4.1"
   },
   "engines": {
     "node": "22.x"
