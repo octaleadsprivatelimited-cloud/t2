@@ -1,0 +1,23 @@
+{
+  "name": "transasia-platform",
+  "version": "1.0.0",
+  "description": "Trans Asia Tech - Advanced Cybersecurity Platform",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "client": "cd client && npm start",
+    "server": "cd server && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install"
+  },
+  "keywords": ["cybersecurity", "threat-protection", "security-platform", "risk-management"],
+  "author": "Trans Asia Tech",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
