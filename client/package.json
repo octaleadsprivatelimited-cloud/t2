@@ -40,5 +40,8 @@
   "devDependencies": {
     "react-scripts": "5.0.1"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "proxy": "http://localhost:5000"
 }
