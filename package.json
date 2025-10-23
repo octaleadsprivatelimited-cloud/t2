@@ -13,7 +13,12 @@
     "deploy": "npm run build && node deploy.js",
     "serve": "npm run build && npx serve -s client/build -l 3000"
   },
-  "keywords": ["cybersecurity", "threat-protection", "security-platform", "risk-management"],
+  "keywords": [
+    "cybersecurity",
+    "threat-protection",
+    "security-platform",
+    "risk-management"
+  ],
   "author": "CyberSecure Team",
   "license": "MIT",
   "engines": {
@@ -21,5 +26,8 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
