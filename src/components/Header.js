@@ -1,0 +1,457 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+
+const HeaderContainer = styled(motion.header)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #1e3a8a;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+`;
+
+const NavContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+
+  @media (max-width: 768px) {
+    padding: 0 15px;
+    height: 70px;
+  }
+`;
+
+const Logo = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+
+  img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    
+    img {
+      height: 50px;
+    }
+  }
+`;
+
+const NavMenu = styled(motion.nav)`
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-left: auto;
+  margin-right: 20px;
+
+  @media (max-width: 968px) {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px;
+    gap: 20px;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+    margin-left: 0;
+    margin-right: 0;
+
+    &.active {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+`;
+
+const NavActions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 968px) {
+    display: none;
+  }
+`;
+
+const NavLink = styled(Link)`
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  position: relative;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.2s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 968px) {
+    color: #ffffff;
+    font-size: 18px;
+    padding: 12px 0;
+    width: 100%;
+    justify-content: space-between;
+
+    &:hover {
+      color: #93c5fd;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+`;
+
+const CompanyDropdown = styled(motion.div)`
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  opacity: ${props => props.$open ? 1 : 0};
+  visibility: ${props => props.$open ? 'visible' : 'hidden'};
+  pointer-events: ${props => props.$open ? 'auto' : 'none'};
+  transition: all 0.2s ease;
+  z-index: 1001;
+  min-width: 240px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  @media (max-width: 968px) {
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    min-width: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    display: ${props => props.$open ? 'block' : 'none'};
+  }
+`;
+
+const Dropdown = styled.div`
+  position: relative;
+
+  @media (min-width: 969px) {
+    &:hover ${CompanyDropdown} {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+
+  @media (max-width: 968px) {
+    width: 100%;
+  }
+
+  ${NavLink} svg {
+    ${props => props.$open ? 'transform: rotate(180deg);' : ''}
+  }
+`;
+
+const CompanyList = styled.div`
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 968px) {
+    padding: 10px 0;
+    padding-left: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+`;
+
+const CompanyItem = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  color: #1e293b;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #1e3a8a;
+    transform: scaleY(0);
+    transition: transform 0.15s ease;
+  }
+
+  &:hover {
+    background: #f8fafc;
+    color: #1e3a8a;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
+
+  @media (max-width: 968px) {
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 6px;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #3b82f6;
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+`;
+
+const CompanyItemContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+`;
+
+const CompanyItemTitle = styled.div`
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: inherit;
+  line-height: 1.3;
+`;
+
+const CompanyItemDesc = styled.div`
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.3;
+
+  ${CompanyItem}:hover & {
+    color: #94a3b8;
+  }
+
+  @media (max-width: 968px) {
+    display: none;
+  }
+`;
+
+const CTAButton = styled(Link)`
+  background: #ffffff;
+  color: #1e3a8a;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+
+  &:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 968px) {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+`;
+
+
+const MobileMenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1002;
+
+  @media (max-width: 968px) {
+    display: block;
+    color: #ffffff;
+  }
+`;
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setActiveMenu('');
+  };
+
+  return (
+    <HeaderContainer
+      $scrolled={isScrolled}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+        <NavContainer>
+          <Logo to="/">
+            <img src="/insurtech/top_logo.png" alt="Trans Asia Tech Logo" />
+          </Logo>
+
+          <NavMenu className={isMenuOpen ? 'active' : ''}>
+          <NavLink to="/" onClick={closeMenu}>Home</NavLink>
+          <NavLink to="/insurtech" onClick={closeMenu}>Insurtech</NavLink>
+          <NavLink to="/products" onClick={closeMenu}>Products</NavLink>
+          <NavLink to="/consulting" onClick={closeMenu}>Consulting</NavLink>
+          <NavLink to="/services" onClick={closeMenu}>Services</NavLink>
+
+          <Dropdown 
+            $open={activeMenu === 'company'}
+            onMouseEnter={() => window.innerWidth > 968 && setActiveMenu('company')}
+            onMouseLeave={() => window.innerWidth > 968 && setActiveMenu('')}
+          >
+            <NavLink 
+              to="#" 
+              onClick={(e) => { 
+                e.preventDefault(); 
+                setActiveMenu(activeMenu === 'company' ? '' : 'company'); 
+              }}
+            >
+              Company
+              <FaChevronDown size={12} style={{ transform: activeMenu === 'company' ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }} />
+            </NavLink>
+            <CompanyDropdown $open={activeMenu === 'company'}>
+              <CompanyList>
+                <CompanyItem to="/press" onClick={closeMenu}>
+                  <CompanyItemContent>
+                    <CompanyItemTitle>Media</CompanyItemTitle>
+                    <CompanyItemDesc>Press releases & news</CompanyItemDesc>
+                  </CompanyItemContent>
+                </CompanyItem>
+                <CompanyItem to="/gallery" onClick={closeMenu}>
+                  <CompanyItemContent>
+                    <CompanyItemTitle>Event Gallery</CompanyItemTitle>
+                    <CompanyItemDesc>Photos & highlights</CompanyItemDesc>
+                  </CompanyItemContent>
+                </CompanyItem>
+                <CompanyItem to="/about" onClick={closeMenu}>
+                  <CompanyItemContent>
+                    <CompanyItemTitle>Our Story</CompanyItemTitle>
+                    <CompanyItemDesc>Company history</CompanyItemDesc>
+                  </CompanyItemContent>
+                </CompanyItem>
+                <CompanyItem to="/team" onClick={closeMenu}>
+                  <CompanyItemContent>
+                    <CompanyItemTitle>Team</CompanyItemTitle>
+                    <CompanyItemDesc>Meet our experts</CompanyItemDesc>
+                  </CompanyItemContent>
+                </CompanyItem>
+                <CompanyItem to="/insights" onClick={closeMenu}>
+                  <CompanyItemContent>
+                    <CompanyItemTitle>Articles/Blogs</CompanyItemTitle>
+                    <CompanyItemDesc>Latest insights</CompanyItemDesc>
+                  </CompanyItemContent>
+                </CompanyItem>
+              </CompanyList>
+            </CompanyDropdown>
+          </Dropdown>
+        </NavMenu>
+
+        <NavActions>
+          <CTAButton to="/contact" onClick={closeMenu}>
+            Contact
+          </CTAButton>
+        </NavActions>
+
+        <MobileMenuButton onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </MobileMenuButton>
+      </NavContainer>
+    </HeaderContainer>
+  );
+};
+
+export default Header;

@@ -1,15 +1,6 @@
 {
-  "buildCommand": "node build-vercel.js",
+  "buildCommand": "cd client && npm install && npm run build",
   "outputDirectory": "client/build",
   "installCommand": "npm install",
-  "framework": "create-react-app",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "framework": "create-react-app"
 }
