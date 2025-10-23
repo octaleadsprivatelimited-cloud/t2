@@ -15,8 +15,6 @@ import BackgroundAnimation from './components/BackgroundAnimation';
 import ScrollToTop from './components/ScrollToTop';
 import Insurtech from './pages/Insurtech';
 import Consulting from './pages/Consulting';
-import CyberProducts from './pages/CyberProducts';
-import CyberServices from './pages/CyberServices';
 import CyberSecurityProducts from './pages/CyberSecurityProducts';
 import CyberSecurityServices from './pages/CyberSecurityServices';
 import PressRelease from './pages/PressRelease';
@@ -72,8 +70,6 @@ const App = () => {
         } />
         <Route path="/insurtech" element={<Insurtech />} />
         <Route path="/consulting" element={<Consulting />} />
-        <Route path="/cybersecurity/products" element={<CyberProducts />} />
-        <Route path="/cybersecurity/services" element={<CyberServices />} />
         <Route path="/products" element={<CyberSecurityProducts />} />
         <Route path="/services" element={<CyberSecurityServices />} />
         <Route path="/press" element={<PressRelease />} />
