@@ -23,6 +23,6 @@
     "node": "22.x"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^9.1.0"
   }
 }

@@ -6,14 +6,14 @@
   "dependencies": {
     "ajv": "^8.17.1",
     "aos": "^2.3.4",
-    "framer-motion": "^7.6.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet-async": "^1.3.0",
-    "react-icons": "^4.7.1",
+    "framer-motion": "^11.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.4.0",
     "react-intersection-observer": "^9.16.0",
-    "react-router-dom": "^6.8.0",
-    "styled-components": "^5.3.6"
+    "react-router-dom": "^6.28.0",
+    "styled-components": "^6.1.13"
   },
   "scripts": {
     "start": "npx react-scripts start",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "react-scripts": "5.0.1",
-    "webpack": "^5.102.1"
+    "webpack": "^5.97.1"
   },
   "engines": {
     "node": "22.x"
