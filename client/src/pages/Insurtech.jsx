@@ -352,27 +352,36 @@ const SlideDescription = styled.p`
 
 const StakeholdersSection = styled(Section)`
   background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  padding: 40px 0;
+  
+  @media (max-width: 968px) {
+    padding: 30px 0;
+  }
+  
+  @media (max-width: 600px) {
+    padding: 20px 0;
+  }
 `;
 
 const StakeholdersWrapper = styled.div`
-  max-width: 1400px;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1.5fr 1fr;
   grid-template-rows: auto auto auto auto;
-  gap: 20px;
+  gap: 12px;
   align-items: start;
 
   @media (max-width: 968px) {
-    grid-template-columns: 0.8fr 1.5fr 0.8fr;
-    gap: 12px;
+    grid-template-columns: 0.8fr 1.2fr 0.8fr;
+    gap: 8px;
     padding: 0 10px;
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: 0.7fr 1.3fr 0.7fr;
-    gap: 8px;
+    grid-template-columns: 0.7fr 1fr 0.7fr;
+    gap: 6px;
   }
 `;
 
@@ -382,16 +391,16 @@ const CenterImageSpace = styled.div`
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   border: 2px dashed rgba(30, 58, 138, 0.4);
-  border-radius: 20px;
-  min-height: 280px;
+  border-radius: 16px;
+  min-height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   position: relative;
   overflow: hidden;
 
@@ -410,18 +419,18 @@ const CenterImageSpace = styled.div`
     z-index: 1;
   }
 
-  padding: 40px;
+  padding: 24px;
 
   @media (max-width: 968px) {
-    min-height: 200px;
-    padding: 20px;
-    font-size: 0.85rem;
+    min-height: 160px;
+    padding: 16px;
+    font-size: 0.8rem;
     letter-spacing: 1px;
   }
 
   @media (max-width: 600px) {
-    min-height: 150px;
-    padding: 15px;
+    min-height: 120px;
+    padding: 12px;
     font-size: 0.7rem;
   }
 `;
@@ -430,23 +439,23 @@ const StakeholderBox = styled(motion.div)`
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   border: 2px solid rgba(30, 58, 138, 0.3);
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 12px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   transition: all 0.3s ease;
   cursor: pointer;
 
   &:hover {
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(30, 58, 138, 0.6);
-    transform: translateX(${props => props.$side === 'left' ? '10px' : props.$side === 'right' ? '-10px' : '0'});
-    box-shadow: 0 8px 32px rgba(30, 58, 138, 0.3);
+    transform: translateX(${props => props.$side === 'left' ? '8px' : props.$side === 'right' ? '-8px' : '0'});
+    box-shadow: 0 6px 24px rgba(30, 58, 138, 0.3);
   }
 
   @media (max-width: 968px) {
-    padding: 12px;
+    padding: 8px;
     gap: 10px;
     border-radius: 12px;
 
