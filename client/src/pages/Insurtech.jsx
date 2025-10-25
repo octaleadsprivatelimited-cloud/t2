@@ -370,21 +370,21 @@ const StakeholdersWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
   grid-template-rows: auto auto auto auto;
-  gap: 12px;
+  gap: 16px;
   align-items: start;
   padding: 0 20px;
 
   @media (max-width: 968px) {
     max-width: 800px;
     grid-template-columns: 1fr 1.2fr 1fr;
-    gap: 8px;
+    gap: 12px;
     padding: 0 15px;
   }
 
   @media (max-width: 600px) {
     max-width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 6px;
+    gap: 8px;
     padding: 0 10px;
   }
 `;
@@ -446,12 +446,13 @@ const StakeholderBox = styled(motion.div)`
   backdrop-filter: blur(20px);
   border: 2px solid rgba(30, 58, 138, 0.3);
   border-radius: 12px;
-  padding: 12px;
+  padding: 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   transition: all 0.3s ease;
   cursor: pointer;
+  margin: 0;
 
   &:hover {
     background: rgba(255, 255, 255, 0.12);
@@ -461,7 +462,7 @@ const StakeholderBox = styled(motion.div)`
   }
 
   @media (max-width: 968px) {
-    padding: 8px;
+    padding: 10px;
     gap: 10px;
     border-radius: 12px;
 
@@ -733,7 +734,7 @@ const Insurtech = () => {
           </StakeholderBox>
 
           <StakeholderBox
-            style={{ gridColumn: '2', justifyContent: 'center' }}
+            style={{ gridColumn: '2', gridRow: '1', justifyContent: 'center' }}
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -823,7 +824,7 @@ const Insurtech = () => {
           </StakeholderBox>
 
           <StakeholderBox
-            style={{ gridColumn: '2', justifyContent: 'center' }}
+            style={{ gridColumn: '2', gridRow: '4', justifyContent: 'center' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
