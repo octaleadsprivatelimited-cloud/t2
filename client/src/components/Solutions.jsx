@@ -89,7 +89,13 @@ const Solutions = () => {
           </Title>
         </SectionHeader>
 
-        <ScrollStack cards={solutions} />
+        <ScrollStack 
+          cards={solutions}
+          backgroundColor="#f8fafc"
+          cardHeight="70vh"
+          animationDuration="0.8s"
+          sectionHeightMultiplier={4}
+        />
       </Container>
     </SolutionsContainer>
   );
