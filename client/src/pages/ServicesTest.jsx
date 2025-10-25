@@ -741,11 +741,7 @@ const ServicesTest = () => {
       title: 'Vulnerability Assessment',
       description: 'Identify and prioritize security vulnerabilities in your systems. Get detailed reports with actionable remediation steps and ongoing support.',
       icon: <FaSearch />,
-      stats: [
-        { icon: <FaShieldAlt />, number: '1000+', label: 'Assets Scanned' },
-        { icon: <FaCheckCircle />, number: '98%', label: 'Accuracy Rate' },
-        { icon: <FaClock />, number: '24h', label: 'Report Delivery' }
-      ],
+      stats: [],
       features: [
         {
           title: 'Automated Vulnerability Scanning',
