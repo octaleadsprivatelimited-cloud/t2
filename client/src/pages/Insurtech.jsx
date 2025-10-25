@@ -417,7 +417,7 @@ const CenterImageSpace = styled.div`
     right: 0;
     bottom: 0;
     background: url('/insurtech/risk.webp');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.8;
@@ -427,17 +427,25 @@ const CenterImageSpace = styled.div`
   z-index: 3;
 
   @media (max-width: 968px) {
-    min-height: 160px;
+    min-height: 180px;
     padding: 16px;
     font-size: 0.8rem;
     letter-spacing: 1px;
+    
+    &::before {
+      background-size: contain;
+    }
   }
 
   @media (max-width: 600px) {
-    min-height: 120px;
+    min-height: 160px;
     padding: 12px;
     font-size: 0.7rem;
     letter-spacing: 0.5px;
+    
+    &::before {
+      background-size: contain;
+    }
   }
 `;
 
