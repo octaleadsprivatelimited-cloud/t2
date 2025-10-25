@@ -351,75 +351,50 @@ const SlideDescription = styled.p`
 `;
 
 const StakeholdersSection = styled(Section)`
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  padding: 60px 0;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  
-  @media (max-width: 968px) {
-    padding: 40px 0;
-  }
-  
-  @media (max-width: 600px) {
-    padding: 30px 0;
-  }
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
 `;
 
 const StakeholdersWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1.8fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto auto auto auto;
-  gap: 16px;
+  gap: 20px;
   align-items: start;
-  padding: 0 20px;
 
   @media (max-width: 968px) {
-    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-columns: 0.8fr 1.5fr 0.8fr;
     gap: 12px;
-    padding: 0 15px;
+    padding: 0 10px;
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: 1fr 1.2fr 1fr;
-    gap: 10px;
-    padding: 0 10px;
+    grid-template-columns: 0.7fr 1.3fr 0.7fr;
+    gap: 8px;
   }
 `;
 
 const CenterImageSpace = styled.div`
   grid-column: 2;
   grid-row: 2 / 4;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
-  border: 2px solid rgba(59, 130, 246, 0.3);
+  border: 2px dashed rgba(30, 58, 138, 0.4);
   border-radius: 20px;
-  min-height: 220px;
+  min-height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+  padding: 40px;
 
   &::before {
     content: '';
@@ -432,73 +407,43 @@ const CenterImageSpace = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 0.8;
     z-index: 1;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
-    z-index: 2;
-  }
-
-  padding: 28px;
   z-index: 3;
 
   @media (max-width: 968px) {
-    min-height: 180px;
+    min-height: 200px;
     padding: 20px;
-    font-size: 0.9rem;
-    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
   }
 
   @media (max-width: 600px) {
-    min-height: 140px;
-    padding: 16px;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    min-height: 150px;
+    padding: 15px;
+    font-size: 0.7rem;
   }
 `;
 
 const StakeholderBox = styled(motion.div)`
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
-  border: 2px solid rgba(59, 130, 246, 0.2);
+  border: 2px solid rgba(30, 58, 138, 0.3);
   border-radius: 16px;
-  padding: 16px;
+  padding: 20px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 16px;
+  transition: all 0.3s ease;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-  }
 
   &:hover {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
-    border-color: rgba(59, 130, 246, 0.5);
-    transform: translateX(${props => props.$side === 'left' ? '12px' : props.$side === 'right' ? '-12px' : '0'}) translateY(-4px);
-    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.3);
-    
-    &::before {
-      left: 100%;
-    }
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(30, 58, 138, 0.6);
+    transform: translateX(${props => props.$side === 'left' ? '10px' : props.$side === 'right' ? '-10px' : '0'});
+    box-shadow: 0 8px 32px rgba(30, 58, 138, 0.3);
   }
 
   @media (max-width: 968px) {
@@ -518,53 +463,50 @@ const StakeholderBox = styled(motion.div)`
 `;
 
 const StakeholderIcon = styled.div`
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: white;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(30, 58, 138, 0.4);
 
   @media (max-width: 968px) {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     font-size: 1.2rem;
-    border-radius: 12px;
+    border-radius: 10px;
   }
 
   @media (max-width: 600px) {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     font-size: 1rem;
-    border-radius: 10px;
+    border-radius: 8px;
   }
 `;
 
 const StakeholderName = styled.h4`
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: white;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.5px;
   flex: 1;
   text-align: left;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
 
   @media (max-width: 968px) {
-    font-size: 0.85rem;
-    letter-spacing: 0.6px;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
   }
 
   @media (max-width: 600px) {
-    font-size: 0.75rem;
-    letter-spacing: 0.4px;
+    font-size: 0.6rem;
+    letter-spacing: 0.2px;
   }
 `;
 
@@ -827,7 +769,6 @@ const Insurtech = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            style={{ zIndex: 3, position: 'relative' }}
           >
             VALUE AT RISK
           </CenterImageSpace>
