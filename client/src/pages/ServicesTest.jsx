@@ -675,11 +675,7 @@ const ServicesTest = () => {
       title: 'Infrastructure Security',
       description: 'Comprehensive security services for your IT infrastructure. Protect your servers, networks, and critical systems from cyber threats with our expert team.',
       icon: <FaServer />,
-      stats: [
-        { icon: <FaShieldAlt />, number: '99.9%', label: 'Uptime Guarantee' },
-        { icon: <FaClock />, number: '24/7', label: 'Monitoring' },
-        { icon: <FaCheckCircle />, number: '100+', label: 'Secured Systems' }
-      ],
+      stats: [],
       features: [
         {
           title: 'Server Hardening',
@@ -957,15 +953,17 @@ const ServicesTest = () => {
               </ServiceInfo>
             </ServiceHeader>
 
-            <StatsContainer>
-              {serviceData[selectedService].stats.map((stat, index) => (
-                <StatCard key={index}>
-                  <StatIcon>{stat.icon}</StatIcon>
-                  <StatNumber>{stat.number}</StatNumber>
-                  <StatLabel>{stat.label}</StatLabel>
-                </StatCard>
-              ))}
-            </StatsContainer>
+            {serviceData[selectedService].stats.length > 0 && (
+              <StatsContainer>
+                {serviceData[selectedService].stats.map((stat, index) => (
+                  <StatCard key={index}>
+                    <StatIcon>{stat.icon}</StatIcon>
+                    <StatNumber>{stat.number}</StatNumber>
+                    <StatLabel>{stat.label}</StatLabel>
+                  </StatCard>
+                ))}
+              </StatsContainer>
+            )}
             
             <FeatureGrid>
               {serviceData[selectedService].features.map((feature, index) => (
