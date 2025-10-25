@@ -392,6 +392,34 @@ const CenterImageSpace = styled.div`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/insurtech/risk.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(30, 58, 138, 0.3);
+    z-index: 2;
+  }
   padding: 40px;
 
   @media (max-width: 968px) {
@@ -750,6 +778,7 @@ const Insurtech = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
+            style={{ zIndex: 3, position: 'relative' }}
           >
             VALUE AT RISK
           </CenterImageSpace>
