@@ -296,7 +296,7 @@ const BentoListItem = styled.li`
 `;
 
 const ContentSection = styled.section`
-  padding: 120px 40px;
+  padding: 40px 40px;
   background: white;
   position: relative;
   min-height: 100vh;
