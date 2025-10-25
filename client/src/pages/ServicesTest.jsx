@@ -819,11 +819,7 @@ const ServicesTest = () => {
       title: 'Identity & Access Management',
       description: 'Secure identity and access management solutions. Control who has access to what, when, and from where with comprehensive IAM strategies.',
       icon: <FaUserLock />,
-      stats: [
-        { icon: <FaShieldAlt />, number: '10K+', label: 'Users Managed' },
-        { icon: <FaCheckCircle />, number: '99.9%', label: 'Access Accuracy' },
-        { icon: <FaClock />, number: '2min', label: 'Provisioning Time' }
-      ],
+      stats: [],
       features: [
         {
           title: 'IAM Strategy & Design',
