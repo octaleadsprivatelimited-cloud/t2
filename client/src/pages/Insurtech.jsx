@@ -384,8 +384,9 @@ const StakeholdersWrapper = styled.div`
   @media (max-width: 600px) {
     max-width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    padding: 0 10px;
+    gap: 10px;
+    padding: 0 15px;
+    align-items: center;
   }
 `;
 
@@ -442,6 +443,9 @@ const CenterImageSpace = styled.div`
     padding: 12px;
     font-size: 0.7rem;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     &::before {
       background-size: contain;
@@ -482,6 +486,11 @@ const StakeholderBox = styled(motion.div)`
   @media (max-width: 600px) {
     padding: 10px;
     gap: 8px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 `;
 
