@@ -147,6 +147,11 @@ const TabsContainer = styled.div`
   max-width: 1300px;
   margin: 0 auto;
   padding: 60px 40px 100px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 24px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 768px) {
     padding: 40px 20px 80px;
@@ -477,7 +482,11 @@ const BenefitDescription = styled.p`
 const CTASection = styled.div`
   margin-top: 60px;
   padding: 50px 40px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%), 
+              url('/insurtech/hero/women_cyber.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 16px 40px rgba(30, 58, 138, 0.3);

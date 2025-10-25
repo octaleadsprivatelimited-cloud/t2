@@ -120,7 +120,7 @@ const SectionTitle = styled(motion.h2)`
   font-size: 3rem;
   font-weight: 400;
   text-align: center;
-  color: var(--text-primary);
+  color: #1e3a8a;
   margin-bottom: 20px;
   letter-spacing: -1px;
 
@@ -131,7 +131,7 @@ const SectionTitle = styled(motion.h2)`
 
 const SectionSubtitle = styled(motion.p)`
   font-size: 1.2rem;
-  color: var(--text-secondary);
+  color: #64748b;
   text-align: center;
   max-width: 700px;
   margin: 0 auto 80px;
@@ -150,7 +150,7 @@ const FAQItem = styled(motion.div)`
   background: white;
   border-radius: 24px;
   overflow: hidden;
-  border: 2px solid ${props => props.$isOpen ? 'var(--primary-color)' : 'rgba(0, 0, 0, 0.05)'};
+  border: 2px solid ${props => props.$isOpen ? '#1e3a8a' : 'rgba(0, 0, 0, 0.05)'};
   box-shadow: ${props => props.$isOpen ? '0 20px 60px rgba(30, 64, 175, 0.15)' : '0 4px 20px rgba(0, 0, 0, 0.06)'};
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -167,6 +167,7 @@ const FAQHeader = styled.div`
   gap: 24px;
   background: ${props => props.$isOpen ? 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)' : 'white'};
   transition: all 0.3s ease;
+  border-bottom: ${props => props.$isOpen ? 'none' : '1px solid rgba(0, 0, 0, 0.1)'};
 
   &:hover {
     background: ${props => props.$isOpen ? 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)' : 'rgba(30, 58, 138, 0.05)'};
@@ -201,9 +202,10 @@ const FAQIcon = styled.div`
 const FAQTitle = styled.h3`
   font-size: 1.8rem;
   font-weight: 700;
-  color: ${props => props.$isOpen ? 'white' : 'var(--text-primary)'};
+  color: ${props => props.$isOpen ? 'white' : '#1e3a8a'};
   flex: 1;
   transition: color 0.3s ease;
+  text-shadow: ${props => props.$isOpen ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.1)'};
 
   @media (max-width: 768px) {
     font-size: 1.3rem;
@@ -212,7 +214,7 @@ const FAQTitle = styled.h3`
 
 const FAQChevron = styled(motion.div)`
   font-size: 1.5rem;
-  color: ${props => props.$isOpen ? 'white' : 'var(--primary-color)'};
+  color: ${props => props.$isOpen ? 'white' : '#1e3a8a'};
   transition: color 0.3s ease;
 `;
 
@@ -227,7 +229,7 @@ const FAQContent = styled(motion.div)`
 
 const FAQDescription = styled.p`
   font-size: 1.15rem;
-  color: var(--text-secondary);
+  color: #64748b;
   line-height: 1.8;
   margin-bottom: 30px;
   font-weight: 500;
@@ -265,7 +267,7 @@ const FeatureNumber = styled.div`
 
 const FeatureText = styled.p`
   font-size: 1.05rem;
-  color: var(--text-primary);
+  color: #1e3a8a;
   line-height: 1.7;
   flex: 1;
   font-weight: 500;
@@ -278,7 +280,7 @@ const Highlight = styled.div`
   padding: 24px;
   margin: 24px 0;
   font-size: 1.05rem;
-  color: var(--text-primary);
+  color: #1e3a8a;
   line-height: 1.7;
   font-style: italic;
   text-align: center;
@@ -518,7 +520,7 @@ const CyberSecurityProducts = () => {
 
                     {product.id === 'transgrc' && (
                       <>
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '20px' }}>
+                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px' }}>
                           Here's how TransGRC empowers your business:
                         </h4>
                         <FeaturesList>
@@ -535,18 +537,18 @@ const CyberSecurityProducts = () => {
                           ))}
                         </FeaturesList>
 
-                        <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '30px' }}>
+                        <p style={{ fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', marginBottom: '30px' }}>
                           While the core functionality is exceptional, you might encounter some changes as we refine the platform to ensure maximum usability and performance. We are committed to continuous improvement, and your feedback is invaluable in shaping the future of TransGRC.
                         </p>
 
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '20px' }}>
+                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px' }}>
                           Ready to take your compliance program to the next level?
                         </h4>
-                        <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '30px' }}>
+                        <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: '1.7', marginBottom: '30px' }}>
                           Get started with TransGRC today and experience the future of compliance management!
                         </p>
 
-                        <h4 style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '24px', marginTop: '40px' }}>
+                        <h4 style={{ fontSize: '1.5rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '24px', marginTop: '40px' }}>
                           Environmental, Social and Governance (ESG) Key Features
                         </h4>
                         <FeaturesList>
@@ -581,12 +583,12 @@ const CyberSecurityProducts = () => {
                     {product.id === 'huntercat' && (
                       <>
                         {product.subtitle && (
-                          <p style={{ fontSize: '1.15rem', color: 'var(--text-primary)', lineHeight: '1.8', marginBottom: '30px', fontWeight: '600' }}>
+                          <p style={{ fontSize: '1.15rem', color: '#1e3a8a', lineHeight: '1.8', marginBottom: '30px', fontWeight: '600' }}>
                             {product.subtitle}
                           </p>
                         )}
 
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '20px' }}>
+                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px' }}>
                           How Huntercat solves your real-world problems:
                         </h4>
                         <FeaturesList>
@@ -603,7 +605,7 @@ const CyberSecurityProducts = () => {
                           ))}
                         </FeaturesList>
 
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '20px', marginTop: '40px' }}>
+                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px', marginTop: '40px' }}>
                           How Huntercat Benefits Your Organization:
                         </h4>
                         <FeaturesList>
@@ -638,12 +640,12 @@ const CyberSecurityProducts = () => {
                     {(product.id === 'vrma' || product.id === 'sunshine' || product.id === 'blacknet') && (
                       <>
                         {product.subtitle && (
-                          <p style={{ fontSize: '1.15rem', color: 'var(--text-primary)', lineHeight: '1.8', marginBottom: '30px', fontWeight: '600' }}>
+                          <p style={{ fontSize: '1.15rem', color: '#1e3a8a', lineHeight: '1.8', marginBottom: '30px', fontWeight: '600' }}>
                             {product.subtitle}
                           </p>
                         )}
 
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '20px' }}>
+                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px' }}>
                           {product.id === 'vrma' ? 'V.R.M.A empowers you to:' : product.id === 'blacknet' ? 'Key Features:' : 'Key Features:'}
                         </h4>
                         <FeaturesList>
@@ -662,7 +664,7 @@ const CyberSecurityProducts = () => {
 
                         {product.benefits && (
                           <>
-                            <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '20px', marginTop: '40px' }}>
+                            <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px', marginTop: '40px' }}>
                               {product.id === 'vrma' ? 'Benefits of V.R.M.A:' : 'Benefits:'}
                             </h4>
                             <FeaturesList>
@@ -686,7 +688,7 @@ const CyberSecurityProducts = () => {
                         </Highlight>
 
                         <div style={{ textAlign: 'center' }}>
-                          <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '24px', fontWeight: '500' }}>
+                          <p style={{ fontSize: '1.15rem', color: '#64748b', lineHeight: '1.8', marginBottom: '24px', fontWeight: '500' }}>
                             {product.cta}
                           </p>
                           <CTAButton

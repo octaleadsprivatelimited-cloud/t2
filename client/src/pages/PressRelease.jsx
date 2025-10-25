@@ -156,16 +156,16 @@ const FilterSection = styled.div`
 const FilterButton = styled.button`
   padding: 12px 24px;
   border-radius: 24px;
-  border: 2px solid ${props => props.active ? 'var(--primary-color)' : 'var(--border-color)'};
-  background: ${props => props.active ? 'var(--primary-color)' : 'white'};
-  color: ${props => props.active ? 'white' : 'var(--text-secondary)'};
+  border: 2px solid ${props => props.active ? '#1e3a8a' : 'rgba(0, 0, 0, 0.1)'};
+  background: ${props => props.active ? '#1e3a8a' : 'white'};
+  color: ${props => props.active ? 'white' : '#64748b'};
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: var(--primary-color);
-    background: ${props => props.active ? 'var(--primary-dark)' : 'var(--bg-tertiary)'};
+    border-color: #1e3a8a;
+    background: ${props => props.active ? '#1e40af' : '#f8fafc'};
   }
 `;
 
@@ -196,7 +196,7 @@ const PressCard = styled(motion(Link))`
 `;
 
 const PressImage = styled.div`
-  background: ${props => props.$hasImage ? '#f8f9fa' : 'var(--gradient-primary)'};
+  background: ${props => props.$hasImage ? '#f8f9fa' : 'linear-gradient(135deg, #00d4ff 0%, #ff6b35 100%)'};
   min-height: ${props => props.$hasImage ? 'auto' : '250px'};
   display: flex;
   align-items: center;
@@ -229,8 +229,8 @@ const PressContent = styled.div`
 
 const PressCategory = styled.span`
   display: inline-block;
-  background: var(--bg-tertiary);
-  color: var(--primary-color);
+  background: #f8fafc;
+  color: #1e3a8a;
   padding: 6px 16px;
   border-radius: 16px;
   font-size: 0.85rem;
@@ -242,7 +242,7 @@ const PressCategory = styled.span`
 const PressTitle = styled.h2`
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1e3a8a;
   margin-bottom: 12px;
   line-height: 1.3;
 `;
@@ -251,18 +251,18 @@ const PressDate = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-muted);
+  color: #666666;
   font-size: 0.95rem;
   margin-bottom: 16px;
 
   svg {
-    color: var(--primary-color);
+    color: #1e3a8a;
   }
 `;
 
 const PressExcerpt = styled.p`
   font-size: 1.05rem;
-  color: var(--text-secondary);
+  color: #64748b;
   line-height: 1.7;
   margin-bottom: 24px;
 `;
@@ -295,7 +295,7 @@ const MediaTitle = styled.h3`
   font-weight: 700;
   text-align: center;
   margin-bottom: 40px;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #00d4ff 0%, #ff6b35 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -310,7 +310,7 @@ const MediaGrid = styled.div`
 const MediaCard = styled(motion.div)`
   text-align: center;
   padding: 30px;
-  background: var(--bg-tertiary);
+  background: #f8fafc;
   border-radius: 16px;
   transition: all 0.3s ease;
 
@@ -324,20 +324,20 @@ const MediaCard = styled(motion.div)`
 const MediaLogo = styled.div`
   font-size: 2.5rem;
   font-weight: 400;
-  color: var(--primary-color);
+  color: #1e3a8a;
   margin-bottom: 16px;
 `;
 
 const MediaName = styled.h4`
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #1e3a8a;
   margin-bottom: 8px;
 `;
 
 const MediaDescription = styled.p`
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: #64748b;
 `;
 
 const PressRelease = () => {

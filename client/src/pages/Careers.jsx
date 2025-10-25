@@ -224,7 +224,7 @@ const JobCard = styled(motion.div)`
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(30, 64, 175, 0.1);
   transition: all 0.3s ease;
-  border-left: 4px solid var(--primary-color);
+  border-left: 4px solid #1e3a8a;
 
   &:hover {
     transform: translateX(10px);
@@ -251,7 +251,7 @@ const JobInfo = styled.div`
 const JobTitle = styled.h3`
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1e3a8a;
   margin-bottom: 12px;
 `;
 
@@ -266,17 +266,17 @@ const MetaItem = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-secondary);
+  color: #64748b;
   font-size: 0.95rem;
 
   svg {
-    color: var(--primary-color);
+    color: #1e3a8a;
   }
 `;
 
 const JobDescription = styled.p`
   font-size: 1rem;
-  color: var(--text-secondary);
+  color: #64748b;
   line-height: 1.7;
   margin-bottom: 20px;
 `;
@@ -292,18 +292,18 @@ const RequirementItem = styled.li`
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 12px;
-  color: var(--text-secondary);
+  color: #64748b;
   font-size: 0.95rem;
 
   svg {
-    color: var(--primary-color);
+    color: #1e3a8a;
     margin-top: 4px;
     flex-shrink: 0;
   }
 `;
 
 const ApplyButton = styled(motion.button)`
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #00d4ff 0%, #ff6b35 100%);
   color: white;
   border: none;
   padding: 14px 32px;
@@ -343,12 +343,12 @@ const BenefitIcon = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 12px;
-  background: var(--bg-tertiary);
+  background: #f8fafc;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: var(--primary-color);
+  color: #1e3a8a;
   flex-shrink: 0;
 `;
 
@@ -359,13 +359,13 @@ const BenefitContent = styled.div`
 const BenefitTitle = styled.h4`
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #1e3a8a;
   margin-bottom: 8px;
 `;
 
 const BenefitDescription = styled.p`
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: #64748b;
   line-height: 1.6;
 `;
 

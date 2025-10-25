@@ -156,7 +156,7 @@ const SectionTitle = styled(motion.h2)`
   font-size: 3rem;
   font-weight: 400;
   text-align: center;
-  color: ${props => props.$white ? '#ffffff' : 'var(--text-primary)'};
+  color: ${props => props.$white ? '#ffffff' : '#1e3a8a'};
   margin-bottom: 20px;
   letter-spacing: -1px;
 
@@ -167,7 +167,7 @@ const SectionTitle = styled(motion.h2)`
 
 const SectionSubtitle = styled(motion.p)`
   font-size: 1.2rem;
-  color: ${props => props.$white ? 'rgba(255, 255, 255, 0.9)' : 'var(--text-secondary)'};
+  color: ${props => props.$white ? 'rgba(255, 255, 255, 0.9)' : '#64748b'};
   text-align: center;
   max-width: 700px;
   margin: 0 auto 60px;
@@ -208,7 +208,7 @@ const ProductCard = styled(motion.div)`
 
   &:hover {
     transform: translateY(-10px);
-    border-color: var(--primary-color);
+    border-color: #1e3a8a;
     box-shadow: 0 20px 60px rgba(30, 64, 175, 0.15);
   }
 `;
@@ -230,13 +230,13 @@ const ProductIcon = styled.div`
 const ProductTitle = styled.h3`
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1e3a8a;
   margin-bottom: 16px;
 `;
 
 const ProductDescription = styled.p`
   font-size: 1.05rem;
-  color: var(--text-secondary);
+  color: #64748b;
   line-height: 1.7;
 `;
 

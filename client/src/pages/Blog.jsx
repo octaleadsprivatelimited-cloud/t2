@@ -156,16 +156,16 @@ const FilterSection = styled.div`
 const FilterButton = styled.button`
   padding: 12px 24px;
   border-radius: 24px;
-  border: 2px solid ${props => props.active ? 'var(--primary-color)' : 'var(--border-color)'};
-  background: ${props => props.active ? 'var(--primary-color)' : 'white'};
-  color: ${props => props.active ? 'white' : 'var(--text-secondary)'};
+  border: 2px solid ${props => props.active ? '#1e3a8a' : 'rgba(0, 0, 0, 0.1)'};
+  background: ${props => props.active ? '#1e3a8a' : 'white'};
+  color: ${props => props.active ? 'white' : '#64748b'};
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: var(--primary-color);
-    background: ${props => props.active ? 'var(--primary-dark)' : 'var(--bg-tertiary)'};
+    border-color: #1e3a8a;
+    background: ${props => props.active ? '#1e40af' : '#f8fafc'};
   }
 `;
 
@@ -185,7 +185,7 @@ const FeaturedPost = styled(motion.article)`
 `;
 
 const FeaturedImage = styled.div`
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #00d4ff 0%, #ff6b35 100%);
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -211,7 +211,7 @@ const FeaturedContent = styled.div`
 
 const FeaturedBadge = styled.span`
   display: inline-block;
-  background: var(--primary-color);
+  background: #1e3a8a;
   color: white;
   padding: 6px 16px;
   border-radius: 16px;
@@ -224,8 +224,8 @@ const FeaturedBadge = styled.span`
 
 const PostCategory = styled.span`
   display: inline-block;
-  background: var(--bg-tertiary);
-  color: var(--primary-color);
+  background: #f8fafc;
+  color: #1e3a8a;
   padding: 6px 16px;
   border-radius: 16px;
   font-size: 0.85rem;
@@ -237,7 +237,7 @@ const PostCategory = styled.span`
 const PostTitle = styled.h2`
   font-size: 2rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1e3a8a;
   margin-bottom: 16px;
   line-height: 1.3;
 
@@ -251,7 +251,7 @@ const PostMeta = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
-  color: var(--text-muted);
+  color: #666666;
   font-size: 0.95rem;
 `;
 
@@ -261,19 +261,19 @@ const MetaItem = styled.div`
   gap: 8px;
 
   svg {
-    color: var(--primary-color);
+    color: #1e3a8a;
   }
 `;
 
 const PostExcerpt = styled.p`
   font-size: 1.05rem;
-  color: var(--text-secondary);
+  color: #64748b;
   line-height: 1.7;
   margin-bottom: 24px;
 `;
 
 const ReadMoreButton = styled(motion.button)`
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #00d4ff 0%, #ff6b35 100%);
   color: white;
   border: none;
   padding: 14px 32px;
@@ -319,7 +319,7 @@ const BlogCard = styled(motion.article)`
 const BlogImage = styled.div`
   width: 100%;
   height: 220px;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #00d4ff 0%, #ff6b35 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -334,14 +334,14 @@ const BlogContent = styled.div`
 const BlogTitle = styled.h3`
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #1e3a8a;
   margin-bottom: 12px;
   line-height: 1.4;
 `;
 
 const BlogExcerpt = styled.p`
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: #64748b;
   line-height: 1.6;
   margin-bottom: 16px;
 `;
