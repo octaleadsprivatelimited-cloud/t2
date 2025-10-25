@@ -470,9 +470,9 @@ const Consulting = () => {
 
 
   const testimonials = [
-    { quote: "TransAsia's ESG consulting transformed our sustainability reporting. Their expertise in BRSR compliance is unmatched.", author: 'Sarah Chen', role: 'CSO, Global Finance Corp', initial: 'S' },
-    { quote: "The cyber forensics team's rapid response saved us millions. Their ransomware negotiation skills are exceptional.", author: 'Michael Rodriguez', role: 'CISO, TechVentures Inc', initial: 'M' },
-    { quote: "Outstanding ERM framework implementation. They identified risks we never considered and provided actionable solutions.", author: 'Priya Sharma', role: 'CEO, Innovation Labs', initial: 'P' }
+    { quote: "TransAsia's ESG consulting transformed our sustainability reporting. Their expertise in BRSR compliance is unmatched.", author: 'Rajesh Kumar', role: 'CSO, Global Finance Corp', initial: 'R' },
+    { quote: "The cyber forensics team's rapid response saved us millions. Their ransomware negotiation skills are exceptional.", author: 'Priya Patel', role: 'CISO, TechVentures Inc', initial: 'P' },
+    { quote: "Outstanding ERM framework implementation. They identified risks we never considered and provided actionable solutions.", author: 'Amit Sharma', role: 'CEO, Innovation Labs', initial: 'A' }
   ];
 
   return (
