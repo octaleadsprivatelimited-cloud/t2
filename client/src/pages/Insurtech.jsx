@@ -406,20 +406,10 @@ const CenterImageSpace = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.8;
+    opacity: 1;
     z-index: 1;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(30, 58, 138, 0.3);
-    z-index: 2;
-  }
   padding: 40px;
 
   @media (max-width: 968px) {
