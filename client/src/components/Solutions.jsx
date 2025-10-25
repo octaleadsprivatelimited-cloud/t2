@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import AppleCardsCarousel from './AppleCardsCarousel';
+import ScrollStack from './ui/scroll-stack';
 
 
 const SolutionsContainer = styled.section`
@@ -57,24 +57,33 @@ const Solutions = () => {
     {
       title: "Insurtech",
       image: "/insurtech/hero/hero_1.webp",
-      link: "/insurtech"
+      link: "/insurtech",
+      description: "Revolutionary insurance technology solutions for the digital age"
     },
     {
       title: "Products",
       image: "/insurtech/hero/women_cyber.webp",
-      link: "/products"
+      link: "/products",
+      description: "Advanced cybersecurity products to protect your digital assets"
     },
     {
       title: "Consulting",
       image: "/insurtech/hero/industries_globle.webp",
-      link: "/consulting"
+      link: "/consulting",
+      description: "Expert consulting services for comprehensive security strategies"
     },
     {
       title: "Services",
       image: "/insurtech/hero/worldmap.webp",
-      link: "/services"
+      link: "/services",
+      description: "Professional security services tailored to your business needs"
     }
   ];
+
+  const handleItemClick = (item) => {
+    // Navigate to the solution page
+    window.location.href = item.link;
+  };
 
   return (
     <SolutionsContainer>
@@ -85,7 +94,7 @@ const Solutions = () => {
           </Title>
         </SectionHeader>
 
-        <AppleCardsCarousel items={solutions} />
+        <ScrollStack items={solutions} onItemClick={handleItemClick} />
       </Container>
     </SolutionsContainer>
   );
