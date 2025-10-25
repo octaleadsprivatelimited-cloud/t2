@@ -388,74 +388,6 @@ const AuthorRole = styled.div`
   color: rgba(255, 255, 255, 0.6);
 `;
 
-const CTASection = styled.section`
-  padding: 120px 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    top: -25%;
-    left: -25%;
-    background: 
-      radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    animation: ${rotate} 20s linear infinite;
-  }
-`;
-
-const CTAContent = styled.div`
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-`;
-
-const CTATitle = styled(motion.h2)`
-  font-size: 4rem;
-  font-weight: 400;
-  color: white;
-  margin-bottom: 24px;
-  letter-spacing: -1px;
-
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
-`;
-
-const CTADescription = styled(motion.p)`
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 50px;
-  line-height: 1.8;
-`;
-
-const CTAButton = styled(motion.button)`
-  background: white;
-  color: #667eea;
-  border: none;
-  padding: 22px 60px;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-
-  svg {
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: translateX(5px);
-  }
-`;
 
 const Consulting = () => {
   const services = [
@@ -679,35 +611,6 @@ const Consulting = () => {
         </TestimonialsGrid>
       </TestimonialsSection>
 
-      <CTASection>
-        <CTAContent>
-          <CTATitle
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Ready to Transform Your Business?
-          </CTATitle>
-          <CTADescription
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            Schedule a consultation with our experts and discover how we can help you achieve your goals
-          </CTADescription>
-          <CTAButton
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Schedule Consultation <FaArrowRight />
-          </CTAButton>
-        </CTAContent>
-      </CTASection>
     </PageContainer>
   );
 };
