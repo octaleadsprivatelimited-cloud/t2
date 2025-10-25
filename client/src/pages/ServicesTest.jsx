@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { 
-  FaServer, FaShieldAlt, FaBug, FaSearch, FaNetworkWired, FaUserLock, FaEye
+  FaServer, FaShieldAlt, FaBug, FaSearch, FaNetworkWired, FaUserLock, FaEye, FaBars, FaTimes
 } from 'react-icons/fa';
 
 const float = keyframes`
@@ -294,84 +294,347 @@ const BentoListItem = styled.li`
   }
 `;
 
+const ContentSection = styled.section`
+  padding: 120px 40px;
+  background: white;
+  position: relative;
+  min-height: 100vh;
+`;
+
+const ContentContainer = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+`;
+
+const Sidebar = styled.div`
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 30px;
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+  
+  @media (max-width: 968px) {
+    position: relative;
+    top: 0;
+    margin-bottom: 20px;
+  }
+`;
+
+const SidebarTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+`;
+
+const SidebarList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const SidebarItem = styled.li`
+  margin-bottom: 8px;
+`;
+
+const SidebarButton = styled.button`
+  width: 100%;
+  padding: 12px 16px;
+  background: ${props => props.$active ? '#1e3a8a' : 'transparent'};
+  color: ${props => props.$active ? 'white' : '#64748b'};
+  border: 1px solid ${props => props.$active ? '#1e3a8a' : '#e2e8f0'};
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: ${props => props.$active ? '#1e3a8a' : '#f1f5f9'};
+    border-color: #1e3a8a;
+  }
+`;
+
+const ContentArea = styled.div`
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+`;
+
+const ContentTitle = styled.h2`
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const ContentDescription = styled.p`
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 30px;
+`;
+
+const FeatureGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+`;
+
+const FeatureCard = styled.div`
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const FeatureTitle = styled.h4`
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 12px;
+`;
+
+const FeatureDescription = styled.p`
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+`;
+
+const MobileMenuButton = styled.button`
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  @media (max-width: 968px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const MobileOverlay = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  
+  @media (max-width: 968px) {
+    display: ${props => props.$show ? 'block' : 'none'};
+  }
+`;
+
+const MobileSidebar = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background: white;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+  transform: ${props => props.$show ? 'translateX(0)' : 'translateX(-100%)'};
+  transition: transform 0.3s ease;
+  
+  @media (max-width: 968px) {
+    display: block;
+  }
+`;
+
+const MobileCloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #64748b;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 8px;
+`;
+
 const ServicesTest = () => {
-  const services = [
-    {
-      icon: <FaServer />,
+  const [selectedService, setSelectedService] = useState('Infrastructure Security');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const serviceData = {
+    'Infrastructure Security': {
       title: 'Infrastructure Security',
-      description: 'Comprehensive security services for your IT infrastructure. Protect your servers, networks, and critical systems from cyber threats.',
-      gradient: 'linear-gradient(135deg, #1e3a8a 0%, #1e3a8a 100%)',
-      span: 'span 6',
-      height: '500px',
-      items: [
-        'Server Hardening',
-        'Network Segmentation',
-        'Firewall Configuration',
-        'Intrusion Detection',
-        'Security Monitoring'
+      description: 'Comprehensive security services for your IT infrastructure. Protect your servers, networks, and critical systems from cyber threats with our expert team.',
+      features: [
+        {
+          title: 'Server Hardening',
+          description: 'Secure your servers with industry best practices and configuration management.'
+        },
+        {
+          title: 'Network Segmentation',
+          description: 'Implement network isolation to limit lateral movement of threats.'
+        },
+        {
+          title: 'Firewall Configuration',
+          description: 'Optimize firewall rules and policies for maximum security.'
+        },
+        {
+          title: 'Intrusion Detection',
+          description: 'Deploy advanced IDS/IPS systems to detect and prevent attacks.'
+        },
+        {
+          title: 'Security Monitoring',
+          description: '24/7 monitoring of your infrastructure for security events.'
+        }
       ]
     },
-    {
-      icon: <FaBug />,
+    'Penetration Testing': {
       title: 'Penetration Testing',
-      description: 'Proactive security testing to identify vulnerabilities before attackers do. Comprehensive penetration testing services to strengthen your defenses.',
-      gradient: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
-      span: 'span 6',
-      height: '500px',
-      items: [
-        'Web Application Testing',
-        'Network Penetration Testing',
-        'Mobile App Security Testing',
-        'Wireless Security Assessment',
-        'Social Engineering Testing'
+      description: 'Proactive security testing to identify vulnerabilities before attackers do. Our certified ethical hackers simulate real-world attacks to strengthen your defenses.',
+      features: [
+        {
+          title: 'Web Application Testing',
+          description: 'Comprehensive testing of web applications for OWASP Top 10 vulnerabilities.'
+        },
+        {
+          title: 'Network Penetration Testing',
+          description: 'Assess network security from both internal and external perspectives.'
+        },
+        {
+          title: 'Mobile App Security Testing',
+          description: 'Security assessment of iOS and Android applications.'
+        },
+        {
+          title: 'Wireless Security Assessment',
+          description: 'Evaluate wireless network security and configuration.'
+        },
+        {
+          title: 'Social Engineering Testing',
+          description: 'Test human factors and security awareness through simulated attacks.'
+        }
       ]
     },
-    {
-      icon: <FaSearch />,
+    'Vulnerability Assessment': {
       title: 'Vulnerability Assessment',
-      description: 'Identify and prioritize security vulnerabilities in your systems. Get detailed reports with actionable remediation steps.',
-      gradient: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
-      span: 'span 6',
-      height: '500px',
-      items: [
-        'Automated Vulnerability Scanning',
-        'Manual Security Testing',
-        'Risk Prioritization',
-        'Remediation Guidance',
-        'Re-assessment Services'
+      description: 'Identify and prioritize security vulnerabilities in your systems. Get detailed reports with actionable remediation steps and ongoing support.',
+      features: [
+        {
+          title: 'Automated Vulnerability Scanning',
+          description: 'Comprehensive scanning using industry-leading tools and techniques.'
+        },
+        {
+          title: 'Manual Security Testing',
+          description: 'Expert manual testing to find complex vulnerabilities.'
+        },
+        {
+          title: 'Risk Prioritization',
+          description: 'Risk-based prioritization of vulnerabilities for efficient remediation.'
+        },
+        {
+          title: 'Remediation Guidance',
+          description: 'Detailed guidance and support for vulnerability remediation.'
+        },
+        {
+          title: 'Re-assessment Services',
+          description: 'Follow-up assessments to verify remediation effectiveness.'
+        }
       ]
     },
-    {
-      icon: <FaEye />,
+    'Security Monitoring': {
       title: 'Security Monitoring',
-      description: '24/7 security monitoring and incident response. Detect threats early and respond quickly to minimize impact.',
-      gradient: 'linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%)',
-      span: 'span 6',
-      height: '500px',
-      items: [
-        'SIEM Implementation',
-        'Log Monitoring',
-        'Threat Detection',
-        'Incident Response',
-        'Security Analytics'
+      description: '24/7 security monitoring and incident response. Detect threats early and respond quickly to minimize impact with our SOC team.',
+      features: [
+        {
+          title: 'SIEM Implementation',
+          description: 'Deploy and configure Security Information and Event Management systems.'
+        },
+        {
+          title: 'Log Monitoring',
+          description: 'Comprehensive monitoring of security logs and events.'
+        },
+        {
+          title: 'Threat Detection',
+          description: 'Advanced threat detection using machine learning and behavioral analysis.'
+        },
+        {
+          title: 'Incident Response',
+          description: 'Rapid response to security incidents with expert guidance.'
+        },
+        {
+          title: 'Security Analytics',
+          description: 'Advanced analytics to identify patterns and potential threats.'
+        }
       ]
     },
-    {
-      icon: <FaUserLock />,
+    'Identity & Access Management': {
       title: 'Identity & Access Management',
-      description: 'Secure identity and access management solutions. Control who has access to what, when, and from where.',
-      gradient: 'linear-gradient(135deg, #1e3a8a 0%, #1e3a8a 100%)',
-      span: 'span 12',
-      height: '450px',
-      items: [
-        'IAM Strategy & Design',
-        'Multi-Factor Authentication',
-        'Single Sign-On (SSO)',
-        'Privileged Access Management',
-        'Identity Governance'
+      description: 'Secure identity and access management solutions. Control who has access to what, when, and from where with comprehensive IAM strategies.',
+      features: [
+        {
+          title: 'IAM Strategy & Design',
+          description: 'Comprehensive IAM strategy development and architecture design.'
+        },
+        {
+          title: 'Multi-Factor Authentication',
+          description: 'Implement MFA solutions to enhance authentication security.'
+        },
+        {
+          title: 'Single Sign-On (SSO)',
+          description: 'Deploy SSO solutions for seamless and secure access.'
+        },
+        {
+          title: 'Privileged Access Management',
+          description: 'Secure management of privileged accounts and access.'
+        },
+        {
+          title: 'Identity Governance',
+          description: 'Implement identity governance and compliance frameworks.'
+        }
       ]
     }
-  ];
+  };
+
+  const serviceTitles = Object.keys(serviceData);
+
+  const handleServiceSelect = (service) => {
+    setSelectedService(service);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <PageContainer>
@@ -411,59 +674,64 @@ const ServicesTest = () => {
         </HeroContent>
       </HeroSection>
 
-      <ServicesSection>
-        <SectionHeader>
-          <SectionBadge
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Our Services
-          </SectionBadge>
-          <SectionTitle
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            Security Solutions
-          </SectionTitle>
-          <SectionSubtitle
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            Tailored security services to meet your specific needs and compliance requirements
-          </SectionSubtitle>
-        </SectionHeader>
+      <ContentSection>
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+          <FaBars />
+        </MobileMenuButton>
 
-        <BentoGrid>
-          {services.map((service, index) => (
-            <BentoCard
-              key={index}
-              $gradient={service.gradient}
-              $span={service.span}
-              $height={service.height}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div>
-                <BentoIcon>{service.icon}</BentoIcon>
-                <BentoTitle>{service.title}</BentoTitle>
-                <BentoDescription>{service.description}</BentoDescription>
-              </div>
-              <BentoList>
-                {service.items.map((item, i) => (
-                  <BentoListItem key={i}>{item}</BentoListItem>
-                ))}
-              </BentoList>
-            </BentoCard>
-          ))}
-        </BentoGrid>
-      </ServicesSection>
+        <MobileOverlay $show={mobileMenuOpen} onClick={() => setMobileMenuOpen(false)} />
+
+        <MobileSidebar $show={mobileMenuOpen}>
+          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+            <FaTimes />
+          </MobileCloseButton>
+          <SidebarTitle>Services</SidebarTitle>
+          <SidebarList>
+            {serviceTitles.map((title) => (
+              <SidebarItem key={title}>
+                <SidebarButton
+                  $active={selectedService === title}
+                  onClick={() => handleServiceSelect(title)}
+                >
+                  {title}
+                </SidebarButton>
+              </SidebarItem>
+            ))}
+          </SidebarList>
+        </MobileSidebar>
+
+        <ContentContainer>
+          <Sidebar>
+            <SidebarTitle>Services</SidebarTitle>
+            <SidebarList>
+              {serviceTitles.map((title) => (
+                <SidebarItem key={title}>
+                  <SidebarButton
+                    $active={selectedService === title}
+                    onClick={() => handleServiceSelect(title)}
+                  >
+                    {title}
+                  </SidebarButton>
+                </SidebarItem>
+              ))}
+            </SidebarList>
+          </Sidebar>
+
+          <ContentArea>
+            <ContentTitle>{serviceData[selectedService].title}</ContentTitle>
+            <ContentDescription>{serviceData[selectedService].description}</ContentDescription>
+            
+            <FeatureGrid>
+              {serviceData[selectedService].features.map((feature, index) => (
+                <FeatureCard key={index}>
+                  <FeatureTitle>{feature.title}</FeatureTitle>
+                  <FeatureDescription>{feature.description}</FeatureDescription>
+                </FeatureCard>
+              ))}
+            </FeatureGrid>
+          </ContentArea>
+        </ContentContainer>
+      </ContentSection>
     </PageContainer>
   );
 };
