@@ -778,11 +778,7 @@ const ServicesTest = () => {
       title: 'Security Monitoring',
       description: '24/7 security monitoring and incident response. Detect threats early and respond quickly to minimize impact with our SOC team.',
       icon: <FaEye />,
-      stats: [
-        { icon: <FaShieldAlt />, number: '24/7', label: 'SOC Coverage' },
-        { icon: <FaCheckCircle />, number: '99.5%', label: 'Detection Rate' },
-        { icon: <FaClock />, number: '15min', label: 'Response Time' }
-      ],
+      stats: [],
       features: [
         {
           title: 'SIEM Implementation',
