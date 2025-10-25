@@ -56,34 +56,29 @@ const Solutions = () => {
   const solutions = [
     {
       title: "Insurtech",
-      image: "/insurtech/hero/hero_1.webp",
-      link: "/insurtech",
-      description: "Revolutionary insurance technology solutions for the digital age"
+      subtitle: "Revolutionary insurance technology solutions for the digital age",
+      badge: "Step 1",
+      backgroundImage: "/insurtech/hero/hero_1.webp"
     },
     {
       title: "Products",
-      image: "/insurtech/hero/women_cyber.webp",
-      link: "/products",
-      description: "Advanced cybersecurity products to protect your digital assets"
+      subtitle: "Advanced cybersecurity products to protect your digital assets",
+      badge: "Step 2",
+      backgroundImage: "/insurtech/hero/women_cyber.webp"
     },
     {
       title: "Consulting",
-      image: "/insurtech/hero/industries_globle.webp",
-      link: "/consulting",
-      description: "Expert consulting services for comprehensive security strategies"
+      subtitle: "Expert consulting services for comprehensive security strategies",
+      badge: "Step 3",
+      backgroundImage: "/insurtech/hero/industries_globle.webp"
     },
     {
       title: "Services",
-      image: "/insurtech/hero/worldmap.webp",
-      link: "/services",
-      description: "Professional security services tailored to your business needs"
+      subtitle: "Professional security services tailored to your business needs",
+      badge: "Step 4",
+      backgroundImage: "/insurtech/hero/worldmap.webp"
     }
   ];
-
-  const handleItemClick = (item) => {
-    // Navigate to the solution page
-    window.location.href = item.link;
-  };
 
   return (
     <SolutionsContainer>
@@ -94,7 +89,13 @@ const Solutions = () => {
           </Title>
         </SectionHeader>
 
-        <ScrollStack items={solutions} onItemClick={handleItemClick} />
+        <ScrollStack 
+          cards={solutions}
+          backgroundColor="#f8fafc"
+          cardHeight="70vh"
+          animationDuration="0.8s"
+          sectionHeightMultiplier={4}
+        />
       </Container>
     </SolutionsContainer>
   );

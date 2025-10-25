@@ -1,248 +1,157 @@
-# CyberSecure - Advanced Cybersecurity Platform
+# Trans Asia Tech - Modern Cybersecurity Platform
 
-A stunning, modern cybersecurity website built with React and Node.js, designed to compete with industry leaders like SAFE, BitSight, and BlackKite.
+A modern, high-performance cybersecurity platform built with React 18, Vite, and optimized for Vercel deployment.
 
 ## 🚀 Features
 
-### Frontend (React)
-- **Modern UI/UX Design**: Stunning, responsive design with smooth animations
-- **AI-Powered Theme**: Cyberpunk-inspired design with neon accents
-- **Fully Responsive**: Optimized for all devices (desktop, tablet, mobile)
-- **SEO Optimized**: Meta tags, structured data, and semantic HTML
-- **Interactive Components**: Animated counters, hover effects, and transitions
-- **Performance Optimized**: Lazy loading, code splitting, and optimized assets
+- **Modern React 18** with hooks and functional components
+- **Vite Build System** for lightning-fast development and builds
+- **Lazy Loading** for optimal performance
+- **Error Boundaries** for robust error handling
+- **SEO Optimized** with React Helmet Async
+- **Responsive Design** with modern CSS
+- **TypeScript Support** for better development experience
+- **Vercel Optimized** deployment configuration
 
-### Backend (Node.js)
-- **RESTful API**: Clean, well-structured API endpoints
-- **Security Features**: Helmet, CORS, rate limiting, and input validation
-- **Analytics Tracking**: Page views, events, and conversion tracking
-- **Contact Forms**: Demo requests, newsletter signup, and support tickets
-- **SEO Support**: Sitemap, robots.txt, and meta tag generation
+## 🛠️ Tech Stack
 
-## 🛠️ Technology Stack
+- **Frontend**: React 18, Vite, TypeScript
+- **Styling**: Styled Components, CSS Modules
+- **Routing**: React Router v6
+- **Animations**: Framer Motion, AOS
+- **SEO**: React Helmet Async
+- **Build**: Vite (replacing Create React App)
+- **Deployment**: Vercel
 
-### Frontend
-- **React 18** - Modern React with hooks
-- **Styled Components** - CSS-in-JS styling
-- **Framer Motion** - Smooth animations and transitions
-- **React Router** - Client-side routing
-- **React Helmet Async** - SEO optimization
-- **React Intersection Observer** - Scroll-triggered animations
-- **React CountUp** - Animated number counters
-- **AOS** - Animate On Scroll library
+## 📦 Installation
 
-### Backend
-- **Node.js** - Server runtime
-- **Express.js** - Web framework
-- **Helmet** - Security middleware
-- **CORS** - Cross-origin resource sharing
-- **Morgan** - HTTP request logger
-- **Compression** - Response compression
-- **Rate Limiting** - API rate limiting
+```bash
+# Install dependencies
+cd client
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 🚀 Deployment
+
+The application is optimized for Vercel deployment with:
+
+- **Automatic builds** from Git pushes
+- **Edge functions** for API routes
+- **Static site generation** for optimal performance
+- **CDN distribution** for global speed
+
+### Vercel Configuration
+
+The `vercel.json` file contains optimized settings for:
+- Node.js 22.x runtime
+- Automatic dependency installation
+- Build optimization
+- Route handling
 
 ## 📁 Project Structure
 
 ```
-cybersecure-platform/
-├── client/                 # React frontend
-│   ├── public/            # Static assets
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   │   ├── Header.js
-│   │   │   ├── Hero.js
-│   │   │   ├── Features.js
-│   │   │   ├── Solutions.js
-│   │   │   ├── Stats.js
-│   │   │   ├── Testimonials.js
-│   │   │   ├── CTA.js
-│   │   │   └── Footer.js
-│   │   ├── styles/        # Global styles
-│   │   ├── App.js         # Main app component
-│   │   └── index.js       # Entry point
-│   └── package.json
-├── server/                # Node.js backend
-│   ├── routes/           # API routes
-│   │   ├── auth.js       # Authentication
-│   │   ├── demo.js       # Demo requests
-│   │   ├── contact.js    # Contact forms
-│   │   ├── newsletter.js # Newsletter
-│   │   └── analytics.js  # Analytics
-│   ├── index.js          # Server entry point
-│   └── package.json
-├── package.json          # Root package.json
-└── README.md
+client/
+├── src/
+│   ├── components/          # Reusable components
+│   │   ├── Layout.jsx       # Main layout component
+│   │   ├── SEO.jsx          # SEO optimization
+│   │   └── ErrorBoundary.jsx # Error handling
+│   ├── pages/               # Page components
+│   ├── hooks/               # Custom React hooks
+│   ├── utils/                # Utility functions
+│   ├── styles/              # Global styles
+│   └── App.jsx              # Main application
+├── public/                  # Static assets
+├── vite.config.js          # Vite configuration
+├── package.json            # Dependencies and scripts
+└── vercel.json             # Vercel deployment config
 ```
 
-## 🚀 Getting Started
+## 🎨 Styling
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
+The application uses a modern CSS approach with:
+- **CSS Custom Properties** for theming
+- **Styled Components** for component styling
+- **Global CSS** for base styles
+- **Responsive design** with mobile-first approach
 
-### Installation
+## 🔧 Development
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd cybersecure-platform
-   ```
+### Available Scripts
 
-2. **Install dependencies**
-   ```bash
-   npm run install-all
-   ```
-
-3. **Start development servers**
-   ```bash
-   npm run dev
-   ```
-
-   This will start both the React frontend (http://localhost:3000) and Node.js backend (http://localhost:5000).
-
-### Individual Commands
-
-- **Frontend only**: `npm run client`
-- **Backend only**: `npm run server`
-- **Build for production**: `npm run build`
-- **Start production server**: `npm start`
-
-## 🎨 Design Features
-
-### Color Scheme
-- **Primary**: Neon Green (#00ff88)
-- **Secondary**: Electric Blue (#0066ff)
-- **Accent**: Hot Pink (#ff3366)
-- **Background**: Deep Black (#0a0a0a)
-- **Surface**: Dark Gray (#1a1a1a)
-
-### Typography
-- **Primary Font**: Inter (Modern, clean)
-- **Code Font**: JetBrains Mono (Technical feel)
-
-### Animations
-- Smooth page transitions
-- Scroll-triggered animations
-- Hover effects and micro-interactions
-- Animated counters and progress bars
-- Particle background effects
-
-## 📱 Responsive Design
-
-The website is fully responsive with breakpoints:
-- **Desktop**: 1200px+
-- **Tablet**: 768px - 1199px
-- **Mobile**: 320px - 767px
-
-## 🔧 API Endpoints
-
-### Authentication
-- `POST /api/auth/login` - User login
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/forgot-password` - Password reset
-
-### Demo & Contact
-- `POST /api/demo/request` - Request demo
-- `GET /api/demo/availability` - Check availability
-- `POST /api/contact/submit` - Contact form
-
-### Newsletter
-- `POST /api/newsletter/subscribe` - Newsletter subscription
-- `POST /api/newsletter/unsubscribe` - Unsubscribe
-
-### Analytics
-- `POST /api/analytics/page-view` - Track page views
-- `POST /api/analytics/event` - Track custom events
-- `GET /api/analytics/dashboard` - Get analytics data
-
-## 🚀 Deployment
-
-### Frontend (React)
-```bash
-cd client
-npm run build
-# Deploy the 'build' folder to your hosting service
-```
-
-### Backend (Node.js)
-```bash
-cd server
-npm start
-# Deploy to your server or cloud platform
-```
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript checks
 
 ### Environment Variables
-Create a `.env` file in the server directory:
-```
-NODE_ENV=production
-PORT=5000
-MONGODB_URI=your-mongodb-uri
-JWT_SECRET=your-jwt-secret
-EMAIL_SERVICE=gmail
-EMAIL_USER=your-email
-EMAIL_PASS=your-password
-FRONTEND_URL=https://your-domain.com
+
+Copy `env.example` to `.env` and configure:
+
+```bash
+cp env.example .env
 ```
 
-## 🔒 Security Features
+## 🚀 Performance Optimizations
 
-- **Helmet.js**: Security headers
-- **CORS**: Cross-origin protection
-- **Rate Limiting**: API abuse prevention
-- **Input Validation**: XSS and injection protection
-- **HTTPS**: SSL/TLS encryption (production)
+- **Code Splitting** with React.lazy()
+- **Bundle Optimization** with Vite
+- **Image Optimization** with modern formats
+- **Lazy Loading** for components and images
+- **Service Worker** for caching (PWA ready)
 
-## 📊 SEO Optimization
+## 🔒 Security
 
-- **Meta Tags**: Comprehensive meta tag optimization
-- **Structured Data**: JSON-LD schema markup
-- **Sitemap**: XML sitemap generation
-- **Robots.txt**: Search engine directives
-- **Open Graph**: Social media optimization
-- **Twitter Cards**: Twitter sharing optimization
+- **Content Security Policy** headers
+- **XSS Protection** with React
+- **HTTPS Only** in production
+- **Secure Headers** with Helmet
 
-## 🎯 Performance
+## 📱 Mobile Optimization
 
-- **Code Splitting**: Lazy loading of components
-- **Image Optimization**: Compressed and optimized images
-- **Caching**: Browser and server-side caching
-- **Compression**: Gzip compression
-- **CDN Ready**: Static asset optimization
+- **Responsive Design** for all screen sizes
+- **Touch-friendly** interactions
+- **Fast loading** on mobile networks
+- **Progressive Web App** capabilities
 
-## 📈 Analytics
+## 🌐 SEO & Analytics
 
-The platform includes comprehensive analytics tracking:
-- Page views and user sessions
-- Custom event tracking
-- Conversion tracking
-- User behavior analysis
-- Performance metrics
+- **Meta Tags** optimization
+- **Open Graph** support
+- **Twitter Cards** integration
+- **Sitemap** generation
+- **Analytics** ready
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests if applicable
+4. Test thoroughly
 5. Submit a pull request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ## 🆘 Support
 
 For support and questions:
-- Email: support@cybersecure.com
-- Documentation: [docs.cybersecure.com](https://docs.cybersecure.com)
-- Issues: GitHub Issues
-
-## 🙏 Acknowledgments
-
-- Design inspired by modern cybersecurity platforms
-- Icons from React Icons
-- Fonts from Google Fonts
-- Animations powered by Framer Motion
+- Email: contact@transasia.tech
+- LinkedIn: [Trans Asia Tech](https://linkedin.com/company/transasia-tech)
+- Twitter: [@transasia_tech](https://twitter.com/transasia_tech)
 
 ---
 
-**Built with ❤️ for the cybersecurity community**
+**Built with ❤️ by Trans Asia Tech**
