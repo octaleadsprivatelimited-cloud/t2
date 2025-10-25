@@ -57,25 +57,21 @@ const Solutions = () => {
     {
       title: "Insurtech",
       subtitle: "Revolutionary insurance technology solutions for the digital age",
-      badge: "Step 1",
       backgroundImage: "/insurtech/hero/hero_1.webp"
     },
     {
       title: "Products",
       subtitle: "Advanced cybersecurity products to protect your digital assets",
-      badge: "Step 2",
       backgroundImage: "/insurtech/hero/women_cyber.webp"
     },
     {
       title: "Consulting",
       subtitle: "Expert consulting services for comprehensive security strategies",
-      badge: "Step 3",
       backgroundImage: "/insurtech/hero/industries_globle.webp"
     },
     {
       title: "Services",
       subtitle: "Professional security services tailored to your business needs",
-      badge: "Step 4",
       backgroundImage: "/insurtech/hero/worldmap.webp"
     }
   ];
