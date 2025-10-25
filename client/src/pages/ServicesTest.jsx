@@ -708,11 +708,7 @@ const ServicesTest = () => {
       title: 'Penetration Testing',
       description: 'Proactive security testing to identify vulnerabilities before attackers do. Our certified ethical hackers simulate real-world attacks to strengthen your defenses.',
       icon: <FaBug />,
-      stats: [
-        { icon: <FaShieldAlt />, number: '500+', label: 'Tests Completed' },
-        { icon: <FaCheckCircle />, number: '95%', label: 'Vulnerability Detection' },
-        { icon: <FaClock />, number: '48h', label: 'Response Time' }
-      ],
+      stats: [],
       features: [
         {
           title: 'Web Application Testing',
