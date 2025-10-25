@@ -300,107 +300,6 @@ const BentoListItem = styled.li`
   }
 `;
 
-const ProcessSection = styled.section`
-  padding: 120px 40px;
-  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
-  position: relative;
-`;
-
-const ProcessTimeline = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-    transform: translateX(-50%);
-
-    @media (max-width: 968px) {
-      left: 30px;
-    }
-  }
-`;
-
-const TimelineItem = styled(motion.div)`
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 60px;
-  margin-bottom: 80px;
-  align-items: center;
-
-  &:nth-child(even) {
-    direction: rtl;
-    
-    > * {
-      direction: ltr;
-    }
-  }
-
-  @media (max-width: 968px) {
-    grid-template-columns: auto 1fr;
-    gap: 30px;
-    direction: ltr !important;
-
-    &:nth-child(even) {
-      direction: ltr;
-    }
-  }
-`;
-
-const TimelineContent = styled.div`
-  background: white;
-  padding: 40px;
-  border-radius: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-
-  &:hover {
-    border-color: #667eea;
-    transform: scale(1.02);
-  }
-
-  @media (max-width: 968px) {
-    &:first-child {
-      display: none;
-    }
-  }
-`;
-
-const TimelineNumber = styled.div`
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 400;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-  position: relative;
-  z-index: 2;
-`;
-
-const TimelineTitle = styled.h4`
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 12px;
-`;
-
-const TimelineDescription = styled.p`
-  font-size: 1rem;
-  color: #64748b;
-  line-height: 1.7;
-`;
 
 const TestimonialsSection = styled.section`
   padding: 120px 40px;
@@ -637,13 +536,6 @@ const Consulting = () => {
     }
   ];
 
-  const processSteps = [
-    { number: '01', title: 'Discovery & Analysis', description: 'Deep dive into your business, risks, objectives, and current security posture' },
-    { number: '02', title: 'Comprehensive Assessment', description: 'Thorough evaluation of vulnerabilities, threats, and compliance requirements' },
-    { number: '03', title: 'Strategic Planning', description: 'Develop customized solutions, roadmaps, and implementation strategies' },
-    { number: '04', title: 'Expert Implementation', description: 'Execute with precision, expertise, and continuous monitoring' },
-    { number: '05', title: 'Ongoing Support', description: 'Continuous improvement, updates, and 24/7 expert assistance' }
-  ];
 
   const testimonials = [
     { quote: "TransAsia's ESG consulting transformed our sustainability reporting. Their expertise in BRSR compliance is unmatched.", author: 'Sarah Chen', role: 'CSO, Global Finance Corp', initial: 'S' },
@@ -743,47 +635,6 @@ const Consulting = () => {
         </BentoGrid>
       </ServicesSection>
 
-      <ProcessSection>
-        <SectionHeader>
-          <SectionBadge
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Our Process
-          </SectionBadge>
-          <SectionTitle
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            How We Work
-          </SectionTitle>
-        </SectionHeader>
-
-        <ProcessTimeline>
-          {processSteps.map((step, index) => (
-            <TimelineItem
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <TimelineContent>
-                <TimelineTitle>{step.title}</TimelineTitle>
-                <TimelineDescription>{step.description}</TimelineDescription>
-              </TimelineContent>
-              <TimelineNumber>{step.number}</TimelineNumber>
-              <TimelineContent>
-                <TimelineTitle>{step.title}</TimelineTitle>
-                <TimelineDescription>{step.description}</TimelineDescription>
-              </TimelineContent>
-            </TimelineItem>
-          ))}
-        </ProcessTimeline>
-      </ProcessSection>
 
       <TestimonialsSection>
         <SectionHeader>
