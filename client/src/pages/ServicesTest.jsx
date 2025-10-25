@@ -3,7 +3,8 @@ import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { 
-  FaServer, FaShieldAlt, FaBug, FaSearch, FaNetworkWired, FaUserLock, FaEye, FaBars, FaTimes
+  FaServer, FaShieldAlt, FaBug, FaSearch, FaNetworkWired, FaUserLock, FaEye, FaBars, FaTimes,
+  FaCheckCircle, FaArrowRight, FaCog, FaLock, FaGlobe, FaUsers, FaChartLine, FaClock
 } from 'react-icons/fa';
 
 const float = keyframes`
@@ -492,6 +493,204 @@ const MobileCloseButton = styled.button`
   padding: 8px;
 `;
 
+const ServiceIcon = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+`;
+
+const ServiceHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f1f5f9;
+`;
+
+const ServiceInfo = styled.div`
+  flex: 1;
+`;
+
+const ServiceTitle = styled.h2`
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const ServiceDescription = styled.p`
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 0;
+`;
+
+const StatsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+`;
+
+const StatCard = styled.div`
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+`;
+
+const StatIcon = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  margin: 0 auto 15px;
+`;
+
+const StatNumber = styled.div`
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 5px;
+`;
+
+const StatLabel = styled.div`
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+`;
+
+const FeatureCard = styled(motion.div)`
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: #1e3a8a;
+  }
+`;
+
+const FeatureHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+`;
+
+const FeatureIcon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: white;
+  flex-shrink: 0;
+`;
+
+const FeatureTitle = styled.h4`
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin: 0;
+`;
+
+const FeatureDescription = styled.p`
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+`;
+
+const CTAButton = styled(motion.button)`
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.4);
+  }
+`;
+
+const CTASection = styled.div`
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+`;
+
+const CTATitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+`;
+
+const CTADescription = styled.p`
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 20px;
+`;
+
 const ServicesTest = () => {
   const [selectedService, setSelectedService] = useState('Infrastructure Security');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -500,130 +699,185 @@ const ServicesTest = () => {
     'Infrastructure Security': {
       title: 'Infrastructure Security',
       description: 'Comprehensive security services for your IT infrastructure. Protect your servers, networks, and critical systems from cyber threats with our expert team.',
+      icon: <FaServer />,
+      stats: [
+        { icon: <FaShieldAlt />, number: '99.9%', label: 'Uptime Guarantee' },
+        { icon: <FaClock />, number: '24/7', label: 'Monitoring' },
+        { icon: <FaCheckCircle />, number: '100+', label: 'Secured Systems' }
+      ],
       features: [
         {
           title: 'Server Hardening',
-          description: 'Secure your servers with industry best practices and configuration management.'
+          description: 'Secure your servers with industry best practices and configuration management.',
+          icon: <FaCog />
         },
         {
           title: 'Network Segmentation',
-          description: 'Implement network isolation to limit lateral movement of threats.'
+          description: 'Implement network isolation to limit lateral movement of threats.',
+          icon: <FaNetworkWired />
         },
         {
           title: 'Firewall Configuration',
-          description: 'Optimize firewall rules and policies for maximum security.'
+          description: 'Optimize firewall rules and policies for maximum security.',
+          icon: <FaLock />
         },
         {
           title: 'Intrusion Detection',
-          description: 'Deploy advanced IDS/IPS systems to detect and prevent attacks.'
+          description: 'Deploy advanced IDS/IPS systems to detect and prevent attacks.',
+          icon: <FaEye />
         },
         {
           title: 'Security Monitoring',
-          description: '24/7 monitoring of your infrastructure for security events.'
+          description: '24/7 monitoring of your infrastructure for security events.',
+          icon: <FaChartLine />
         }
       ]
     },
     'Penetration Testing': {
       title: 'Penetration Testing',
       description: 'Proactive security testing to identify vulnerabilities before attackers do. Our certified ethical hackers simulate real-world attacks to strengthen your defenses.',
+      icon: <FaBug />,
+      stats: [
+        { icon: <FaShieldAlt />, number: '500+', label: 'Tests Completed' },
+        { icon: <FaCheckCircle />, number: '95%', label: 'Vulnerability Detection' },
+        { icon: <FaClock />, number: '48h', label: 'Response Time' }
+      ],
       features: [
         {
           title: 'Web Application Testing',
-          description: 'Comprehensive testing of web applications for OWASP Top 10 vulnerabilities.'
+          description: 'Comprehensive testing of web applications for OWASP Top 10 vulnerabilities.',
+          icon: <FaGlobe />
         },
         {
           title: 'Network Penetration Testing',
-          description: 'Assess network security from both internal and external perspectives.'
+          description: 'Assess network security from both internal and external perspectives.',
+          icon: <FaNetworkWired />
         },
         {
           title: 'Mobile App Security Testing',
-          description: 'Security assessment of iOS and Android applications.'
+          description: 'Security assessment of iOS and Android applications.',
+          icon: <FaSearch />
         },
         {
           title: 'Wireless Security Assessment',
-          description: 'Evaluate wireless network security and configuration.'
+          description: 'Evaluate wireless network security and configuration.',
+          icon: <FaNetworkWired />
         },
         {
           title: 'Social Engineering Testing',
-          description: 'Test human factors and security awareness through simulated attacks.'
+          description: 'Test human factors and security awareness through simulated attacks.',
+          icon: <FaUsers />
         }
       ]
     },
     'Vulnerability Assessment': {
       title: 'Vulnerability Assessment',
       description: 'Identify and prioritize security vulnerabilities in your systems. Get detailed reports with actionable remediation steps and ongoing support.',
+      icon: <FaSearch />,
+      stats: [
+        { icon: <FaShieldAlt />, number: '1000+', label: 'Assets Scanned' },
+        { icon: <FaCheckCircle />, number: '98%', label: 'Accuracy Rate' },
+        { icon: <FaClock />, number: '24h', label: 'Report Delivery' }
+      ],
       features: [
         {
           title: 'Automated Vulnerability Scanning',
-          description: 'Comprehensive scanning using industry-leading tools and techniques.'
+          description: 'Comprehensive scanning using industry-leading tools and techniques.',
+          icon: <FaCog />
         },
         {
           title: 'Manual Security Testing',
-          description: 'Expert manual testing to find complex vulnerabilities.'
+          description: 'Expert manual testing to find complex vulnerabilities.',
+          icon: <FaEye />
         },
         {
           title: 'Risk Prioritization',
-          description: 'Risk-based prioritization of vulnerabilities for efficient remediation.'
+          description: 'Risk-based prioritization of vulnerabilities for efficient remediation.',
+          icon: <FaChartLine />
         },
         {
           title: 'Remediation Guidance',
-          description: 'Detailed guidance and support for vulnerability remediation.'
+          description: 'Detailed guidance and support for vulnerability remediation.',
+          icon: <FaCheckCircle />
         },
         {
           title: 'Re-assessment Services',
-          description: 'Follow-up assessments to verify remediation effectiveness.'
+          description: 'Follow-up assessments to verify remediation effectiveness.',
+          icon: <FaClock />
         }
       ]
     },
     'Security Monitoring': {
       title: 'Security Monitoring',
       description: '24/7 security monitoring and incident response. Detect threats early and respond quickly to minimize impact with our SOC team.',
+      icon: <FaEye />,
+      stats: [
+        { icon: <FaShieldAlt />, number: '24/7', label: 'SOC Coverage' },
+        { icon: <FaCheckCircle />, number: '99.5%', label: 'Detection Rate' },
+        { icon: <FaClock />, number: '15min', label: 'Response Time' }
+      ],
       features: [
         {
           title: 'SIEM Implementation',
-          description: 'Deploy and configure Security Information and Event Management systems.'
+          description: 'Deploy and configure Security Information and Event Management systems.',
+          icon: <FaCog />
         },
         {
           title: 'Log Monitoring',
-          description: 'Comprehensive monitoring of security logs and events.'
+          description: 'Comprehensive monitoring of security logs and events.',
+          icon: <FaChartLine />
         },
         {
           title: 'Threat Detection',
-          description: 'Advanced threat detection using machine learning and behavioral analysis.'
+          description: 'Advanced threat detection using machine learning and behavioral analysis.',
+          icon: <FaEye />
         },
         {
           title: 'Incident Response',
-          description: 'Rapid response to security incidents with expert guidance.'
+          description: 'Rapid response to security incidents with expert guidance.',
+          icon: <FaShieldAlt />
         },
         {
           title: 'Security Analytics',
-          description: 'Advanced analytics to identify patterns and potential threats.'
+          description: 'Advanced analytics to identify patterns and potential threats.',
+          icon: <FaChartLine />
         }
       ]
     },
     'Identity & Access Management': {
       title: 'Identity & Access Management',
       description: 'Secure identity and access management solutions. Control who has access to what, when, and from where with comprehensive IAM strategies.',
+      icon: <FaUserLock />,
+      stats: [
+        { icon: <FaShieldAlt />, number: '10K+', label: 'Users Managed' },
+        { icon: <FaCheckCircle />, number: '99.9%', label: 'Access Accuracy' },
+        { icon: <FaClock />, number: '2min', label: 'Provisioning Time' }
+      ],
       features: [
         {
           title: 'IAM Strategy & Design',
-          description: 'Comprehensive IAM strategy development and architecture design.'
+          description: 'Comprehensive IAM strategy development and architecture design.',
+          icon: <FaCog />
         },
         {
           title: 'Multi-Factor Authentication',
-          description: 'Implement MFA solutions to enhance authentication security.'
+          description: 'Implement MFA solutions to enhance authentication security.',
+          icon: <FaLock />
         },
         {
           title: 'Single Sign-On (SSO)',
-          description: 'Deploy SSO solutions for seamless and secure access.'
+          description: 'Deploy SSO solutions for seamless and secure access.',
+          icon: <FaGlobe />
         },
         {
           title: 'Privileged Access Management',
-          description: 'Secure management of privileged accounts and access.'
+          description: 'Secure management of privileged accounts and access.',
+          icon: <FaUserLock />
         },
         {
           title: 'Identity Governance',
-          description: 'Implement identity governance and compliance frameworks.'
+          description: 'Implement identity governance and compliance frameworks.',
+          icon: <FaChartLine />
         }
       ]
     }
@@ -718,17 +972,55 @@ const ServicesTest = () => {
           </Sidebar>
 
           <ContentArea>
-            <ContentTitle>{serviceData[selectedService].title}</ContentTitle>
-            <ContentDescription>{serviceData[selectedService].description}</ContentDescription>
+            <ServiceHeader>
+              <ServiceIcon>
+                {serviceData[selectedService].icon}
+              </ServiceIcon>
+              <ServiceInfo>
+                <ServiceTitle>{serviceData[selectedService].title}</ServiceTitle>
+                <ServiceDescription>{serviceData[selectedService].description}</ServiceDescription>
+              </ServiceInfo>
+            </ServiceHeader>
+
+            <StatsContainer>
+              {serviceData[selectedService].stats.map((stat, index) => (
+                <StatCard key={index}>
+                  <StatIcon>{stat.icon}</StatIcon>
+                  <StatNumber>{stat.number}</StatNumber>
+                  <StatLabel>{stat.label}</StatLabel>
+                </StatCard>
+              ))}
+            </StatsContainer>
             
             <FeatureGrid>
               {serviceData[selectedService].features.map((feature, index) => (
-                <FeatureCard key={index}>
-                  <FeatureTitle>{feature.title}</FeatureTitle>
+                <FeatureCard
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <FeatureHeader>
+                    <FeatureIcon>{feature.icon}</FeatureIcon>
+                    <FeatureTitle>{feature.title}</FeatureTitle>
+                  </FeatureHeader>
                   <FeatureDescription>{feature.description}</FeatureDescription>
                 </FeatureCard>
               ))}
             </FeatureGrid>
+
+            <CTASection>
+              <CTATitle>Ready to Get Started?</CTATitle>
+              <CTADescription>
+                Contact our security experts to discuss your specific requirements and get a customized solution.
+              </CTADescription>
+              <CTAButton
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started <FaArrowRight />
+              </CTAButton>
+            </CTASection>
           </ContentArea>
         </ContentContainer>
       </ContentSection>
