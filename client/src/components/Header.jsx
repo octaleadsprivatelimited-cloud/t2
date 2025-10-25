@@ -39,7 +39,7 @@ const Logo = styled(Link)`
   text-decoration: none;
   font-size: 24px;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #ffffff;
   transition: all 0.3s ease;
 
   img {
@@ -334,7 +334,7 @@ const MobileMenuButton = styled.button`
   display: none;
   background: none;
   border: none;
-  color: var(--text-primary);
+  color: #ffffff;
   font-size: 24px;
   cursor: pointer;
   padding: 10px;

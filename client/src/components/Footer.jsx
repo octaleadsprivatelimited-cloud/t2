@@ -505,8 +505,8 @@ const Footer = () => {
             </MobileDropdownHeader>
             <MobileDropdownContent isOpen={openDropdowns.quicklinks}>
               <LinkList>
-                <li><FooterLink to="/privacy">Privacy Policy</FooterLink></li>
-                <li><FooterLink to="/terms">Terms of Service</FooterLink></li>
+                <li><FooterLink to="/support/legal/privacy">Privacy Policy</FooterLink></li>
+                <li><FooterLink to="/support/legal/terms">Terms of Service</FooterLink></li>
                 <li><FooterLink to="/contact">Support</FooterLink></li>
                 <li><FooterLink to="/blog">Blog</FooterLink></li>
               </LinkList>
@@ -530,8 +530,8 @@ const Footer = () => {
         <FooterBottom>
           <Copyright>© 2025 Trans Asia Tech. All rights reserved.</Copyright>
           <LegalLinks>
-            <LegalLink to="/privacy">Privacy Policy</LegalLink>
-            <LegalLink to="/terms">Terms of Service</LegalLink>
+            <LegalLink to="/support/legal/privacy">Privacy Policy</LegalLink>
+            <LegalLink to="/support/legal/terms">Terms of Service</LegalLink>
             <LegalLink to="/contact">Contact</LegalLink>
           </LegalLinks>
         </FooterBottom>

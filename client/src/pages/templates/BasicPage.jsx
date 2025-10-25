@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Wrapper = styled.section`
   padding: 120px 0;
-  background: var(--gradient-light);
+  background: #f8fafc;
 `;
 
 const Container = styled.div`
@@ -17,7 +17,7 @@ const Pill = styled.span`
   display: inline-block;
   background: rgba(10, 132, 255, 0.08);
   border: 1px solid rgba(10, 132, 255, 0.2);
-  color: var(--primary-color);
+  color: #1e3a8a;
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 12px;
@@ -28,7 +28,7 @@ const Pill = styled.span`
 const Title = styled.h1`
   font-size: clamp(32px, 5vw, 52px);
   font-weight: 900;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -36,7 +36,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.p`
-  color: var(--text-secondary);
+  color: #64748b;
   max-width: 820px;
   line-height: 1.8;
   margin-bottom: 24px;
