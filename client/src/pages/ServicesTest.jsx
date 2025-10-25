@@ -401,31 +401,6 @@ const FeatureGrid = styled.div`
   margin-top: 30px;
 `;
 
-const FeatureCard = styled.div`
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-`;
-
-const FeatureTitle = styled.h4`
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1e3a8a;
-  margin-bottom: 12px;
-`;
-
-const FeatureDescription = styled.p`
-  font-size: 0.95rem;
-  color: #64748b;
-  line-height: 1.6;
-`;
 
 const MobileMenuButton = styled.button`
   display: none;
