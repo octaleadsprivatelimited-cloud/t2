@@ -16,6 +16,7 @@ const Insurtech = lazy(() => import('./pages/Insurtech'))
 const Consulting = lazy(() => import('./pages/Consulting'))
 const CyberSecurityProducts = lazy(() => import('./pages/CyberSecurityProducts'))
 const CyberSecurityServices = lazy(() => import('./pages/CyberSecurityServices'))
+const ServicesTest = lazy(() => import('./pages/ServicesTest'))
 const PressRelease = lazy(() => import('./pages/PressRelease'))
 const PressReleaseDetail = lazy(() => import('./pages/PressReleaseDetail'))
 const Gallery = lazy(() => import('./pages/Gallery'))
@@ -71,6 +72,7 @@ const App = () => {
             <Route path="/consulting" element={<Consulting />} />
             <Route path="/products" element={<CyberSecurityProducts />} />
             <Route path="/services" element={<CyberSecurityServices />} />
+            <Route path="/services-test" element={<ServicesTest />} />
             <Route path="/press" element={<PressRelease />} />
             <Route path="/press/:id" element={<PressReleaseDetail />} />
             <Route path="/gallery" element={<Gallery />} />
