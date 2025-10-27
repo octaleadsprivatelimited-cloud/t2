@@ -21,29 +21,38 @@ const PageContainer = styled.div`
 `;
 
 const HeroSection = styled.section`
-  min-height: 90vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
-  background: #ffffff;
-  padding: 140px 0 100px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+  padding: 100px 0 60px;
   position: relative;
   overflow: hidden;
 
-  /* Cybersecurity grid pattern */
+  /* Animated gradient overlay */
   &::before {
     content: '';
     position: absolute;
     inset: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+    z-index: 0;
+  }
+
+  /* Cybersecurity grid pattern */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-image: 
-      linear-gradient(rgba(30, 58, 138, 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(30, 58, 138, 0.12) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 50px 50px;
     z-index: 0;
   }
 
   @media (max-width: 768px) {
-    min-height: 75vh;
-    padding: 120px 0 80px;
+    min-height: 50vh;
+    padding: 80px 0 50px;
   }
 `;
 
@@ -108,13 +117,19 @@ const HeroContent = styled.div`
 
 const Title = styled.h1`
   font-size: 4.5rem;
-  font-weight: 400;
-  color: #1e3a8a;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 32px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: -1px;
   line-height: 1.15;
   max-width: 900px;
+  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 1200px) {
     font-size: 3.8rem;
@@ -128,9 +143,12 @@ const Title = styled.h1`
 
 const Subtitle = styled.p`
   font-size: 1.35rem;
-  color: #495057;
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.7;
   max-width: 800px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 48px;
   font-weight: 300;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -142,12 +160,16 @@ const Subtitle = styled.p`
 `;
 
 const Section = styled.section`
-  padding: 80px 40px;
+  padding: 0 40px 80px 40px;
   max-width: 1200px;
   margin: 0 auto;
 
+  &:first-of-type {
+    padding-top: 0;
+  }
+
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: 0 20px 60px 20px;
   }
 `;
 
@@ -201,31 +223,34 @@ const StoryImage = styled.div`
   width: 100%;
   height: 400px;
   border-radius: 20px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 6rem;
-  color: white;
-  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.25);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
   position: relative;
   overflow: hidden;
+  padding: 40px;
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
   }
 
-  svg {
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
     position: relative;
     z-index: 1;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   }
 
   @media (max-width: 768px) {
     height: 300px;
-    font-size: 5rem;
+    padding: 30px;
   }
 `;
 
@@ -276,18 +301,52 @@ const StatsGrid = styled.div`
 `;
 
 const StatCard = styled(motion.div)`
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border: 2px solid #e9ecef;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
   padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
   text-align: center;
   transition: all 0.3s ease;
+  color: white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
-    transform: translateY(-8px);
-    border-color: #1e3a8a;
-    box-shadow: 0 12px 32px rgba(30, 58, 138, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(102, 126, 234, 0.4);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:nth-child(1) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  &:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  }
+
+  &:nth-child(3) {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  }
+
+  &:nth-child(4) {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
   }
 
   @media (max-width: 768px) {
@@ -297,8 +356,10 @@ const StatCard = styled(motion.div)`
 
 const StatIcon = styled.div`
   font-size: 3rem;
-  color: #1e3a8a;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -308,8 +369,10 @@ const StatIcon = styled.div`
 const StatNumber = styled.div`
   font-size: 2.8rem;
   font-weight: 700;
-  color: #1e3a8a;
+  color: white;
   margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 768px) {
     font-size: 2.4rem;
@@ -318,8 +381,10 @@ const StatNumber = styled.div`
 
 const StatLabel = styled.div`
   font-size: 1.05rem;
-  color: #6c757d;
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 600;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -791,7 +856,7 @@ const About = () => {
       <Section>
         <StorySection>
           <StoryImage>
-            <FaShieldAlt />
+            <img src="/insurtech/top_logo.png" alt="TransAsia Tech Logo" />
           </StoryImage>
           <StoryContent>
             <StoryTitle>Our Story</StoryTitle>

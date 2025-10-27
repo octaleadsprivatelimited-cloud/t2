@@ -151,9 +151,13 @@ const HeroDescription = styled(motion.p)`
 
 
 const ServicesSection = styled.section`
-  padding: 120px 40px;
+  padding: 0 40px 120px 40px;
   background: white;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 0 20px 80px 20px;
+  }
 `;
 
 const SectionHeader = styled.div`
@@ -784,18 +788,10 @@ const Consulting = () => {
 
       <ServicesSection>
         <SectionHeader>
-          <SectionBadge
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Our Services
-          </SectionBadge>
           <SectionTitle
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
           >
             Comprehensive Solutions
           </SectionTitle>

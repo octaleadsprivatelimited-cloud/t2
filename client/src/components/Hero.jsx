@@ -101,16 +101,15 @@ const CybercatImage = styled.img`
   width: ${props => props.size || '300px'};
   height: auto;
   opacity: 0.6;
-  animation: ${float} ${props => props.duration || '7s'} ease-in-out infinite;
-  animation-delay: ${props => props.delay || '0s'};
   z-index: 1;
-  top: 50%;
+  top: 65%;
   right: 5%;
   transform: translateY(-50%);
   
   @media (max-width: 1024px) {
     width: 250px;
     right: 3%;
+    top: 70%;
   }
   
   @media (max-width: 768px) {

@@ -580,37 +580,24 @@ const StakeholdersWrapper = styled.div`
 const CenterImageSpace = styled.div`
   grid-column: 2;
   grid-row: 2 / 4;
-  background: rgba(255, 255, 255, 0.05);
+  background: url('/insurtech/risk.webp') center/cover no-repeat;
   backdrop-filter: blur(20px);
-  border: 2px dashed rgba(30, 58, 138, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   min-height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
-  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   position: relative;
   overflow: hidden;
   padding: 24px;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('/insurtech/risk.webp');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.8;
-    z-index: 1;
-  }
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
   z-index: 3;
 
@@ -1031,9 +1018,7 @@ const Insurtech = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-          >
-            VALUE AT RISK
-          </CenterImageSpace>
+          />
 
           {/* Right Column - 2 stakeholders */}
           <StakeholderBox

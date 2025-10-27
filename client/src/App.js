@@ -22,6 +22,7 @@ import Gallery from './pages/Gallery';
 import Careers from './pages/Careers';
 import About from './pages/About';
 import Team from './pages/Team';
+import TeamProfile from './pages/TeamProfile';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Insights from './pages/Insights';
@@ -78,6 +79,7 @@ const App = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/team/:slug" element={<TeamProfile />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/insights" element={<Insights />} />
         <Route path="/insights/:id" element={<ArticleDetail />} />

@@ -112,8 +112,12 @@ const HeroSubtitle = styled(motion.p)`
 `;
 
 const FAQSection = styled.section`
-  padding: 120px 40px;
+  padding: 0 40px 120px 40px;
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+  @media (max-width: 768px) {
+    padding: 0 20px 80px 20px;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`

@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaTwitter, FaEnvelope, FaQuoteLeft, FaAward, FaCode, FaShieldAlt, FaLock, FaNetworkWired } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaEnvelope, FaQuoteLeft, FaAward, FaCode, FaShieldAlt, FaLock, FaNetworkWired, FaArrowRight } from 'react-icons/fa';
 
 const float = keyframes`
   0%, 100% { transform: translateY(0px); }
@@ -419,6 +420,36 @@ const SocialLink = styled.a`
   }
 `;
 
+const ViewProfileButton = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
+  }
+`;
+
 const QuoteSection = styled.div`
   background: linear-gradient(135deg, #e7f1ff 0%, #f0f7ff 100%);
   padding: 80px 50px;
@@ -689,6 +720,7 @@ const Team = () => {
 
   const leadership = [
     {
+      slug: 'ananth',
       name: 'Ananth',
       role: 'Leadership',
       bio: 'Visionary leader with expertise in cybersecurity strategy and risk management. Driving innovation and excellence across the organization.',
@@ -702,32 +734,7 @@ const Team = () => {
       }
     },
     {
-      name: 'Dr. Ravindra',
-      role: 'Chief Advisor',
-      bio: 'PhD in Cybersecurity with deep expertise in threat intelligence and security research. Published author and industry thought leader.',
-      image: '/insurtech/team/Dr_ravindraa.webp',
-      badge: 'PhD',
-      badgeIcon: <FaAward />,
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'ravindra@transasia.com'
-      }
-    },
-    {
-      name: 'Abi',
-      role: 'Security Specialist',
-      bio: 'Certified security professional specializing in penetration testing and vulnerability assessment. Expert in ethical hacking.',
-      image: '/insurtech/team/Abi.webp',
-      badge: 'Expert',
-      badgeIcon: <FaShieldAlt />,
-      social: {
-        linkedin: '#',
-        twitter: '#',
-        email: 'abi@transasia.com'
-      }
-    },
-    {
+      slug: 'coo',
       name: 'Chief Operating Officer',
       role: 'COO',
       bio: 'Operations excellence leader driving organizational growth and client success. Expert in scaling security service operations.',
@@ -815,6 +822,10 @@ const Team = () => {
                 <TeamName>{member.name}</TeamName>
                 <TeamRole>{member.role}</TeamRole>
                 <TeamBio>{member.bio}</TeamBio>
+                <ViewProfileButton to={`/team/${member.slug}`}>
+                  View Full Profile
+                  <FaArrowRight />
+                </ViewProfileButton>
                 <TeamSocial>
                   <SocialLink href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
                     <FaLinkedin />
