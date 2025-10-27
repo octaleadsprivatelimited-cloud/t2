@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { 
-  FaUserShield, FaHandshake, FaArrowRight, FaLock, FaGraduationCap, FaClipboardCheck, FaShieldAlt, FaNetworkWired
+  FaUserShield, FaHandshake, FaArrowRight, FaLock, FaGraduationCap, FaClipboardCheck, FaShieldAlt, FaNetworkWired, FaBars, FaTimes
 } from 'react-icons/fa';
 
 const float = keyframes`
@@ -191,6 +191,272 @@ const SectionSubtitle = styled(motion.p)`
   font-size: 1.2rem;
   color: #64748b;
   line-height: 1.8;
+`;
+
+const ServicesLayout = styled.div`
+  display: flex;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+const Sidebar = styled.div`
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+
+  @media (max-width: 968px) {
+    flex: 1;
+    width: 100%;
+  }
+`;
+
+const ServiceItem = styled(motion.button)`
+  background: ${props => props.$active 
+    ? 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' 
+    : 'transparent'};
+  color: ${props => props.$active ? 'white' : '#64748b'};
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: ${props => props.$active ? '3px' : '0'};
+    height: 20px;
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 0 3px 3px 0;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    background: ${props => props.$active 
+      ? 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' 
+      : 'rgba(37, 99, 235, 0.08)'};
+    color: ${props => props.$active ? 'white' : '#2563eb'};
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 968px) {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+`;
+
+const ServiceIcon = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: ${props => props.$active 
+    ? 'rgba(255, 255, 255, 0.2)' 
+    : 'rgba(37, 99, 235, 0.1)'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: ${props => props.$active ? 'white' : '#2563eb'};
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+`;
+
+const ServiceTitle = styled.span`
+  flex: 1;
+  letter-spacing: -0.1px;
+`;
+
+const ContentArea = styled(motion.div)`
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  min-height: auto;
+  position: relative;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @media (max-width: 968px) {
+    padding: 24px 20px;
+  }
+`;
+
+const ContentIcon = styled.div`
+  display: none;
+`;
+
+const ContentTitle = styled.h3`
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 1.625rem;
+  }
+`;
+
+const ContentDescription = styled.p`
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-weight: 400;
+  max-width: 90%;
+`;
+
+const FeaturesList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+`;
+
+const FeatureItem = styled(motion.li)`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:hover {
+    background: #ffffff;
+    transform: translateX(2px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.2);
+  }
+`;
+
+const FeatureIcon = styled.div`
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+`;
+
+const FeatureText = styled.span`
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+  flex: 1;
+  font-weight: 400;
+`;
+
+const MobileMenuButton = styled.button`
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+  }
+
+  @media (max-width: 968px) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+`;
+
+const MobileOverlay = styled(motion.div)`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  display: none;
+
+  @media (max-width: 968px) {
+    display: ${props => props.$open ? 'block' : 'none'};
+  }
+`;
+
+const MobileSidebar = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  background: white;
+  z-index: 1000;
+  padding: 80px 20px 20px;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
+  display: none;
+
+  @media (max-width: 968px) {
+    display: block;
+  }
+`;
+
+const MobileCloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 1.2rem;
+  color: #495057;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const BentoGrid = styled.div`
@@ -390,6 +656,9 @@ const AuthorRole = styled.div`
 
 
 const Consulting = () => {
+  const [selectedService, setSelectedService] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const services = [
     {
       icon: <FaUserShield />,
@@ -540,31 +809,91 @@ const Consulting = () => {
           </SectionSubtitle>
         </SectionHeader>
 
-        <BentoGrid>
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+          <FaBars /> Menu
+        </MobileMenuButton>
+
+        <MobileOverlay 
+          $open={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <MobileSidebar
+          initial={{ x: -320 }}
+          animate={{ x: mobileMenuOpen ? 0 : -320 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        >
+          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+            <FaTimes />
+          </MobileCloseButton>
           {services.map((service, index) => (
-            <BentoCard
+            <ServiceItem
               key={index}
-              $gradient={service.gradient}
-              $span={service.span}
-              $height={service.height}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              $active={selectedService === index}
+              onClick={() => {
+                setSelectedService(index);
+                setMobileMenuOpen(false);
+              }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div>
-                <BentoIcon>{service.icon}</BentoIcon>
-                <BentoTitle>{service.title}</BentoTitle>
-                <BentoDescription>{service.description}</BentoDescription>
-              </div>
-              <BentoList>
-                {service.items.map((item, i) => (
-                  <BentoListItem key={i}>{item}</BentoListItem>
-                ))}
-              </BentoList>
-            </BentoCard>
+              <ServiceIcon $active={selectedService === index}>
+                {service.icon}
+              </ServiceIcon>
+              <ServiceTitle>{service.title}</ServiceTitle>
+            </ServiceItem>
           ))}
-        </BentoGrid>
+        </MobileSidebar>
+
+        <ServicesLayout>
+          <Sidebar>
+            {services.map((service, index) => (
+              <ServiceItem
+                key={index}
+                $active={selectedService === index}
+                onClick={() => setSelectedService(index)}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <ServiceIcon $active={selectedService === index}>
+                  {service.icon}
+                </ServiceIcon>
+                <ServiceTitle>{service.title}</ServiceTitle>
+              </ServiceItem>
+            ))}
+          </Sidebar>
+
+          <ContentArea
+            key={selectedService}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <ContentTitle>{services[selectedService].title}</ContentTitle>
+            <ContentDescription>{services[selectedService].description}</ContentDescription>
+            <FeaturesList>
+              {services[selectedService].items.map((item, index) => (
+                <FeatureItem
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <FeatureIcon>✓</FeatureIcon>
+                  <FeatureText>{item}</FeatureText>
+                </FeatureItem>
+              ))}
+            </FeaturesList>
+          </ContentArea>
+        </ServicesLayout>
       </ServicesSection>
 
 

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FaLinkedin, FaFacebook, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt, FaChevronDown } from 'react-icons/fa';
 
 const FooterContainer = styled.footer`
-  background: url('/insurtech/Background/homepage.webp') center top/cover no-repeat;
+  background: url('/insurtech/hero/hero_1.webp') center top/cover no-repeat;
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -139,19 +139,105 @@ const CompanyDescription = styled.p`
 
 const ContactInfo = styled.div`
   margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+`;
+
+const AddressSection = styled.div`
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+`;
+
+const ChennaiOffice = styled(AddressSection)`
+  background-image: url('/insurtech/hero/hero_1.webp');
+  
+  @media (max-width: 768px) {
+    background-image: url('/insurtech/hero/hero_1.webp');
+  }
+`;
+
+const HyderabadOffice = styled(AddressSection)`
+  background-image: url('/insurtech/hero/worldmap.webp');
+  
+  @media (max-width: 768px) {
+    background-image: url('/insurtech/hero/worldmap.webp');
+  }
+`;
+
+const AddressTitle = styled.h5`
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  svg {
+    color: #10b981;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const ContactItem = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   margin-bottom: 10px;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   svg {
     color: #ffffff;
     font-size: 0.9rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  span {
+    flex: 1;
   }
 
   a {
@@ -386,10 +472,6 @@ const Footer = () => {
               </CompanyDescription>
               <ContactInfo>
                 <ContactItem>
-                  <FaMapMarkerAlt />
-                  <span>93, 49 Harrington Road, Chennai, Tamil Nadu 600030</span>
-                </ContactItem>
-                <ContactItem>
                   <FaEnvelope />
                   <a href="mailto:info@transasiatech.com">info@transasiatech.com</a>
                 </ContactItem>
@@ -481,18 +563,29 @@ const Footer = () => {
               </FooterColumn>
             </ColumnsRow>
             
-            <ImagesRow className="desktop-images">
-              <CertificationImage 
-                src="/insurtech/cer/iso.webp" 
-                alt="ISO Certification" 
-                loading="lazy"
-              />
-              <SpanningImage 
-                src="/insurtech/cer/footer_company.webp" 
-                alt="Company Partners" 
-                loading="lazy"
-              />
-            </ImagesRow>
+            <ContactInfo>
+              <ChennaiOffice>
+                <AddressTitle>
+                  <FaMapMarkerAlt />
+                  Chennai Office
+                </AddressTitle>
+                <ContactItem>
+                  <FaMapMarkerAlt />
+                  <span>93, 49 Harrington Road, Chennai, Tamil Nadu 600030</span>
+                </ContactItem>
+              </ChennaiOffice>
+
+              <HyderabadOffice>
+                <AddressTitle>
+                  <FaMapMarkerAlt />
+                  Hyderabad Office
+                </AddressTitle>
+                <ContactItem>
+                  <FaMapMarkerAlt />
+                  <span>T-hub Phase-2, Hyderabad, Telangana 500081</span>
+                </ContactItem>
+              </HyderabadOffice>
+            </ContactInfo>
             
           </DoubleColumnWrapper>
 
@@ -513,19 +606,6 @@ const Footer = () => {
             </MobileDropdownContent>
           </FooterColumn>
         </FooterMain>
-
-        <ImagesRow className="mobile-only">
-          <CertificationImage 
-            src="/insurtech/cer/iso.webp" 
-            alt="ISO Certification" 
-            loading="lazy"
-          />
-          <SpanningImage 
-            src="/insurtech/cer/footer_company.webp" 
-            alt="Company Partners" 
-            loading="lazy"
-          />
-        </ImagesRow>
 
         <FooterBottom>
           <Copyright>© 2025 Trans Asia Tech. All rights reserved.</Copyright>

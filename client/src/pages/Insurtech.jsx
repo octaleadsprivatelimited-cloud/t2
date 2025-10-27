@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { 
   FaShieldAlt, FaChartLine, FaCloud, FaMobileAlt, FaLock, FaUsers,
-  FaBuilding, FaBalanceScale, FaNetworkWired, FaUserTie, FaClipboardCheck, FaCogs
+  FaBuilding, FaBalanceScale, FaNetworkWired, FaUserTie, FaClipboardCheck, FaCogs, FaBars, FaTimes
 } from 'react-icons/fa';
 
 const float = keyframes`
@@ -174,6 +174,219 @@ const SectionSubtitle = styled(motion.p)`
   line-height: 1.7;
 `;
 
+const ProductsLayout = styled.div`
+  display: flex;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+const Sidebar = styled.div`
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+
+  @media (max-width: 968px) {
+    flex: 1;
+    width: 100%;
+  }
+`;
+
+const ProductItem = styled(motion.button)`
+  background: ${props => props.$active 
+    ? 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' 
+    : 'transparent'};
+  color: ${props => props.$active ? 'white' : '#64748b'};
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: ${props => props.$active ? '3px' : '0'};
+    height: 20px;
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 0 3px 3px 0;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    background: ${props => props.$active 
+      ? 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' 
+      : 'rgba(37, 99, 235, 0.08)'};
+    color: ${props => props.$active ? 'white' : '#2563eb'};
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 968px) {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+`;
+
+const ProductIcon = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: ${props => props.$active 
+    ? 'rgba(255, 255, 255, 0.2)' 
+    : 'rgba(37, 99, 235, 0.1)'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: ${props => props.$active ? 'white' : '#2563eb'};
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+`;
+
+const ProductTitleText = styled.span`
+  flex: 1;
+  letter-spacing: -0.1px;
+`;
+
+const ContentArea = styled(motion.div)`
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  min-height: auto;
+  position: relative;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @media (max-width: 968px) {
+    padding: 24px 20px;
+  }
+`;
+
+const ContentTitle = styled.h3`
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const ContentDescription = styled.p`
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-weight: 400;
+  max-width: 95%;
+`;
+
+const MobileMenuButton = styled.button`
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+  }
+
+  @media (max-width: 968px) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+`;
+
+const MobileOverlay = styled(motion.div)`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  display: none;
+
+  @media (max-width: 968px) {
+    display: ${props => props.$open ? 'block' : 'none'};
+  }
+`;
+
+const MobileSidebar = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  background: white;
+  z-index: 1000;
+  padding: 80px 20px 20px;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
+  display: none;
+
+  @media (max-width: 968px) {
+    display: block;
+  }
+`;
+
+const MobileCloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 1.2rem;
+  color: #495057;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const ProductsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -213,32 +426,6 @@ const ProductCard = styled(motion.div)`
   }
 `;
 
-const ProductIcon = styled.div`
-  width: 70px;
-  height: 70px;
-  border-radius: 18px;
-  background: ${props => props.$gradient || 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)'};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 24px;
-  box-shadow: 0 8px 24px rgba(30, 58, 138, 0.3);
-`;
-
-const ProductTitle = styled.h3`
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1e3a8a;
-  margin-bottom: 16px;
-`;
-
-const ProductDescription = styled.p`
-  font-size: 1.05rem;
-  color: #64748b;
-  line-height: 1.7;
-`;
 
 const ImpactSection = styled(Section)`
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -543,6 +730,8 @@ const StakeholderName = styled.h4`
 `;
 
 const Insurtech = () => {
+  const [selectedProduct, setSelectedProduct] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const impactSlides = [
     {
@@ -591,18 +780,6 @@ const Insurtech = () => {
       title: 'Sunshine Retail Anti Ransomware',
       description: 'Purchase of Sunshine Retail Anti Ransomware solution license to protect your Mobile from Ransomware.',
       gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)'
-    },
-    {
-      icon: <FaCloud />,
-      title: 'Retail Cyber Insurance',
-      description: 'Purchase of Retail cyber insurance to cover digital Asset.',
-      gradient: 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)'
-    },
-    {
-      icon: <FaClipboardCheck />,
-      title: 'CTRACK',
-      description: 'Integrated SaaS Web & Mobile Application to handle Insurance claim requests, Fraud analysis & on-field Verification.',
-      gradient: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'
     }
   ];
 
@@ -698,24 +875,77 @@ const Insurtech = () => {
           Comprehensive suite of insurtech platforms designed to protect and empower your business
         </SectionSubtitle>
 
-        <ProductsGrid>
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+          <FaBars /> Menu
+        </MobileMenuButton>
+
+        <MobileOverlay 
+          $open={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <MobileSidebar
+          initial={{ x: -320 }}
+          animate={{ x: mobileMenuOpen ? 0 : -320 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        >
+          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+            <FaTimes />
+          </MobileCloseButton>
           {products.map((product, index) => (
-            <ProductCard
+            <ProductItem
               key={index}
-              $gradient={product.gradient}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              $active={selectedProduct === index}
+              onClick={() => {
+                setSelectedProduct(index);
+                setMobileMenuOpen(false);
+              }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <ProductIcon $gradient={product.gradient}>
+              <ProductIcon $active={selectedProduct === index}>
                 {product.icon}
               </ProductIcon>
-              <ProductTitle>{product.title}</ProductTitle>
-              <ProductDescription>{product.description}</ProductDescription>
-            </ProductCard>
+              <ProductTitleText>{product.title}</ProductTitleText>
+            </ProductItem>
           ))}
-        </ProductsGrid>
+        </MobileSidebar>
+
+        <ProductsLayout>
+          <Sidebar>
+            {products.map((product, index) => (
+              <ProductItem
+                key={index}
+                $active={selectedProduct === index}
+                onClick={() => setSelectedProduct(index)}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <ProductIcon $active={selectedProduct === index}>
+                  {product.icon}
+                </ProductIcon>
+                <ProductTitleText>{product.title}</ProductTitleText>
+              </ProductItem>
+            ))}
+          </Sidebar>
+
+          <ContentArea
+            key={selectedProduct}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <ContentTitle>{products[selectedProduct].title}</ContentTitle>
+            <ContentDescription>{products[selectedProduct].description}</ContentDescription>
+          </ContentArea>
+        </ProductsLayout>
       </Section>
 
       <StakeholdersSection>

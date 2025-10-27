@@ -624,7 +624,7 @@ const ArticleDetail = () => {
       authorInitials: 'TA',
       date: 'January 15, 2025',
       readTime: '8 min read',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
+      image: '/insurtech/event/ASS_0001.webp',
       content: `
         <h2>Understanding Financial Impact of Cyber Threats</h2>
         <p>In today's digital landscape, cybersecurity is no longer just an IT concern—it's a critical business risk that demands board-level attention. The challenge lies in translating complex technical threats into financial metrics that board members can understand and act upon.</p>
@@ -670,7 +670,7 @@ const ArticleDetail = () => {
       authorInitials: 'SR',
       date: 'January 10, 2025',
       readTime: '10 min read',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&q=80',
+      image: '/insurtech/event/ASS_0002.webp',
       content: `
         <h2>The Growing Threat of Unknown Ransomware</h2>
         <p>Zero-day ransomware attacks represent one of the most dangerous threats to modern organizations. Unlike known malware variants, these attacks exploit previously unknown vulnerabilities, making traditional signature-based detection methods ineffective.</p>
@@ -706,7 +706,7 @@ const ArticleDetail = () => {
       authorInitials: 'CT',
       date: 'January 5, 2025',
       readTime: '12 min read',
-      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80',
+      image: '/insurtech/event/ASS_0003.webp',
       content: `
         <h2>Understanding the Compliance Landscape</h2>
         <p>Modern organizations face a complex web of regulatory requirements spanning multiple jurisdictions and industries. From GDPR to HIPAA, from PCI DSS to SOC 2, the compliance landscape continues to expand.</p>

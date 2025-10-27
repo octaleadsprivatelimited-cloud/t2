@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaChevronDown, FaRocket, FaLeaf, FaSearch, FaSun, FaBolt, FaNetworkWired
+  FaChevronDown, FaRocket, FaLeaf, FaSearch, FaSun, FaBolt, FaNetworkWired, FaBars, FaTimes
 } from 'react-icons/fa';
 
 const rotate = keyframes`
@@ -235,43 +235,6 @@ const FAQDescription = styled.p`
   font-weight: 500;
 `;
 
-const FeaturesList = styled.div`
-  display: grid;
-  gap: 16px;
-  margin-bottom: 30px;
-`;
-
-const FeatureItem = styled(motion.div)`
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 20px;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  border-radius: 16px;
-  border-left: 4px solid var(--primary-color);
-`;
-
-const FeatureNumber = styled.div`
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 700;
-  flex-shrink: 0;
-`;
-
-const FeatureText = styled.p`
-  font-size: 1.05rem;
-  color: #1e3a8a;
-  line-height: 1.7;
-  flex: 1;
-  font-weight: 500;
-`;
 
 const Highlight = styled.div`
   background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
@@ -309,8 +272,271 @@ const CTAButton = styled(motion.button)`
 `;
 
 
+const ProductsLayout = styled.div`
+  display: flex;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+const Sidebar = styled.div`
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+
+  @media (max-width: 968px) {
+    flex: 1;
+    width: 100%;
+  }
+`;
+
+const ProductItem = styled(motion.button)`
+  background: ${props => props.$active 
+    ? 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' 
+    : 'transparent'};
+  color: ${props => props.$active ? 'white' : '#64748b'};
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: ${props => props.$active ? '3px' : '0'};
+    height: 20px;
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 0 3px 3px 0;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    background: ${props => props.$active 
+      ? 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' 
+      : 'rgba(37, 99, 235, 0.08)'};
+    color: ${props => props.$active ? 'white' : '#2563eb'};
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 968px) {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+`;
+
+const ProductIcon = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: ${props => props.$active 
+    ? 'rgba(255, 255, 255, 0.2)' 
+    : 'rgba(37, 99, 235, 0.1)'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: ${props => props.$active ? 'white' : '#2563eb'};
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+`;
+
+const ProductTitleText = styled.span`
+  flex: 1;
+  letter-spacing: -0.1px;
+`;
+
+const ContentArea = styled(motion.div)`
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  min-height: auto;
+  position: relative;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @media (max-width: 968px) {
+    padding: 24px 20px;
+  }
+`;
+
+const ContentTitle = styled.h3`
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const ContentDescription = styled.p`
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-weight: 400;
+  max-width: 95%;
+`;
+
+const FeaturesList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+`;
+
+const FeatureItem = styled(motion.li)`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:hover {
+    background: #ffffff;
+    transform: translateX(2px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.2);
+  }
+`;
+
+const FeatureIcon = styled.div`
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+`;
+
+const FeatureText = styled.span`
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+  flex: 1;
+  font-weight: 400;
+`;
+
+const MobileMenuButton = styled.button`
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+  }
+
+  @media (max-width: 968px) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+`;
+
+const MobileOverlay = styled(motion.div)`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  display: none;
+
+  @media (max-width: 968px) {
+    display: ${props => props.$open ? 'block' : 'none'};
+  }
+`;
+
+const MobileSidebar = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  background: white;
+  z-index: 1000;
+  padding: 80px 20px 20px;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
+  display: none;
+
+  @media (max-width: 968px) {
+    display: block;
+  }
+`;
+
+const MobileCloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 1.2rem;
+  color: #495057;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const CyberSecurityProducts = () => {
-  const [openFAQ, setOpenFAQ] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const products = [
     {
@@ -431,8 +657,81 @@ const CyberSecurityProducts = () => {
     }
   ];
 
-  const toggleFAQ = (id) => {
-    setOpenFAQ(openFAQ === id ? null : id);
+  const renderProductContent = (product) => {
+    return (
+      <>
+        <ContentDescription>{product.description}</ContentDescription>
+
+        {product.features && (
+          <>
+            <h4 style={{ fontSize: '1.1rem', fontWeight: '600', color: '#1e3a8a', marginBottom: '16px', marginTop: '24px' }}>
+              Key Features:
+            </h4>
+            <FeaturesList>
+              {product.features.map((feature, idx) => (
+                <FeatureItem
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  <FeatureIcon>✓</FeatureIcon>
+                  <FeatureText>{feature}</FeatureText>
+                </FeatureItem>
+              ))}
+            </FeaturesList>
+          </>
+        )}
+
+        {product.benefits && (
+          <>
+            <h4 style={{ fontSize: '1.1rem', fontWeight: '600', color: '#1e3a8a', marginBottom: '16px', marginTop: '24px' }}>
+              Benefits:
+            </h4>
+            <FeaturesList>
+              {product.benefits.map((benefit, idx) => (
+                <FeatureItem
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  <FeatureIcon>✓</FeatureIcon>
+                  <FeatureText>{benefit}</FeatureText>
+                </FeatureItem>
+              ))}
+            </FeaturesList>
+          </>
+        )}
+
+        {product.esgFeatures && product.id === 'transgrc' && (
+          <>
+            <h4 style={{ fontSize: '1.1rem', fontWeight: '600', color: '#1e3a8a', marginBottom: '16px', marginTop: '24px' }}>
+              ESG Key Features:
+            </h4>
+            <FeaturesList>
+              {product.esgFeatures.map((feature, idx) => (
+                <FeatureItem
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  <FeatureIcon>✓</FeatureIcon>
+                  <FeatureText>{feature}</FeatureText>
+                </FeatureItem>
+              ))}
+            </FeaturesList>
+          </>
+        )}
+
+        {product.highlight && (
+          <p style={{ fontSize: '1rem', color: '#1e3a8a', lineHeight: '1.6', marginTop: '24px', fontWeight: '500', fontStyle: 'italic' }}>
+            {product.highlight}
+          </p>
+        )}
+      </>
+    );
   };
 
   return (
@@ -479,238 +778,80 @@ const CyberSecurityProducts = () => {
           Explore our cutting-edge cybersecurity solutions
         </SectionSubtitle>
 
-        <FAQContainer>
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+          <FaBars /> Menu
+        </MobileMenuButton>
+
+        <MobileOverlay 
+          $open={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <MobileSidebar
+          initial={{ x: -320 }}
+          animate={{ x: mobileMenuOpen ? 0 : -320 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        >
+          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+            <FaTimes />
+          </MobileCloseButton>
           {products.map((product, index) => (
-            <FAQItem
+            <ProductItem
               key={product.id}
-              $isOpen={openFAQ === product.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              $active={selectedProduct === index}
+              onClick={() => {
+                setSelectedProduct(index);
+                setMobileMenuOpen(false);
+              }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <FAQHeader
-                $isOpen={openFAQ === product.id}
-                onClick={() => toggleFAQ(product.id)}
-              >
-                <FAQIcon $gradient={product.gradient} $isOpen={openFAQ === product.id}>
-                  {product.icon}
-                </FAQIcon>
-                <FAQTitle $isOpen={openFAQ === product.id}>
-                  {product.title}
-                </FAQTitle>
-                <FAQChevron
-                  $isOpen={openFAQ === product.id}
-                  animate={{ rotate: openFAQ === product.id ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <FaChevronDown />
-                </FAQChevron>
-              </FAQHeader>
-
-              <AnimatePresence>
-                {openFAQ === product.id && (
-                  <FAQContent
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                  >
-                    <FAQDescription>{product.description}</FAQDescription>
-
-                    {product.id === 'transgrc' && (
-                      <>
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px' }}>
-                          Here's how TransGRC empowers your business:
-                        </h4>
-                        <FeaturesList>
-                          {product.features.map((feature, idx) => (
-                            <FeatureItem
-                              key={idx}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: idx * 0.1 }}
-                            >
-                              <FeatureNumber>{idx + 1}</FeatureNumber>
-                              <FeatureText>{feature}</FeatureText>
-                            </FeatureItem>
-                          ))}
-                        </FeaturesList>
-
-                        <p style={{ fontSize: '1.05rem', color: '#64748b', lineHeight: '1.7', marginBottom: '30px' }}>
-                          While the core functionality is exceptional, you might encounter some changes as we refine the platform to ensure maximum usability and performance. We are committed to continuous improvement, and your feedback is invaluable in shaping the future of TransGRC.
-                        </p>
-
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px' }}>
-                          Ready to take your compliance program to the next level?
-                        </h4>
-                        <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: '1.7', marginBottom: '30px' }}>
-                          Get started with TransGRC today and experience the future of compliance management!
-                        </p>
-
-                        <h4 style={{ fontSize: '1.5rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '24px', marginTop: '40px' }}>
-                          Environmental, Social and Governance (ESG) Key Features
-                        </h4>
-                        <FeaturesList>
-                          {product.esgFeatures.map((feature, idx) => (
-                            <FeatureItem
-                              key={idx}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: idx * 0.08 }}
-                            >
-                              <FeatureNumber>{idx + 1}</FeatureNumber>
-                              <FeatureText>{feature}</FeatureText>
-                            </FeatureItem>
-                          ))}
-                        </FeaturesList>
-
-                        <Highlight>
-                          {product.highlight}
-                        </Highlight>
-
-                        <div style={{ textAlign: 'center' }}>
-                          <CTAButton
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <FaRocket /> {product.cta}
-                          </CTAButton>
-                        </div>
-                      </>
-                    )}
-
-                    {product.id === 'huntercat' && (
-                      <>
-                        {product.subtitle && (
-                          <p style={{ fontSize: '1.15rem', color: '#1e3a8a', lineHeight: '1.8', marginBottom: '30px', fontWeight: '600' }}>
-                            {product.subtitle}
-                          </p>
-                        )}
-
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px' }}>
-                          How Huntercat solves your real-world problems:
-                        </h4>
-                        <FeaturesList>
-                          {product.features.map((feature, idx) => (
-                            <FeatureItem
-                              key={idx}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: idx * 0.08 }}
-                            >
-                              <FeatureNumber>{idx + 1}</FeatureNumber>
-                              <FeatureText>{feature}</FeatureText>
-                            </FeatureItem>
-                          ))}
-                        </FeaturesList>
-
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px', marginTop: '40px' }}>
-                          How Huntercat Benefits Your Organization:
-                        </h4>
-                        <FeaturesList>
-                          {product.benefits.map((benefit, idx) => (
-                            <FeatureItem
-                              key={idx}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: idx * 0.08 }}
-                            >
-                              <FeatureNumber>{idx + 1}</FeatureNumber>
-                              <FeatureText>{benefit}</FeatureText>
-                            </FeatureItem>
-                          ))}
-                        </FeaturesList>
-
-                        <Highlight>
-                          {product.highlight}
-                        </Highlight>
-
-                        <div style={{ textAlign: 'center' }}>
-                          <CTAButton
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <FaRocket /> {product.cta}
-                          </CTAButton>
-                        </div>
-                      </>
-                    )}
-
-                    {(product.id === 'vrma' || product.id === 'sunshine' || product.id === 'blacknet') && (
-                      <>
-                        {product.subtitle && (
-                          <p style={{ fontSize: '1.15rem', color: '#1e3a8a', lineHeight: '1.8', marginBottom: '30px', fontWeight: '600' }}>
-                            {product.subtitle}
-                          </p>
-                        )}
-
-                        <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px' }}>
-                          {product.id === 'vrma' ? 'V.R.M.A empowers you to:' : product.id === 'blacknet' ? 'Key Features:' : 'Key Features:'}
-                        </h4>
-                        <FeaturesList>
-                          {product.features.map((feature, idx) => (
-                            <FeatureItem
-                              key={idx}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: idx * 0.08 }}
-                            >
-                              <FeatureNumber>{idx + 1}</FeatureNumber>
-                              <FeatureText>{feature}</FeatureText>
-                            </FeatureItem>
-                          ))}
-                        </FeaturesList>
-
-                        {product.benefits && (
-                          <>
-                            <h4 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#1e3a8a', marginBottom: '20px', marginTop: '40px' }}>
-                              {product.id === 'vrma' ? 'Benefits of V.R.M.A:' : 'Benefits:'}
-                            </h4>
-                            <FeaturesList>
-                              {product.benefits.map((benefit, idx) => (
-                                <FeatureItem
-                                  key={idx}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: idx * 0.08 }}
-                                >
-                                  <FeatureNumber>{idx + 1}</FeatureNumber>
-                                  <FeatureText>{benefit}</FeatureText>
-                                </FeatureItem>
-                              ))}
-                            </FeaturesList>
-                          </>
-                        )}
-
-                        <Highlight>
-                          {product.highlight}
-                        </Highlight>
-
-                        <div style={{ textAlign: 'center' }}>
-                          <p style={{ fontSize: '1.15rem', color: '#64748b', lineHeight: '1.8', marginBottom: '24px', fontWeight: '500' }}>
-                            {product.cta}
-                          </p>
-                          <CTAButton
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <FaRocket /> Request a Demo
-                          </CTAButton>
-                        </div>
-                      </>
-                    )}
-                  </FAQContent>
-                )}
-              </AnimatePresence>
-            </FAQItem>
+              <ProductIcon $active={selectedProduct === index}>
+                {product.icon}
+              </ProductIcon>
+              <ProductTitleText>{product.title}</ProductTitleText>
+            </ProductItem>
           ))}
-        </FAQContainer>
+        </MobileSidebar>
+
+        <ProductsLayout>
+          <Sidebar>
+            {products.map((product, index) => (
+              <ProductItem
+                key={product.id}
+                $active={selectedProduct === index}
+                onClick={() => setSelectedProduct(index)}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <ProductIcon $active={selectedProduct === index}>
+                  {product.icon}
+                </ProductIcon>
+                <ProductTitleText>{product.title}</ProductTitleText>
+              </ProductItem>
+            ))}
+          </Sidebar>
+
+          <ContentArea
+            key={selectedProduct}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <ContentTitle>{products[selectedProduct].title}</ContentTitle>
+            {renderProductContent(products[selectedProduct])}
+          </ContentArea>
+        </ProductsLayout>
       </FAQSection>
     </PageContainer>
   );
 };
 
 export default CyberSecurityProducts;
-
-

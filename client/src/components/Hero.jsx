@@ -17,7 +17,7 @@ const HeroContainer = styled.section`
   min-height: 90vh;
   display: flex;
   align-items: center;
-  background: url('/insurtech/Background/homepage.webp') center/cover no-repeat;
+  background: url('/insurtech/hero/hero_1.webp') center/cover no-repeat;
   padding: 140px 0 100px;
   position: relative;
   overflow: hidden;
@@ -32,7 +32,7 @@ const HeroContainer = styled.section`
     left: -50px;
     right: -50px;
     bottom: -50px;
-    background: url('/insurtech/Background/homepage.webp') center/cover no-repeat;
+    background: url('/insurtech/hero/hero_1.webp') center/cover no-repeat;
     z-index: -1;
   }
 
@@ -150,7 +150,11 @@ const Title = styled.h1`
   font-size: 4.5rem;
   font-weight: 400;
   line-height: 1.15;
-  color: white;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: 32px;
   font-family: 'Helvetica Neue', Arial, sans-serif;

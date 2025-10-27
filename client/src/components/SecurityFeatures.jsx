@@ -13,7 +13,7 @@ import {
 
 const FeaturesContainer = styled.section`
   padding: 24px 0 80px 0;
-  background: url('/insurtech/Background/homepage.webp') center/cover no-repeat;
+  background: url('/insurtech/hero/hero_1.webp') center/cover no-repeat;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -28,7 +28,7 @@ const FeaturesContainer = styled.section`
     left: -50px;
     right: -50px;
     bottom: -50px;
-    background: url('/insurtech/Background/homepage.webp') center/cover no-repeat;
+    background: url('/insurtech/hero/hero_1.webp') center/cover no-repeat;
     z-index: -1;
   }
 
@@ -110,7 +110,7 @@ const FeaturesGrid = styled.div`
 
 const FeatureCard = styled.div`
   background: ${props => {
-    const blueCards = [0, 2, 5, 7]; // Advanced Threat Protection, Identity & Access Management, Vulnerability Assessment, Secure Cloud Solutions
+    const blueCards = [0, 2, 5, 7]; // CRO Platform, GRC, Vulnerability Assessment, Risk Transfer
     return blueCards.includes(props.index) ? '#1e3a8a' : '#ffffff';
   }};
   color: ${props => {
@@ -226,7 +226,7 @@ const ThreatTitle = styled.h3`
 
 const ThreatDescription = styled.p`
   font-size: 1.1rem;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   opacity: 0.95;
   max-width: 800px;
   margin-left: auto;
@@ -234,6 +234,24 @@ const ThreatDescription = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    margin-bottom: 15px;
+  }
+`;
+
+const ThreatHighlight = styled.p`
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 40px;
+  opacity: 1;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
     margin-bottom: 30px;
   }
 `;
@@ -293,47 +311,48 @@ const ThreatValue = styled.div`
   }
 `;
 
+
 const SecurityFeatures = () => {
   const features = [
     {
       icon: <FaShieldAlt />,
-      title: 'Advanced Threat Protection',
-      description: 'AI-powered detection and prevention of sophisticated cyber threats and zero-day attacks'
+      title: 'CRO Platform',
+      description: 'Cyber Risk Quantification prevention for informed decision making'
     },
     {
       icon: <FaLock />,
-      title: 'Data Encryption',
-      description: 'Military-grade encryption for data at rest and in transit across all your systems'
+      title: 'vCISO',
+      description: 'Virtual CISO leadership and guidance'
     },
     {
       icon: <FaUserShield />,
-      title: 'Identity & Access Management',
-      description: 'Multi-factor authentication and role-based access control for enhanced security'
+      title: 'GRC',
+      description: 'Governance, Risk & Compliance frameworks'
     },
     {
       icon: <FaServer />,
-      title: 'Infrastructure Security',
-      description: 'Comprehensive protection for cloud, on-premise, and hybrid infrastructure'
+      title: 'OT Security',
+      description: 'Protecting Operational Technology environments'
     },
     {
       icon: <FaChartLine />,
-      title: 'Real-time Monitoring',
-      description: '24/7 security monitoring with instant alerts and automated incident response'
+      title: 'Risk Management',
+      description: 'Identify assess, and mitigate cyber risks'
     },
     {
       icon: <FaExclamationTriangle />,
       title: 'Vulnerability Assessment',
-      description: 'Continuous scanning and assessment to identify and remediate security gaps'
+      description: 'Identify assess, and mitigate cyber risks'
     },
     {
       icon: <FaCheckCircle />,
-      title: 'Compliance Management',
-      description: 'Ensure compliance with industry standards like GDPR, ISO 27001, and SOC 2'
+      title: 'Compliance',
+      description: 'Cyber insapllance with industry prizentorns'
     },
     {
-      icon: <FaCloudUploadAlt />,
-      title: 'Secure Cloud Solutions',
-      description: 'Cloud security architecture and management for AWS, Azure, and GCP'
+      icon: <FaShieldAlt />,
+      title: 'Risk Transfer',
+      description: 'Cyber insurance and financial proteciall'
     }
   ];
 
@@ -383,6 +402,9 @@ const SecurityFeatures = () => {
             <ThreatDescription>
               Our advanced security platform continuously monitors and protects your infrastructure against cyber threats
             </ThreatDescription>
+            <ThreatHighlight>
+              Optimized risk transfer solutions
+            </ThreatHighlight>
 
             <ThreatGrid>
               {threats.map((threat, index) => (

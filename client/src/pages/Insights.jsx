@@ -349,7 +349,7 @@ const Insights = () => {
       date: 'Jan 15, 2025',
       readTime: '8 min read',
       icon: '📊',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
+      image: '/insurtech/event/ASS_0001.webp'
     },
     {
       id: 2,
@@ -360,7 +360,7 @@ const Insights = () => {
       date: 'Jan 10, 2025',
       readTime: '10 min read',
       icon: '🔒',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80'
+      image: '/insurtech/event/ASS_0002.webp'
     },
     {
       id: 3,
@@ -371,7 +371,7 @@ const Insights = () => {
       date: 'Jan 5, 2025',
       readTime: '12 min read',
       icon: '✅',
-      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80'
+      image: '/insurtech/event/ASS_0003.webp'
     },
     {
       id: 4,
@@ -382,7 +382,7 @@ const Insights = () => {
       date: 'Dec 28, 2024',
       readTime: '7 min read',
       icon: '🚀',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80'
+      image: '/insurtech/event/ASS_0004.webp'
     },
     {
       id: 5,
@@ -393,7 +393,7 @@ const Insights = () => {
       date: 'Dec 20, 2024',
       readTime: '15 min read',
       icon: '📈',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'
+      image: '/insurtech/event/ASS_0005.webp'
     },
     {
       id: 6,
@@ -404,7 +404,7 @@ const Insights = () => {
       date: 'Dec 15, 2024',
       readTime: '9 min read',
       icon: '🕵️',
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80'
+      image: '/insurtech/event/ASS_0006.webp'
     },
     {
       id: 7,
@@ -415,7 +415,7 @@ const Insights = () => {
       date: 'Dec 10, 2024',
       readTime: '11 min read',
       icon: '🛡️',
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80'
+      image: '/insurtech/event/ASS_0007.webp'
     },
     {
       id: 8,
@@ -426,7 +426,7 @@ const Insights = () => {
       date: 'Dec 5, 2024',
       readTime: '10 min read',
       icon: '🌐',
-      image: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80'
+      image: '/insurtech/event/ASS_0008.webp'
     },
     {
       id: 9,
@@ -437,7 +437,7 @@ const Insights = () => {
       date: 'Dec 1, 2024',
       readTime: '13 min read',
       icon: '🔮',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80'
+      image: '/insurtech/event/ASS_0009.webp'
     }
   ];
 

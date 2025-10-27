@@ -10,7 +10,7 @@ const testimonials = [
     author: {
       name: "Rajesh Kumar",
       title: "Chief Information Security Officer, Tata Consultancy Services",
-      avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      avatarUrl: "/insurtech/team/ananth.webp",
     },
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     author: {
       name: "Priya Patel",
       title: "Head of IT Security, Infosys Technologies",
-      avatarUrl: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      avatarUrl: "/insurtech/team/Abi.webp",
     },
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     author: {
       name: "Dr. Amit Singh",
       title: "Director of Cybersecurity, Wipro Limited",
-      avatarUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      avatarUrl: "/insurtech/team/Dr_ravindraa.webp",
     },
   },
   {
@@ -37,7 +37,7 @@ const testimonials = [
     author: {
       name: "Kavitha Reddy",
       title: "VP of Information Security, HCL Technologies",
-      avatarUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      avatarUrl: "/insurtech/team/coo.webp",
     },
   },
   {
@@ -46,13 +46,13 @@ const testimonials = [
     author: {
       name: "Vikram Mehta",
       title: "Chief Risk Officer, Tech Mahindra",
-      avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      avatarUrl: "/insurtech/team/ananth.webp",
     },
   },
 ];
 
 const TestimonialsContainer = styled.section`
-  background: url('/insurtech/Background/homepage.webp') center/cover no-repeat;
+  background: url('/insurtech/hero/hero_1.webp') center/cover no-repeat;
   padding: 30px 0;
   position: relative;
   overflow: hidden;

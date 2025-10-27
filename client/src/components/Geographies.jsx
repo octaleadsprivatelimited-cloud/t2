@@ -81,26 +81,27 @@ const Subtitle = styled.p`
 
 const GeographyGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 35px;
-  max-width: 1100px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  max-width: 1400px;
   margin: 0 auto;
 
+  @media (max-width: 1200px) {
+    gap: 15px;
+  }
+
   @media (max-width: 968px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: nowrap;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
   }
 
   @media (max-width: 480px) {
-    gap: 8px;
+    gap: 6px;
   }
 `;
 
@@ -150,21 +151,25 @@ const GeographyCard = styled.div`
 
 const FlagContainer = styled.div`
   width: 100%;
-  height: 180px;
+  height: 150px;
   overflow: hidden;
   position: relative;
   background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     transition: transform 0.4s ease;
+    padding: 8px;
   }
 
   ${GeographyCard}:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   &::before {
@@ -175,19 +180,35 @@ const FlagContainer = styled.div`
     z-index: 1;
   }
 
+  @media (max-width: 1200px) {
+    height: 130px;
+  }
+
   @media (max-width: 768px) {
     height: 60px;
+    
+    img {
+      padding: 4px;
+    }
   }
 
   @media (max-width: 480px) {
     height: 50px;
+    
+    img {
+      padding: 3px;
+    }
   }
 `;
 
 const CountryInfo = styled.div`
-  padding: 24px 20px;
+  padding: 16px 12px;
   text-align: center;
   background: #ffffff;
+
+  @media (max-width: 1200px) {
+    padding: 14px 10px;
+  }
 
   @media (max-width: 768px) {
     padding: 6px 2px;
@@ -199,7 +220,7 @@ const CountryInfo = styled.div`
 `;
 
 const CountryName = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #1e3a8a;
   margin: 0;
@@ -210,12 +231,67 @@ const CountryName = styled.h3`
     color: #1e40af;
   }
 
+  @media (max-width: 1200px) {
+    font-size: 1rem;
+  }
+
   @media (max-width: 768px) {
     font-size: 0.65rem;
   }
 
   @media (max-width: 480px) {
     font-size: 0.55rem;
+  }
+`;
+
+const ComingSoonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 6px;
+  }
+`;
+
+const ComingSoonSection = styled.div`
+  text-align: center;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(30, 64, 175, 0.05) 100%);
+  border-radius: 8px;
+  border: 1px dashed rgba(30, 58, 138, 0.2);
+  display: inline-block;
+
+  @media (max-width: 768px) {
+    padding: 5px 12px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 4px 10px;
+  }
+`;
+
+const ComingSoonText = styled.p`
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.65rem;
+    line-height: 1.3;
   }
 `;
 
@@ -236,6 +312,10 @@ const Geographies = () => {
     {
       name: 'Sri Lanka',
       flag: 'https://flagcdn.com/w640/lk.png'
+    },
+    {
+      name: 'KSA',
+      flag: 'https://flagcdn.com/w640/sa.png'
     }
   ];
 
@@ -267,6 +347,14 @@ const Geographies = () => {
             </GeographyCard>
           ))}
         </GeographyGrid>
+
+        <ComingSoonWrapper>
+          <ComingSoonSection>
+            <ComingSoonText>
+              Coming Soon in South East Asia, NA & Europe
+            </ComingSoonText>
+          </ComingSoonSection>
+        </ComingSoonWrapper>
       </Container>
     </GeographiesContainer>
   );
