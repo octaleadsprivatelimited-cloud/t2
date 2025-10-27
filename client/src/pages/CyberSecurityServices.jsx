@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaUserShield, FaRocket, FaLaptopCode, FaServer, FaSearch, FaCheckCircle, FaArrowRight, FaShieldAlt, FaLock, FaNetworkWired
+  FaUserShield, FaRocket, FaLaptopCode, FaServer, FaSearch, FaCheckCircle, FaArrowRight, FaShieldAlt, FaLock, FaNetworkWired, FaBars, FaTimes
 } from 'react-icons/fa';
 
 const float = keyframes`
@@ -231,16 +231,15 @@ const Tab = styled.button`
 `;
 
 const TabContent = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 60px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 
   @media (max-width: 768px) {
-    padding: 40px 25px;
-    border-radius: 20px;
+    padding: 30px 20px;
+    border-radius: 16px;
   }
 `;
 
@@ -273,10 +272,10 @@ const ContentIcon = styled.div`
 const ContentTitle = styled.h2`
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #0f172a;
   margin-bottom: 20px;
   letter-spacing: -1px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   @media (max-width: 768px) {
     font-size: 2rem;
@@ -285,7 +284,7 @@ const ContentTitle = styled.h2`
 
 const ContentDescription = styled.p`
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: #64748b;
   line-height: 1.8;
   max-width: 900px;
   margin: 0 auto;
@@ -310,9 +309,9 @@ const SectionHeader = styled.div`
 const SectionTitle = styled.h3`
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #0f172a;
   margin-bottom: 12px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   @media (max-width: 768px) {
     font-size: 1.7rem;
@@ -321,7 +320,7 @@ const SectionTitle = styled.h3`
 
 const SectionSubtitle = styled.p`
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   margin-top: 8px;
 
   @media (max-width: 768px) {
@@ -342,17 +341,16 @@ const MethodologyGrid = styled.div`
 
 const MethodologyCard = styled(motion.div)`
   padding: 30px 28px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 16px;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(30, 58, 138, 0.4);
-    box-shadow: 0 12px 32px rgba(30, 58, 138, 0.2);
-    transform: translateY(-6px);
+    background: #ffffff;
+    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+    transform: translateY(-4px);
   }
 `;
 
@@ -360,7 +358,7 @@ const CardNumber = styled.div`
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -368,15 +366,15 @@ const CardNumber = styled.div`
   font-weight: 700;
   color: white;
   margin-bottom: 20px;
-  box-shadow: 0 6px 16px rgba(30, 58, 138, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 `;
 
 const CardTitle = styled.h4`
   font-size: 1.2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #0f172a;
   margin-bottom: 12px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   @media (max-width: 768px) {
     font-size: 1.1rem;
@@ -385,7 +383,7 @@ const CardTitle = styled.h4`
 
 const CardDescription = styled.p`
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #64748b;
   line-height: 1.7;
   margin: 0;
 
@@ -424,15 +422,15 @@ const BenefitCard = styled(motion.div)`
   align-items: flex-start;
   gap: 18px;
   padding: 28px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 16px;
   transition: all 0.3s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(30, 58, 138, 0.4);
-    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.2);
+    background: #ffffff;
+    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
     transform: translateY(-4px);
   }
 `;
@@ -441,14 +439,14 @@ const BenefitIcon = styled.div`
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   color: white;
   font-size: 1.3rem;
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 `;
 
 const BenefitText = styled.div`
@@ -458,10 +456,10 @@ const BenefitText = styled.div`
 const BenefitTitle = styled.h5`
   font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0 0 6px 0;
   line-height: 1.4;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   @media (max-width: 768px) {
     font-size: 1.05rem;
@@ -470,7 +468,7 @@ const BenefitTitle = styled.h5`
 
 const BenefitDescription = styled.p`
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   margin: 0;
   line-height: 1.6;
 
@@ -574,8 +572,184 @@ const CTAButton = styled.button`
   }
 `;
 
+const ServicesLayout = styled.div`
+  display: flex;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+const Sidebar = styled.div`
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+
+  @media (max-width: 968px) {
+    flex: 1;
+    width: 100%;
+  }
+`;
+
+const ServiceItem = styled(motion.button)`
+  background: ${props => props.$active 
+    ? 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' 
+    : 'transparent'};
+  color: ${props => props.$active ? 'white' : '#64748b'};
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: ${props => props.$active ? '3px' : '0'};
+    height: 20px;
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 0 3px 3px 0;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    background: ${props => props.$active 
+      ? 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)' 
+      : 'rgba(37, 99, 235, 0.08)'};
+    color: ${props => props.$active ? 'white' : '#2563eb'};
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 968px) {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+`;
+
+const ServiceIcon = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: ${props => props.$active 
+    ? 'rgba(255, 255, 255, 0.2)' 
+    : 'rgba(37, 99, 235, 0.1)'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: ${props => props.$active ? 'white' : '#2563eb'};
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+`;
+
+const ServiceTitleText = styled.span`
+  flex: 1;
+  letter-spacing: -0.1px;
+`;
+
+const ContentAreaWrapper = styled(motion.div)`
+  flex: 1;
+`;
+
+const MobileMenuButton = styled.button`
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+  }
+
+  @media (max-width: 968px) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+`;
+
+const MobileOverlay = styled(motion.div)`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  display: none;
+
+  @media (max-width: 968px) {
+    display: ${props => props.$open ? 'block' : 'none'};
+  }
+`;
+
+const MobileSidebar = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  background: white;
+  z-index: 1000;
+  padding: 80px 20px 20px;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
+  display: none;
+
+  @media (max-width: 968px) {
+    display: block;
+  }
+`;
+
+const MobileCloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 1.2rem;
+  color: #495057;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const CyberSecurityServices = () => {
   const [activeTab, setActiveTab] = useState('red-team');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const services = [
     {
@@ -707,29 +881,77 @@ const CyberSecurityServices = () => {
         </HeroContent>
       </HeroSection>
 
-      <TabsContainer>
-        <TabsHeader>
-          {services.map((service) => (
-            <Tab
-              key={service.id}
-              active={activeTab === service.id}
-              onClick={() => setActiveTab(service.id)}
-            >
-              {service.icon}
-              {service.title}
-            </Tab>
-          ))}
-        </TabsHeader>
+      <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+        <FaBars /> Menu
+      </MobileMenuButton>
 
-        <AnimatePresence mode="wait">
-          {currentService && (
-            <TabContent
-              key={currentService.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+      <MobileOverlay 
+        $open={mobileMenuOpen}
+        onClick={() => setMobileMenuOpen(false)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
+      />
+
+      <MobileSidebar
+        initial={{ x: -320 }}
+        animate={{ x: mobileMenuOpen ? 0 : -320 }}
+        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+      >
+        <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+          <FaTimes />
+        </MobileCloseButton>
+        {services.map((service) => (
+          <ServiceItem
+            key={service.id}
+            $active={activeTab === service.id}
+            onClick={() => {
+              setActiveTab(service.id);
+              setMobileMenuOpen(false);
+            }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <ServiceIcon $active={activeTab === service.id}>
+              {service.icon}
+            </ServiceIcon>
+            <ServiceTitleText>{service.title}</ServiceTitleText>
+          </ServiceItem>
+        ))}
+      </MobileSidebar>
+
+      <ServicesLayout>
+        <Sidebar>
+          {services.map((service, index) => (
+            <ServiceItem
+              key={service.id}
+              $active={activeTab === service.id}
+              onClick={() => setActiveTab(service.id)}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
+              <ServiceIcon $active={activeTab === service.id}>
+                {service.icon}
+              </ServiceIcon>
+              <ServiceTitleText>{service.title}</ServiceTitleText>
+            </ServiceItem>
+          ))}
+        </Sidebar>
+
+        <ContentAreaWrapper>
+          <AnimatePresence mode="wait">
+            {currentService && (
+              <TabContent
+                key={currentService.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
               <ContentHeader>
                 <ContentIcon>{currentService.icon}</ContentIcon>
                 <ContentTitle>{currentService.fullTitle}</ContentTitle>
@@ -793,7 +1015,8 @@ const CyberSecurityServices = () => {
             </TabContent>
           )}
         </AnimatePresence>
-      </TabsContainer>
+        </ContentAreaWrapper>
+      </ServicesLayout>
     </PageContainer>
   );
 };
