@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "framework": null,
-  "installCommand": "cd client && npm install",
-  "buildCommand": "cd client && npm run build",
+  "framework": "vite",
+  "builds": [
+    { "src": "client/package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
+  ],
+  "installCommand": "npm --prefix client install",
+  "buildCommand": "npm --prefix client run build",
   "outputDirectory": "client/dist",
   "env": {
     "NODE_ENV": "production"
