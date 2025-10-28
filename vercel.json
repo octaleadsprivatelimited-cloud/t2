@@ -6,6 +6,8 @@
   "outputDirectory": "client/dist",
   "routes": [
     { "src": "/insurtech/(.*)", "dest": "/insurtech/$1" },
+    { "src": "/manifest.json", "dest": "/manifest.json" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
