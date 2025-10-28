@@ -44,7 +44,15 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Serve static files from React build
-app.use(express.static(path.join(__dirname, '../client/dist')));
+const staticPath = path.join(__dirname, '../client/dist');
+console.log('Static path:', staticPath);
+console.log('Static path exists:', require('fs').existsSync(staticPath));
+
+if (require('fs').existsSync(staticPath)) {
+  app.use(express.static(staticPath));
+} else {
+  console.error('Static path does not exist:', staticPath);
+}
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
@@ -117,7 +125,20 @@ app.use('/api/*', (req, res) => {
 
 // SPA fallback - serve index.html for all non-API routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  const indexPath = path.join(__dirname, '../client/dist/index.html');
+  console.log('Serving SPA for:', req.path);
+  console.log('Index path:', indexPath);
+  console.log('Index exists:', require('fs').existsSync(indexPath));
+  
+  if (require('fs').existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    console.error('Index.html not found at:', indexPath);
+    res.status(500).json({
+      error: 'Build Error',
+      message: 'React build not found. Please ensure the build completed successfully.'
+    });
+  }
 });
 
 // Error handling middleware (must be last)
