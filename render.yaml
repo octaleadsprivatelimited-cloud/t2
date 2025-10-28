@@ -3,13 +3,12 @@ services:
     name: transasia-platform
     env: node
     plan: free
-    buildCommand: npm run build
+    buildCommand: npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
         value: 22
-      - key: PORT
-        value: 10000
+      # Render sets PORT automatically; our server reads process.env.PORT
     healthCheckPath: /api/health
