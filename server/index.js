@@ -36,9 +36,7 @@ app.use('/api/', limiter);
 // Middleware
 app.use(compression());
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://cybersecure-platform.com', 'https://www.cybersecure-platform.com']
-    : ['http://localhost:3000', 'http://localhost:3007'],
+  origin: (origin, callback) => callback(null, true),
   credentials: true
 }));
 app.use(morgan('combined'));
@@ -109,18 +107,26 @@ app.get('/sitemap.xml', (req, res) => {
   res.send(sitemap);
 });
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({
-    error: 'Something went wrong!',
-    message: process.env.NODE_ENV === 'development' ? err.message : 'Internal server error'
+// API 404 handler
+app.use('/api/*', (req, res) => {
+  res.status(404).json({
+    error: 'Not Found',
+    message: 'The requested API resource was not found'
   });
 });
 
 // SPA fallback - serve index.html for all non-API routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+// Error handling middleware (must be last)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    error: 'Something went wrong!',
+    message: process.env.NODE_ENV === 'development' ? err.message : 'Internal server error'
+  });
 });
 
 // Start server
