@@ -56,6 +56,15 @@ const TestimonialsContainer = styled.section`
   padding: 30px 0;
   position: relative;
   overflow: hidden;
+
+  /* Dark overlay for better text readability */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
 `;
 
 const Container = styled.div`
@@ -78,9 +87,10 @@ const SectionHeader = styled.div`
 const SectionTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1e3a8a;
+  color: #ffffff;
   margin-bottom: 8px;
   font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
     font-size: 1.4rem;
@@ -89,10 +99,11 @@ const SectionTitle = styled.h2`
 
 const SectionSubtitle = styled.p`
   font-size: 0.9rem;
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.9);
   max-width: 400px;
   margin: 0 auto;
   line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 `;
 
 const TestimonialWrapper = styled.div`

@@ -372,9 +372,6 @@ const Header = () => {
   return (
     <HeaderContainer
       $scrolled={isScrolled}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
     >
         <NavContainer>
           <Logo to="/">
@@ -385,8 +382,8 @@ const Header = () => {
           <NavLink to="/" onClick={closeMenu}>Home</NavLink>
           <NavLink to="/insurtech" onClick={closeMenu}>Insurtech</NavLink>
           <NavLink to="/products" onClick={closeMenu}>Products</NavLink>
-          <NavLink to="/consulting" onClick={closeMenu}>Consulting</NavLink>
           <NavLink to="/services" onClick={closeMenu}>Services</NavLink>
+          <NavLink to="/consulting" onClick={closeMenu}>Consulting</NavLink>
 
           <Dropdown 
             $open={activeMenu === 'company'}

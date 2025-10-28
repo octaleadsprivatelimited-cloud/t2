@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FaLinkedin, FaFacebook, FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt, FaChevronDown } from 'react-icons/fa';
 
 const FooterContainer = styled.footer`
-  background: url('/insurtech/hero/hero_1.webp') center top/cover no-repeat;
+  background: url('/insurtech/hero/footer.svg') center top/cover no-repeat;
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -17,19 +17,8 @@ const FooterContainer = styled.footer`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    z-index: 2;
   }
 `;
 
@@ -150,94 +139,43 @@ const ContactInfo = styled.div`
 `;
 
 const AddressSection = styled.div`
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  border-left: 3px solid rgba(255, 255, 255, 0.2);
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 0;
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   @media (max-width: 768px) {
-    padding: 10px;
+    padding: 16px;
   }
 `;
 
-const ChennaiOffice = styled(AddressSection)`
-  background-image: url('/insurtech/hero/hero_1.webp');
-  
-  @media (max-width: 768px) {
-    background-image: url('/insurtech/hero/hero_1.webp');
-  }
-`;
+const ChennaiOffice = styled(AddressSection)``;
 
-const HyderabadOffice = styled(AddressSection)`
-  background-image: url('/insurtech/hero/worldmap.webp');
-  
-  @media (max-width: 768px) {
-    background-image: url('/insurtech/hero/worldmap.webp');
-  }
-`;
+const HyderabadOffice = styled(AddressSection)``;
 
 const AddressTitle = styled.h5`
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 8px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  svg {
-    color: #10b981;
-    font-size: 0.85rem;
-  }
+  margin: 0 0 12px 0;
 
   @media (max-width: 768px) {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 `;
 
 const ContactItem = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
   margin-bottom: 10px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
+  line-height: 1.6;
 
   &:last-child {
     margin-bottom: 0;
   }
 
-  svg {
-    color: #ffffff;
-    font-size: 0.9rem;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-
   span {
-    flex: 1;
+    display: block;
   }
 
   a {
@@ -565,23 +503,15 @@ const Footer = () => {
             
             <ContactInfo>
               <ChennaiOffice>
-                <AddressTitle>
-                  <FaMapMarkerAlt />
-                  Chennai Office
-                </AddressTitle>
+                <AddressTitle>Chennai Office</AddressTitle>
                 <ContactItem>
-                  <FaMapMarkerAlt />
                   <span>93, 49 Harrington Road, Chennai, Tamil Nadu 600030</span>
                 </ContactItem>
               </ChennaiOffice>
 
               <HyderabadOffice>
-                <AddressTitle>
-                  <FaMapMarkerAlt />
-                  Hyderabad Office
-                </AddressTitle>
+                <AddressTitle>Hyderabad Office</AddressTitle>
                 <ContactItem>
-                  <FaMapMarkerAlt />
                   <span>T-hub Phase-2, Hyderabad, Telangana 500081</span>
                 </ContactItem>
               </HyderabadOffice>

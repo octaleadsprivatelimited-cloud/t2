@@ -9,6 +9,11 @@ const float = keyframes`
   50% { transform: translateY(-20px); }
 `;
 
+const rotate = keyframes`
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+`;
+
 const pulse = keyframes`
   0%, 100% { opacity: 0.5; }
   50% { opacity: 0.8; }
@@ -24,23 +29,46 @@ const HeroSection = styled.section`
   min-height: 90vh;
   display: flex;
   align-items: center;
-  background: url('/insurtech/hero/hero_1.webp') center/cover no-repeat;
+  background: #ffffff;
   padding: 140px 0 100px;
   position: relative;
   overflow: hidden;
 
-  /* Dark overlay for better text readability */
+  /* Cybersecurity grid pattern */
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(30, 58, 138, 0.7);
+    background-image: 
+      linear-gradient(rgba(30, 58, 138, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 58, 138, 0.12) 1px, transparent 1px);
+    background-size: 50px 50px;
     z-index: 0;
   }
 
+  &::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(30, 64, 175, 0.1) 0%, transparent 50%);
+    animation: ${rotate} 30s linear infinite;
+    z-index: 2;
+    pointer-events: none;
+  }
+
   @media (max-width: 768px) {
-    min-height: 75vh;
-    padding: 120px 0 80px;
+    min-height: 80vh;
+    padding: 150px 20px 80px;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 70vh;
+    padding: 120px 20px 60px;
   }
 `;
 
@@ -87,56 +115,47 @@ const AccentLine = styled.div`
 `;
 
 const HeroContent = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 80px;
-  width: 100%;
-  position: relative;
-  z-index: 1;
   text-align: center;
-
-  @media (max-width: 1024px) {
-    padding: 0 60px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 30px;
-  }
+  position: relative;
+  z-index: 2;
 `;
 
-const Title = styled.h1`
-  font-size: 4.5rem;
-  font-weight: 400;
-  color: #ffffff;
-  margin-bottom: 32px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+const Title = styled(motion.h1)`
+  font-size: 4rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 24px;
+  line-height: 1.2;
   letter-spacing: -1px;
-  line-height: 1.15;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
-  @media (max-width: 1200px) {
-    font-size: 3.8rem;
+  span {
+    display: block;
+    font-weight: 300;
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #1e3a8a 0%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 8px;
   }
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
-    margin-bottom: 24px;
+    
+    span {
+      font-size: 2.2rem;
+    }
   }
 `;
 
-const Subtitle = styled.p`
-  font-size: 1.35rem;
-  color: rgba(255, 255, 255, 0.9);
+const Subtitle = styled(motion.p)`
+  font-size: 1.3rem;
+  color: #64748b;
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.7;
-  font-weight: 300;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
-  @media (max-width: 768px) {
-    font-size: 1.15rem;
-  }
 `;
 
 const Section = styled.section`
@@ -430,21 +449,20 @@ const PressRelease = () => {
   return (
     <PageContainer>
       <HeroSection>
-        {/* Cybersecurity Background Elements */}
-        <SecurityIcon size="5rem" duration="8s" delay="0s">
-          <FaShieldAlt />
-        </SecurityIcon>
-        <SecurityIcon size="4rem" duration="7s" delay="1s">
-          <FaLock />
-        </SecurityIcon>
-        <SecurityIcon size="3.5rem" duration="9s" delay="2s">
-          <FaNetworkWired />
-        </SecurityIcon>
-        <AccentLine />
-        
         <HeroContent>
-          <Title>Press & Media</Title>
-          <Subtitle>
+          <Title
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Press & Media
+            <span>Latest News & Coverage</span>
+          </Title>
+          <Subtitle
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Latest news, announcements, and media coverage from TransAsia Technologies
           </Subtitle>
         </HeroContent>

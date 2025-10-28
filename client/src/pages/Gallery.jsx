@@ -21,11 +21,11 @@ const PageContainer = styled.div`
 `;
 
 const HeroSection = styled.section`
-  min-height: 90vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   background: #ffffff;
-  padding: 140px 0 100px;
+  padding: 100px 0 60px;
   position: relative;
   overflow: hidden;
 
@@ -42,8 +42,8 @@ const HeroSection = styled.section`
   }
 
   @media (max-width: 768px) {
-    min-height: 75vh;
-    padding: 120px 0 80px;
+    min-height: 50vh;
+    padding: 80px 0 50px;
   }
 `;
 
@@ -629,11 +629,6 @@ const Gallery = () => {
       </HeroSection>
 
       <Section>
-        <SectionHeader>
-          <SectionTitle>Our Events</SectionTitle>
-          <SectionSubtitle>Celebrating milestones and building connections</SectionSubtitle>
-        </SectionHeader>
-
         <GalleryGrid>
           {events.map((event, index) => (
             <GalleryCard

@@ -13,7 +13,7 @@ import {
 
 const FeaturesContainer = styled.section`
   padding: 24px 0 80px 0;
-  background: url('/insurtech/hero/hero_1.webp') center/cover no-repeat;
+  background: url('/insurtech/hero-sev.svg') center/cover no-repeat;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -28,7 +28,7 @@ const FeaturesContainer = styled.section`
     left: -50px;
     right: -50px;
     bottom: -50px;
-    background: url('/insurtech/hero/hero_1.webp') center/cover no-repeat;
+    background: url('/insurtech/hero-sev.svg') center/cover no-repeat;
     z-index: -1;
   }
 
@@ -71,9 +71,12 @@ const SectionHeader = styled.div`
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1e3a8a;
+  color: #ffffff;
   margin-bottom: 12px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 768px) {
     font-size: 2rem;

@@ -475,30 +475,32 @@ const TeamProfile = () => {
     },
     'coo': {
       id: 'coo',
-      fullName: 'Chief Operating Officer',
-      jobTitle: 'COO',
+      fullName: 'Vijayanand Subramaniam',
+      jobTitle: 'Chief Operating Officer',
       department: 'Operations',
       image: '/insurtech/team/coo.webp',
-      bio: 'Operations excellence leader driving organizational growth and client success. Expert in scaling security service operations and process optimization.',
-      specialization: 'Operations management, process optimization, client success',
+      bio: '27 years of rich cross-functional expertise in Banking Operations, Core Banking technology, Risk Management, Cyber Security, Product Development, and Data Privacy. Leading a Cyber Security & Insurtech firm focused on risk management and building organizational cyber resilience. Pioneering Insurtech & Cybersecurity Solutions: Developed innovative products to address ransomware, catastrophic cyber risks, and their financial impact. Providing visibility to Board of Directors and C-level executives. CYBERCAT™ a globally recognized non-linear model for cyber risk quantification in 2017 and CASUALTYCAT™ for quantifying management level risk has been one of the major contributions in the digital space. Proven track record in building cyber maturity levels and enabling risk transfer across diverse industries. He has also contributed towards large scale cyber assessments of Critical infrastructure. Vijayanand has successfully delivered major IT projects for leading public sector undertakings, foreign banks, and IT giants (Infosys, Oracle Financial services, Scope Inti, Bahraini Saudi Bank, First International Merchant Bank, Bank of India & BOB Mauritius).',
+      specialization: 'Banking Operations, Core Banking Technology, Risk Management, Cyber Security, Product Development, Data Privacy',
       skills: [
-        { category: 'Technical Skills', items: ['Operations Management', 'Process Optimization', 'Client Success', 'Team Leadership'] },
-        { category: 'Responsibilities', items: ['Operations Excellence', 'Client Relations', 'Service Delivery', 'Team Management'] },
-        { category: 'Certifications', items: ['PMP', 'ITIL', 'Six Sigma Black Belt'] }
+        { category: 'Technical Skills', items: ['Banking Operations', 'Core Banking Technology', 'Risk Management', 'Cyber Security', 'Product Development', 'Data Privacy'] },
+        { category: 'Key Contributions', items: ['CYBERCAT™ Development (2017)', 'CASUALTYCAT™ Development', 'Critical Infrastructure Assessments', 'Board & C-level Visibility'] },
+        { category: 'Industry Experience', items: ['Infosys', 'Oracle Financial Services', 'Scope Inti', 'Bahraini Saudi Bank', 'First International Merchant Bank', 'Bank of India', 'BOB Mauritius'] }
       ],
       achievements: [
-        { number: '99%', text: 'Client Satisfaction' },
-        { number: '10+', text: 'Years Operations Experience' },
-        { number: '500+', text: 'Projects Delivered' }
+        { number: '27+', text: 'Years Experience' },
+        { number: '2017', text: 'CYBERCAT™ Launch' },
+        { number: 'Global', text: 'Recognition' }
       ],
       workRegion: 'Chennai, India',
-      email: 'coo@transasia.com',
+      email: 'vijayanand@transasia.com',
       phone: '+91 123 456 7893',
-      linkedin: 'https://linkedin.com/in/coo',
+      linkedin: 'https://linkedin.com/in/vijayanand-subramaniam',
       education: [
-        'MBA in Operations Management',
-        'B.Tech in Computer Science',
-        'Advanced Project Management'
+        'Advanced Banking Operations',
+        'Core Banking Technology',
+        'Risk Management Certification',
+        'Cyber Security Specialization',
+        'Data Privacy Compliance'
       ],
       languages: ['English', 'Tamil', 'Hindi']
     }
