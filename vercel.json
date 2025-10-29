@@ -4,6 +4,10 @@
   "framework": "vite",
   "installCommand": "npm --prefix client install",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html",
+      "missing": [ { "type": "file" } ]
+    }
   ]
 }
