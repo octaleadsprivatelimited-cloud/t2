@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 const HeaderContainer = styled(motion.header)`
   position: fixed;
@@ -373,12 +373,38 @@ const MobileContact = styled.div`
 const ContactRow = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  a {
-    color: #0f172a;
-    text-decoration: none;
-    font-size: 13px;
+  gap: 8px;
+`;
+
+const ContactActions = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+`;
+
+const ContactButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: background 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background: #eff6ff;
   }
+
+  &:active {
+    transform: translateY(1px);
+  }
+`;
 `;
 
 const ContactDivider = styled.div`
@@ -517,8 +543,17 @@ const Header = () => {
           <MobileContact>
             <ContactDivider />
             <ContactRow>
-              <a href="mailto:info@transasiatec.com">info@transasiatec.com</a>
-              <a href="tel:+919000000000">+91 90000 00000</a>
+              <ContactActions>
+                <ContactButton href="mailto:info@transasiatec.com" aria-label="Email">
+                  <FaEnvelope /> Email
+                </ContactButton>
+                <ContactButton href="tel:+919000000000" aria-label="Call">
+                  <FaPhone /> Call
+                </ContactButton>
+              </ContactActions>
+              <div style={{ fontSize: '12px', color: '#64748b', padding: '0 2px' }}>
+                info@transasiatec.com • +91 90000 00000
+              </div>
             </ContactRow>
           </MobileContact>
         </NavMenu>
