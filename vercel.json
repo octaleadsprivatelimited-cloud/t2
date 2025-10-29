@@ -3,11 +3,8 @@
   "outputDirectory": "client/dist",
   "framework": "vite",
   "installCommand": "npm --prefix client install",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html",
-      "missing": [ { "type": "file" } ]
-    }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }
