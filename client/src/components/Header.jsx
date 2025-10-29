@@ -91,17 +91,17 @@ const NavMenu = styled(motion.nav)`
     bottom: auto;
     height: auto;
     width: 100vw;
-    background: linear-gradient(180deg, #0b1220 0%, #172032 100%);
-    backdrop-filter: blur(20px);
+    background: #ffffff;
+    backdrop-filter: none;
     flex-direction: column;
     align-items: flex-start;
-    padding: 18px 16px 20px;
+    padding: 12px 16px 14px;
     gap: 12px;
     transform: translateY(-110%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: transform 0.28s ease, opacity 0.2s ease, visibility 0.2s ease;
+    transition: transform 0.24s ease, opacity 0.2s ease, visibility 0.2s ease;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 999;
@@ -109,7 +109,8 @@ const NavMenu = styled(motion.nav)`
     margin-right: 0;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    border-bottom: 1px solid #e5e7eb;
 
     &.active {
       transform: translateY(0);
@@ -166,15 +167,15 @@ const NavLink = styled(Link)`
   }
 
   @media (max-width: 968px) {
-    color: #ffffff;
-    font-size: 17px;
-    padding: 14px 2px;
+    color: #0f172a;
+    font-size: 16px;
+    padding: 14px 0;
     width: 100%;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid #e5e7eb;
 
     &:hover {
-      color: #c7d7ff;
+      color: #1e3a8a;
     }
 
     &::after {
@@ -201,9 +202,9 @@ const CompanyDropdown = styled(motion.div)`
 
   @media (max-width: 968px) {
     position: static;
-    background: rgba(255, 255, 255, 0.045);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     min-width: auto;
     opacity: 1;
     visibility: visible;
@@ -211,7 +212,7 @@ const CompanyDropdown = styled(motion.div)`
     pointer-events: auto;
     overflow: hidden;
     border-radius: 12px;
-    margin-top: 6px;
+    margin-top: 8px;
     max-height: ${props => props.$open ? '460px' : '0'};
     transition: max-height 0.25s ease;
   }
@@ -243,7 +244,7 @@ const CompanyList = styled.div`
   flex-direction: column;
 
   @media (max-width: 968px) {
-    padding: 6px 10px;
+    padding: 4px 8px;
     background: transparent;
     border-radius: 8px;
     margin-top: 8px;
@@ -284,24 +285,24 @@ const CompanyItem = styled(Link)`
   }
 
   @media (max-width: 968px) {
-    color: #ffffff;
-    padding: 14px 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.04);
-    margin-bottom: 8px;
+    color: #0f172a;
+    padding: 14px 8px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    margin-bottom: 0;
 
     &::before {
       display: none;
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: #3b82f6;
+      background: #f8fafc;
+      color: #1e3a8a;
     }
 
     &:active {
-      background: rgba(255, 255, 255, 0.16);
+      background: #eff6ff;
     }
   }
 `;
@@ -386,8 +387,8 @@ const MobileOverlay = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(2, 6, 23, 0.4);
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: none;
     opacity: ${props => props.$open ? 1 : 0};
     visibility: ${props => props.$open ? 'visible' : 'hidden'};
     pointer-events: ${props => props.$open ? 'auto' : 'none'};
