@@ -172,7 +172,7 @@ const NavLink = styled(Link)`
     padding: 8px 0;
     width: 100%;
     justify-content: space-between;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: none;
 
     &:hover {
       color: #1e3a8a;
