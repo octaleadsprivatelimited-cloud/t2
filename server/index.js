@@ -49,6 +49,12 @@ if (require('fs').existsSync(staticPath)) {
   app.use(express.static(staticPath));
 }
 
+// Always serve public assets for absolute paths like /insurtech/*
+const publicAssetsPath = path.join(__dirname, '../client/public');
+if (require('fs').existsSync(publicAssetsPath)) {
+  app.use('/insurtech', express.static(path.join(publicAssetsPath, 'insurtech')));
+}
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/demo', require('./routes/demo'));
