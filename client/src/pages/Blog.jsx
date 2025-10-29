@@ -450,6 +450,18 @@ const Blog = () => {
       excerpt: 'Recent updates to GDPR regulations and how they impact your data protection strategies.',
       filter: 'compliance'
     }
+    ,
+    {
+      id: 10,
+      category: 'Press',
+      title: 'Cyberspace is a cryptic ocean – CYBERCAT™ trial',
+      author: 'INC91',
+      date: 'Dec 5, 2022',
+      readTime: '5 min read',
+      excerpt: 'Founder story covering CYBERCAT™: risk assessment, quantification, pricing, and claims. ',
+      filter: 'threat-intelligence',
+      url: 'https://www.inc91.com/cyberspace-is-a-cryptic-ocean-where-cyber-risk-management-is-essential-reserve-your-trial-with-cybercat-today'
+    }
   ];
 
   const filteredPosts = activeFilter === 'all' 
@@ -584,6 +596,13 @@ const Blog = () => {
                   </MetaItem>
                 </PostMeta>
                 <BlogExcerpt>{post.excerpt}</BlogExcerpt>
+                {post.url && (
+                  <a href={post.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                    <ReadMoreButton whileHover={{ x: 5 }}>
+                      Read Article <FaArrowRight />
+                    </ReadMoreButton>
+                  </a>
+                )}
               </BlogContent>
             </BlogCard>
           ))}
