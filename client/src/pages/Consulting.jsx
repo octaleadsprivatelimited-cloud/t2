@@ -198,14 +198,15 @@ const SectionSubtitle = styled(motion.p)`
 `;
 
 const ServicesLayout = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 32px;
   max-width: 1400px;
   margin: 0 auto;
-  align-items: flex-start;
+  align-items: start;
 
   @media (max-width: 968px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 `;
@@ -805,67 +806,7 @@ const Consulting = () => {
           </SectionSubtitle>
         </SectionHeader>
 
-        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
-          <FaBars /> Menu
-        </MobileMenuButton>
-
-        <MobileOverlay 
-          $open={mobileMenuOpen}
-          onClick={() => setMobileMenuOpen(false)}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
-        />
-
-        <MobileSidebar
-          initial={{ x: -320 }}
-          animate={{ x: mobileMenuOpen ? 0 : -320 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-        >
-          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
-            <FaTimes />
-          </MobileCloseButton>
-          {services.map((service, index) => (
-            <ServiceItem
-              key={index}
-              $active={selectedService === index}
-              onClick={() => {
-                setSelectedService(index);
-                setMobileMenuOpen(false);
-              }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <ServiceIcon $active={selectedService === index}>
-                {service.icon}
-              </ServiceIcon>
-              <ServiceTitle>{service.title}</ServiceTitle>
-            </ServiceItem>
-          ))}
-        </MobileSidebar>
-
         <ServicesLayout>
-          <Sidebar>
-            {services.map((service, index) => (
-              <ServiceItem
-                key={index}
-                $active={selectedService === index}
-                onClick={() => setSelectedService(index)}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <ServiceIcon $active={selectedService === index}>
-                  {service.icon}
-                </ServiceIcon>
-                <ServiceTitle>{service.title}</ServiceTitle>
-              </ServiceItem>
-            ))}
-          </Sidebar>
-
           <ContentArea
             key={selectedService}
             initial={{ opacity: 0, y: 20 }}
