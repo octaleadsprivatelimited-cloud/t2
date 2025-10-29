@@ -95,7 +95,7 @@ const NavMenu = styled(motion.nav)`
     backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px 14px;
+    padding: 18px 16px 20px;
     gap: 12px;
     transform: translateY(-110%);
     opacity: 0;
@@ -167,13 +167,14 @@ const NavLink = styled(Link)`
 
   @media (max-width: 968px) {
     color: #ffffff;
-    font-size: 16px;
-    padding: 10px 0;
+    font-size: 17px;
+    padding: 14px 2px;
     width: 100%;
     justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 
     &:hover {
-      color: #a7c2ff;
+      color: #c7d7ff;
     }
 
     &::after {
@@ -200,16 +201,18 @@ const CompanyDropdown = styled(motion.div)`
 
   @media (max-width: 968px) {
     position: static;
-    background: rgba(255, 255, 255, 0.06);
-    border: none;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
     min-width: auto;
     opacity: 1;
     visibility: visible;
     transform: none;
     pointer-events: auto;
     overflow: hidden;
-    max-height: ${props => props.$open ? '420px' : '0'};
+    border-radius: 12px;
+    margin-top: 6px;
+    max-height: ${props => props.$open ? '460px' : '0'};
     transition: max-height 0.25s ease;
   }
 `;
@@ -282,18 +285,18 @@ const CompanyItem = styled(Link)`
 
   @media (max-width: 968px) {
     color: #ffffff;
-    padding: 12px 14px;
+    padding: 14px 14px;
     border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.035);
-    margin-bottom: 6px;
+    background: rgba(255,255,255,0.04);
+    margin-bottom: 8px;
 
     &::before {
       display: none;
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.12);
       color: #3b82f6;
     }
 
