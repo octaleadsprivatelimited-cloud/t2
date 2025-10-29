@@ -83,6 +83,7 @@ const NavMenu = styled(motion.nav)`
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: all 0.3s ease;
     overflow-y: auto;
     z-index: 999;
@@ -93,6 +94,7 @@ const NavMenu = styled(motion.nav)`
       transform: translateX(0);
       opacity: 1;
       visibility: visible;
+      pointer-events: auto;
     }
   }
 `;
