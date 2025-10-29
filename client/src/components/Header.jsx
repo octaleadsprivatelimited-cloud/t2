@@ -15,6 +15,10 @@ const HeaderContainer = styled(motion.header)`
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    transition: none;
+  }
 `;
 
 const NavContainer = styled.div`
@@ -57,12 +61,18 @@ const Logo = styled(Link)`
     
     img {
       height: 40px;
+      -webkit-user-drag: none;
+      user-select: none;
     }
 
     /* Disable hover lift on mobile */
     &:hover {
       transform: none;
     }
+
+    /* Disable transitions/hover effects on mobile to prevent jitter */
+    transition: none;
+    -webkit-tap-highlight-color: transparent;
   }
 `;
 
