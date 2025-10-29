@@ -74,6 +74,8 @@ const NavMenu = styled(motion.nav)`
     left: 0;
     right: 0;
     bottom: 0;
+    height: calc(100dvh - 70px);
+    width: 100vw;
     background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
     backdrop-filter: blur(20px);
     flex-direction: column;
@@ -86,6 +88,7 @@ const NavMenu = styled(motion.nav)`
     pointer-events: none;
     transition: all 0.3s ease;
     overflow-y: auto;
+    overflow-x: hidden;
     z-index: 999;
     margin-left: 0;
     margin-right: 0;
