@@ -881,7 +881,67 @@ const CyberSecurityServices = () => {
         </HeroContent>
       </HeroSection>
 
+      <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+        <FaBars /> Menu
+      </MobileMenuButton>
+
+      <MobileOverlay 
+        $open={mobileMenuOpen}
+        onClick={() => setMobileMenuOpen(false)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
+      />
+
+      <MobileSidebar
+        initial={{ x: -320 }}
+        animate={{ x: mobileMenuOpen ? 0 : -320 }}
+        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+      >
+        <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+          <FaTimes />
+        </MobileCloseButton>
+        {services.map((service) => (
+          <ServiceItem
+            key={service.id}
+            $active={activeTab === service.id}
+            onClick={() => {
+              setActiveTab(service.id);
+              setMobileMenuOpen(false);
+            }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <ServiceIcon $active={activeTab === service.id}>
+              {service.icon}
+            </ServiceIcon>
+            <ServiceTitleText>{service.title}</ServiceTitleText>
+          </ServiceItem>
+        ))}
+      </MobileSidebar>
+
       <ServicesLayout>
+        <Sidebar>
+          {services.map((service, index) => (
+            <ServiceItem
+              key={service.id}
+              $active={activeTab === service.id}
+              onClick={() => setActiveTab(service.id)}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <ServiceIcon $active={activeTab === service.id}>
+                {service.icon}
+              </ServiceIcon>
+              <ServiceTitleText>{service.title}</ServiceTitleText>
+            </ServiceItem>
+          ))}
+        </Sidebar>
+
         <ContentAreaWrapper>
           <AnimatePresence mode="wait">
             {currentService && (
