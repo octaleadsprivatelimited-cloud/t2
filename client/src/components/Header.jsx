@@ -179,15 +179,17 @@ const CompanyDropdown = styled(motion.div)`
 
   @media (max-width: 968px) {
     position: static;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.06);
     border: none;
-    box-shadow: none;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
     min-width: auto;
     opacity: 1;
     visibility: visible;
     transform: none;
     pointer-events: auto;
-    display: ${props => props.$open ? 'block' : 'none'};
+    overflow: hidden;
+    max-height: ${props => props.$open ? '500px' : '0'};
+    transition: max-height 0.3s ease;
   }
 `;
 
@@ -217,9 +219,8 @@ const CompanyList = styled.div`
   flex-direction: column;
 
   @media (max-width: 968px) {
-    padding: 10px 0;
-    padding-left: 20px;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    background: transparent;
     border-radius: 8px;
     margin-top: 8px;
   }
@@ -229,7 +230,7 @@ const CompanyItem = styled(Link)`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 20px;
+  padding: 14px 20px;
   text-decoration: none;
   transition: all 0.15s ease;
   color: #1e293b;
@@ -260,20 +261,23 @@ const CompanyItem = styled(Link)`
 
   @media (max-width: 968px) {
     color: #ffffff;
-    padding: 10px 16px;
-    border-radius: 6px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    margin-bottom: 8px;
 
     &::before {
       display: none;
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       color: #3b82f6;
     }
 
     &:active {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.2);
     }
   }
 `;
@@ -345,6 +349,26 @@ const MobileMenuButton = styled.button`
   @media (max-width: 968px) {
     display: block;
     color: #ffffff;
+  }
+`;
+
+// Dim background when mobile menu is open
+const MobileOverlay = styled.div`
+  display: none;
+  @media (max-width: 968px) {
+    display: block;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(2, 6, 23, 0.55);
+    backdrop-filter: blur(2px);
+    opacity: ${props => props.$open ? 1 : 0};
+    visibility: ${props => props.$open ? 'visible' : 'hidden'};
+    pointer-events: ${props => props.$open ? 'auto' : 'none'};
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 998;
   }
 `;
 
@@ -449,6 +473,9 @@ const Header = () => {
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </MobileMenuButton>
       </NavContainer>
+
+        {/* Overlay to close menu when tapping outside on mobile */}
+        <MobileOverlay $open={isMenuOpen} onClick={closeMenu} />
     </HeaderContainer>
   );
 };
