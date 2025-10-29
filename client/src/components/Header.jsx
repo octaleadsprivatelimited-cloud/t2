@@ -561,7 +561,7 @@ const Header = () => {
                 </ContactButton>
               </ContactActions>
               <div style={{ fontSize: '12px', color: '#64748b', padding: '2px 2px 0' }}>
-                info@transasiatec.com • +91 044 4856 8436
+                +91 044 4856 8436
               </div>
             </ContactRow>
           </MobileContact>
