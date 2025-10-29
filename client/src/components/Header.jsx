@@ -95,8 +95,8 @@ const NavMenu = styled(motion.nav)`
     backdrop-filter: none;
     flex-direction: column;
     align-items: flex-start;
-    padding: 12px 16px 14px;
-    gap: 12px;
+    padding: 10px 14px 12px;
+    gap: 8px;
     transform: translateY(-110%);
     opacity: 0;
     visibility: hidden;
@@ -168,8 +168,8 @@ const NavLink = styled(Link)`
 
   @media (max-width: 968px) {
     color: #0f172a;
-    font-size: 14px;
-    padding: 10px 0;
+    font-size: 13px;
+    padding: 8px 0;
     width: 100%;
     justify-content: space-between;
     border-bottom: 1px solid #e5e7eb;
@@ -213,7 +213,7 @@ const CompanyDropdown = styled(motion.div)`
     overflow: hidden;
     border-radius: 12px;
     margin-top: 8px;
-    max-height: ${props => props.$open ? '340px' : '0'};
+    max-height: ${props => props.$open ? '260px' : '0'};
     transition: max-height 0.25s ease;
   }
 `;
@@ -244,7 +244,7 @@ const CompanyList = styled.div`
   flex-direction: column;
 
   @media (max-width: 968px) {
-    padding: 2px 6px;
+    padding: 0 6px;
     background: transparent;
     border-radius: 8px;
     margin-top: 8px;
@@ -286,8 +286,8 @@ const CompanyItem = styled(Link)`
 
   @media (max-width: 968px) {
     color: #0f172a;
-    padding: 10px 8px;
-    border-radius: 8px;
+    padding: 8px 6px;
+    border-radius: 6px;
     border: none;
     background: transparent;
     margin-bottom: 0;
