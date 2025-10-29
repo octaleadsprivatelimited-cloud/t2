@@ -50,9 +50,16 @@ if (require('fs').existsSync(staticPath)) {
 }
 
 // Always serve public assets for absolute paths like /insurtech/*
+// 1) Legacy: client/public (older structure)
 const publicAssetsPath = path.join(__dirname, '../client/public');
 if (require('fs').existsSync(publicAssetsPath)) {
   app.use('/insurtech', express.static(path.join(publicAssetsPath, 'insurtech')));
+}
+
+// 2) Current: repo root public (new structure configured in Vite publicDir)
+const rootPublicPath = path.join(__dirname, '../public');
+if (require('fs').existsSync(rootPublicPath)) {
+  app.use('/insurtech', express.static(path.join(rootPublicPath, 'insurtech')));
 }
 
 // Routes
