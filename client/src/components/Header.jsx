@@ -553,11 +553,11 @@ const Header = () => {
                 Have questions? Reach out anytime.
               </div>
               <ContactActions>
-                <ContactButton href="mailto:info@transasiatec.com" aria-label="Email">
-                  <FaEnvelope /> Email
+                <ContactButton href="mailto:info@transasiatec.com" aria-label="Email info@transasiatec.com">
+                  <FaEnvelope /> info@transasiatec.com
                 </ContactButton>
-                <ContactButton href="tel:+914448568436" aria-label="Call">
-                  <FaPhone /> Call
+                <ContactButton href="tel:+914448568436" aria-label="Call +91 044 4856 8436">
+                  <FaPhone /> +91 044 4856 8436
                 </ContactButton>
               </ContactActions>
               <div style={{ fontSize: '12px', color: '#64748b', padding: '2px 2px 0' }}>
