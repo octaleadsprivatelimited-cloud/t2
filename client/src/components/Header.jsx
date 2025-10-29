@@ -560,9 +560,6 @@ const Header = () => {
                   <FaPhone /> +91 044 4856 8436
                 </ContactButton>
               </ContactActions>
-              <div style={{ fontSize: '12px', color: '#64748b', padding: '2px 2px 0' }}>
-                +91 044 4856 8436
-              </div>
             </ContactRow>
           </MobileContact>
         </NavMenu>
