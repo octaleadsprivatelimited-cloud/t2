@@ -168,8 +168,8 @@ const NavLink = styled(Link)`
 
   @media (max-width: 968px) {
     color: #0f172a;
-    font-size: 16px;
-    padding: 14px 0;
+    font-size: 14px;
+    padding: 10px 0;
     width: 100%;
     justify-content: space-between;
     border-bottom: 1px solid #e5e7eb;
@@ -213,7 +213,7 @@ const CompanyDropdown = styled(motion.div)`
     overflow: hidden;
     border-radius: 12px;
     margin-top: 8px;
-    max-height: ${props => props.$open ? '460px' : '0'};
+    max-height: ${props => props.$open ? '340px' : '0'};
     transition: max-height 0.25s ease;
   }
 `;
@@ -244,7 +244,7 @@ const CompanyList = styled.div`
   flex-direction: column;
 
   @media (max-width: 968px) {
-    padding: 4px 8px;
+    padding: 2px 6px;
     background: transparent;
     border-radius: 8px;
     margin-top: 8px;
@@ -286,7 +286,7 @@ const CompanyItem = styled(Link)`
 
   @media (max-width: 968px) {
     color: #0f172a;
-    padding: 14px 8px;
+    padding: 10px 8px;
     border-radius: 8px;
     border: none;
     background: transparent;
