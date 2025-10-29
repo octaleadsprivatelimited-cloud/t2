@@ -366,14 +366,19 @@ const MobileContact = styled.div`
   @media (max-width: 968px) {
     display: block;
     width: 100%;
-    padding: 10px 0 4px;
+    padding: 12px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    margin-top: 6px;
   }
 `;
 
 const ContactRow = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 `;
 
 const ContactActions = styled.div`
@@ -540,7 +545,6 @@ const Header = () => {
           </Dropdown>
 
           <MobileContact>
-            <ContactDivider />
             <ContactRow>
               <div style={{ fontSize: '13px', fontWeight: 700, color: '#0f172a', padding: '0 2px' }}>
                 Contact us
@@ -556,7 +560,7 @@ const Header = () => {
                   <FaPhone /> Call
                 </ContactButton>
               </ContactActions>
-              <div style={{ fontSize: '12px', color: '#64748b', padding: '0 2px' }}>
+              <div style={{ fontSize: '12px', color: '#64748b', padding: '2px 2px 0' }}>
                 info@transasiatec.com • +91 90000 00000
               </div>
             </ContactRow>
