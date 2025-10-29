@@ -542,6 +542,12 @@ const Header = () => {
           <MobileContact>
             <ContactDivider />
             <ContactRow>
+              <div style={{ fontSize: '13px', fontWeight: 700, color: '#0f172a', padding: '0 2px' }}>
+                Contact us
+              </div>
+              <div style={{ fontSize: '12px', color: '#64748b', padding: '0 2px 4px' }}>
+                Have questions? Reach out anytime.
+              </div>
               <ContactActions>
                 <ContactButton href="mailto:info@transasiatec.com" aria-label="Email">
                   <FaEnvelope /> Email
