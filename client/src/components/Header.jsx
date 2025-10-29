@@ -405,7 +405,6 @@ const ContactButton = styled.a`
     transform: translateY(1px);
   }
 `;
-`;
 
 const ContactDivider = styled.div`
   height: 1px;
