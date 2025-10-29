@@ -73,8 +73,8 @@ const NavMenu = styled(motion.nav)`
     top: 60px;
     left: 0;
     right: 0;
-    bottom: 0;
-    height: calc(100dvh - 60px);
+    bottom: auto;
+    height: auto;
     width: 100vw;
     background: linear-gradient(180deg, #0b1220 0%, #172032 100%);
     backdrop-filter: blur(20px);
@@ -82,19 +82,22 @@ const NavMenu = styled(motion.nav)`
     align-items: flex-start;
     padding: 16px 14px;
     gap: 12px;
-    transform: translateX(100%);
+    transform: translateY(-110%);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: transform 0.28s ease, opacity 0.2s ease, visibility 0.2s ease;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 999;
     margin-left: 0;
     margin-right: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 
     &.active {
-      transform: translateX(0);
+      transform: translateY(0);
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
