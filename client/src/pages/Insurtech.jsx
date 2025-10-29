@@ -862,7 +862,67 @@ const Insurtech = () => {
           Comprehensive suite of insurtech platforms designed to protect and empower your business
         </SectionSubtitle>
 
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+          <FaBars /> Menu
+        </MobileMenuButton>
+
+        <MobileOverlay 
+          $open={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <MobileSidebar
+          initial={{ x: -320 }}
+          animate={{ x: mobileMenuOpen ? 0 : -320 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        >
+          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+            <FaTimes />
+          </MobileCloseButton>
+          {products.map((product, index) => (
+            <ProductItem
+              key={index}
+              $active={selectedProduct === index}
+              onClick={() => {
+                setSelectedProduct(index);
+                setMobileMenuOpen(false);
+              }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <ProductIcon $active={selectedProduct === index}>
+                {product.icon}
+              </ProductIcon>
+              <ProductTitleText>{product.title}</ProductTitleText>
+            </ProductItem>
+          ))}
+        </MobileSidebar>
+
         <ProductsLayout>
+          <Sidebar>
+            {products.map((product, index) => (
+              <ProductItem
+                key={index}
+                $active={selectedProduct === index}
+                onClick={() => setSelectedProduct(index)}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <ProductIcon $active={selectedProduct === index}>
+                  {product.icon}
+                </ProductIcon>
+                <ProductTitleText>{product.title}</ProductTitleText>
+              </ProductItem>
+            ))}
+          </Sidebar>
+
           <ContentArea
             key={selectedProduct}
             initial={{ opacity: 0, y: 20 }}

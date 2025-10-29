@@ -306,7 +306,7 @@ const ContentContainer = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 40px;
   
   @media (max-width: 968px) {
@@ -884,7 +884,48 @@ const ServicesTest = () => {
       </HeroSection>
 
       <ContentSection>
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+          <FaBars />
+        </MobileMenuButton>
+
+        <MobileOverlay $show={mobileMenuOpen} onClick={() => setMobileMenuOpen(false)} />
+
+        <MobileSidebar $show={mobileMenuOpen}>
+          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+            <FaTimes />
+          </MobileCloseButton>
+          <SidebarTitle>Services</SidebarTitle>
+          <SidebarList>
+            {serviceTitles.map((title) => (
+              <SidebarItem key={title}>
+                <SidebarButton
+                  $active={selectedService === title}
+                  onClick={() => handleServiceSelect(title)}
+                >
+                  {title}
+                </SidebarButton>
+              </SidebarItem>
+            ))}
+          </SidebarList>
+        </MobileSidebar>
+
         <ContentContainer>
+          <Sidebar>
+            <SidebarTitle>Services</SidebarTitle>
+            <SidebarList>
+              {serviceTitles.map((title) => (
+                <SidebarItem key={title}>
+                  <SidebarButton
+                    $active={selectedService === title}
+                    onClick={() => handleServiceSelect(title)}
+                  >
+                    {title}
+                  </SidebarButton>
+                </SidebarItem>
+              ))}
+            </SidebarList>
+          </Sidebar>
+
           <ContentArea>
             <ServiceHeader>
               <ServiceIcon>
