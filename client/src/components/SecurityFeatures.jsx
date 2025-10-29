@@ -361,19 +361,19 @@ const SecurityFeatures = () => {
 
   const threats = [
     {
-      icon: <FaShieldAlt />,
-      label: 'Threats Blocked',
-      value: '10M+'
-    },
-    {
-      icon: <FaExclamationTriangle />,
-      label: 'Security Incidents',
-      value: '0'
+      icon: <FaChartLine />,
+      label: 'Industry Verticals',
+      value: '10+'
     },
     {
       icon: <FaCheckCircle />,
-      label: 'Uptime',
-      value: '99.9%'
+      label: 'Cyber Risk Quantifications completed',
+      value: '100+'
+    },
+    {
+      icon: <FaShieldAlt />,
+      label: 'REDTEAM Hours',
+      value: '3000+'
     }
   ];
 
