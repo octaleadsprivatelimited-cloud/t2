@@ -60,6 +60,7 @@ if (require('fs').existsSync(publicAssetsPath)) {
 const rootPublicPath = path.join(__dirname, '../public');
 if (require('fs').existsSync(rootPublicPath)) {
   app.use('/insurtech', express.static(path.join(rootPublicPath, 'insurtech')));
+  app.use('/images', express.static(path.join(rootPublicPath, 'images')));
 }
 
 // Routes
