@@ -375,53 +375,10 @@ const MobileOverlay = styled.div`
   }
 `;
 
-// Modern mobile section header (accordion trigger)
-const MobileSectionHeader = styled.button`
-  display: none;
-  @media (max-width: 968px) {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 12px;
-    margin: 4px 0 0 0;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
-    background: rgba(255,255,255,0.035);
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
-  }
-`;
-
-const MobileChevron = styled(FaChevronDown)`
-  transition: transform 0.25s ease;
-`;
-
-const MobileSectionPanel = styled.div`
-  display: none;
-  @media (max-width: 968px) {
-    display: block;
-    overflow: hidden;
-    max-height: ${props => props.$open ? '500px' : '0'};
-    transition: max-height 0.25s ease;
-  }
-`;
-
-const MobileLinkGrid = styled.div`
-  @media (max-width: 968px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 10px 2px 2px 2px;
-  }
-`;
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [openSections, setOpenSections] = useState({ explore: false, company: false });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -439,11 +396,6 @@ const Header = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
     setActiveMenu('');
-    setOpenSections({ explore: false, company: false });
-  };
-
-  const toggleSection = (key) => {
-    setOpenSections(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
   return (
@@ -461,36 +413,6 @@ const Header = () => {
           <NavLink to="/products" onClick={closeMenu}>Products</NavLink>
           <NavLink to="/services" onClick={closeMenu}>Services</NavLink>
           <NavLink to="/consulting" onClick={closeMenu}>Consulting</NavLink>
-
-            {/* Modern mobile accordion: Explore */}
-            <MobileSectionHeader onClick={() => toggleSection('explore')}>
-              Explore
-              <MobileChevron style={{ transform: openSections.explore ? 'rotate(180deg)' : 'rotate(0deg)' }} />
-            </MobileSectionHeader>
-            <MobileSectionPanel $open={openSections.explore}>
-              <MobileLinkGrid>
-                <CompanyItem to="/insurtech" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Insurtech</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-                <CompanyItem to="/products" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Products</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-                <CompanyItem to="/services" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Services</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-                <CompanyItem to="/consulting" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Consulting</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-              </MobileLinkGrid>
-            </MobileSectionPanel>
 
           <Dropdown 
             $open={activeMenu === 'company'}
@@ -541,41 +463,6 @@ const Header = () => {
                 </CompanyItem>
               </CompanyList>
             </CompanyDropdown>
-
-            {/* Modern mobile accordion: Company (mirror of dropdown) */}
-            <MobileSectionHeader onClick={() => toggleSection('company')}>
-              Company
-              <MobileChevron style={{ transform: openSections.company ? 'rotate(180deg)' : 'rotate(0deg)' }} />
-            </MobileSectionHeader>
-            <MobileSectionPanel $open={openSections.company}>
-              <MobileLinkGrid>
-                <CompanyItem to="/press" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Media</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-                <CompanyItem to="/gallery" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Event Gallery</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-                <CompanyItem to="/about" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Our Story</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-                <CompanyItem to="/team" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Team</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-                <CompanyItem to="/insights" onClick={closeMenu}>
-                  <CompanyItemContent>
-                    <CompanyItemTitle>Articles/Blogs</CompanyItemTitle>
-                  </CompanyItemContent>
-                </CompanyItem>
-              </MobileLinkGrid>
-            </MobileSectionPanel>
           </Dropdown>
         </NavMenu>
 
