@@ -277,29 +277,31 @@ const CTAButton = styled(motion.button)`
 
 
 const ProductsLayout = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 280px 1fr;
   gap: 32px;
   max-width: 1400px;
   margin: 0 auto;
-  align-items: flex-start;
+  align-items: start;
 
   @media (max-width: 968px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 `;
 
 const Sidebar = styled.div`
-  flex: 0 0 280px;
   display: flex;
   flex-direction: column;
   gap: 6px;
   padding: 0;
   background: transparent;
+  position: sticky;
+  top: 100px;
 
   @media (max-width: 968px) {
-    flex: 1;
-    width: 100%;
+    position: static;
+    top: auto;
   }
 `;
 
@@ -464,10 +466,7 @@ const FeatureText = styled.span`
 
 const MobileMenuButton = styled.button`
   display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
+  position: static;
   background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   color: white;
   border: none;
@@ -478,6 +477,7 @@ const MobileMenuButton = styled.button`
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
   transition: all 0.3s ease;
+  margin: 0 0 16px 0;
 
   &:hover {
     transform: translateY(-2px);
@@ -485,7 +485,7 @@ const MobileMenuButton = styled.button`
   }
 
   @media (max-width: 968px) {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
   }
