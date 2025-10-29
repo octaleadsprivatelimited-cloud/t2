@@ -27,8 +27,8 @@ const NavContainer = styled.div`
   height: 80px;
 
   @media (max-width: 768px) {
-    padding: 0 15px;
-    height: 70px;
+    padding: 0 14px;
+    height: 60px;
   }
 `;
 
@@ -43,7 +43,7 @@ const Logo = styled(Link)`
   transition: all 0.3s ease;
 
   img {
-    height: 70px;
+    height: 64px;
     width: auto;
     object-fit: contain;
   }
@@ -56,7 +56,7 @@ const Logo = styled(Link)`
     font-size: 20px;
     
     img {
-      height: 50px;
+      height: 40px;
     }
   }
 `;
@@ -70,18 +70,18 @@ const NavMenu = styled(motion.nav)`
 
   @media (max-width: 968px) {
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     right: 0;
     bottom: 0;
-    height: calc(100dvh - 70px);
+    height: calc(100dvh - 60px);
     width: 100vw;
-    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    background: linear-gradient(180deg, #0b1220 0%, #172032 100%);
     backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: flex-start;
-    padding: 30px 20px;
-    gap: 20px;
+    padding: 16px 14px;
+    gap: 12px;
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
@@ -149,13 +149,13 @@ const NavLink = styled(Link)`
 
   @media (max-width: 968px) {
     color: #ffffff;
-    font-size: 18px;
-    padding: 12px 0;
+    font-size: 16px;
+    padding: 10px 0;
     width: 100%;
     justify-content: space-between;
 
     &:hover {
-      color: #93c5fd;
+      color: #a7c2ff;
     }
 
     &::after {
@@ -191,8 +191,8 @@ const CompanyDropdown = styled(motion.div)`
     transform: none;
     pointer-events: auto;
     overflow: hidden;
-    max-height: ${props => props.$open ? '500px' : '0'};
-    transition: max-height 0.3s ease;
+    max-height: ${props => props.$open ? '420px' : '0'};
+    transition: max-height 0.25s ease;
   }
 `;
 
@@ -222,7 +222,7 @@ const CompanyList = styled.div`
   flex-direction: column;
 
   @media (max-width: 968px) {
-    padding: 8px 12px;
+    padding: 6px 10px;
     background: transparent;
     border-radius: 8px;
     margin-top: 8px;
@@ -233,7 +233,7 @@ const CompanyItem = styled(Link)`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 20px;
+  padding: 12px 16px;
   text-decoration: none;
   transition: all 0.15s ease;
   color: #1e293b;
@@ -264,23 +264,23 @@ const CompanyItem = styled(Link)`
 
   @media (max-width: 968px) {
     color: #ffffff;
-    padding: 14px 16px;
-    border-radius: 8px;
+    padding: 12px 14px;
+    border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.03);
-    margin-bottom: 8px;
+    background: rgba(255,255,255,0.035);
+    margin-bottom: 6px;
 
     &::before {
       display: none;
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.10);
       color: #3b82f6;
     }
 
     &:active {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.16);
     }
   }
 `;
@@ -361,16 +361,16 @@ const MobileOverlay = styled.div`
   @media (max-width: 968px) {
     display: block;
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(2, 6, 23, 0.55);
+    background: rgba(2, 6, 23, 0.4);
     backdrop-filter: blur(2px);
     opacity: ${props => props.$open ? 1 : 0};
     visibility: ${props => props.$open ? 'visible' : 'hidden'};
     pointer-events: ${props => props.$open ? 'auto' : 'none'};
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
     z-index: 998;
   }
 `;
