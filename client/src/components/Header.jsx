@@ -361,6 +361,33 @@ const CTAButton = styled(Link)`
 `;
 
 
+const MobileContact = styled.div`
+  display: none;
+  @media (max-width: 968px) {
+    display: block;
+    width: 100%;
+    padding: 10px 0 4px;
+  }
+`;
+
+const ContactRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  a {
+    color: #0f172a;
+    text-decoration: none;
+    font-size: 13px;
+  }
+`;
+
+const ContactDivider = styled.div`
+  height: 1px;
+  width: 100%;
+  background: #e5e7eb;
+  margin: 8px 0 6px;
+`;
+
 const MobileMenuButton = styled.button`
   display: none;
   background: none;
@@ -486,6 +513,14 @@ const Header = () => {
               </CompanyList>
             </CompanyDropdown>
           </Dropdown>
+
+          <MobileContact>
+            <ContactDivider />
+            <ContactRow>
+              <a href="mailto:info@transasiatec.com">info@transasiatec.com</a>
+              <a href="tel:+919000000000">+91 90000 00000</a>
+            </ContactRow>
+          </MobileContact>
         </NavMenu>
 
         <NavActions>
