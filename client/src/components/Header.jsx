@@ -58,6 +58,11 @@ const Logo = styled(Link)`
     img {
       height: 40px;
     }
+
+    /* Disable hover lift on mobile */
+    &:hover {
+      transform: none;
+    }
   }
 `;
 
