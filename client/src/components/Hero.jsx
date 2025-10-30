@@ -337,9 +337,6 @@ const Hero = () => {
             <PrimaryButton>
               Get Started <FaArrowRight />
             </PrimaryButton>
-            <SecondaryButton>
-              Learn More
-            </SecondaryButton>
           </ButtonGroup>
 
           {/* Cybercat Floating Image */}
@@ -347,6 +344,9 @@ const Hero = () => {
             src="/insurtech/cer/cybercat.webp" 
             alt="Cybercat" 
             size="400px"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
             duration="10s" 
             delay="0.5s"
           />
