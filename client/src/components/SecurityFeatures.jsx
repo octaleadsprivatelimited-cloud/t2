@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { 
   FaShieldAlt, 
@@ -47,6 +47,8 @@ const FeaturesContainer = styled.section`
   @media (max-width: 768px) {
     padding: 30px 0 80px 0;
     margin: -10px 0;
+    overflow: visible;
+    min-height: auto;
   }
 `;
 
@@ -106,14 +108,14 @@ const FeaturesGrid = styled.div`
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
   }
 `;
 
 const FeatureCard = styled.div`
   background: ${props => {
-    const blueCards = [0, 2, 5, 7]; // CRO Platform, GRC, Vulnerability Assessment, Risk Transfer
+    const blueCards = [0, 2, 5, 7]; // CRQ Platform, GRC, Vulnerability Assessment, Risk Transfer
     return blueCards.includes(props.index) ? '#1e3a8a' : '#ffffff';
   }};
   color: ${props => {
@@ -137,7 +139,7 @@ const FeatureCard = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 30px 20px;
+    padding: 12px 8px;
   }
 `;
 
@@ -164,6 +166,13 @@ const IconWrapper = styled.div`
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
   }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
 `;
 
 const FeatureTitle = styled.h3`
@@ -177,7 +186,8 @@ const FeatureTitle = styled.h3`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
   }
 `;
 
@@ -190,8 +200,65 @@ const FeatureDescription = styled.p`
   line-height: 1.6;
 
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    display: none; /* Hide on mobile; will be shown in modal */
   }
+`;
+
+const MobileModalBackdrop = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 9999;
+
+  @media (max-width: 768px) {
+    display: ${props => (props.$open ? 'block' : 'none')};
+  }
+`;
+
+const MobileModal = styled.div`
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 40px);
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  padding: 16px 16px 12px;
+  z-index: 10000;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: ${props => (props.$open ? 'block' : 'none')};
+  }
+`;
+
+const MobileModalTitle = styled.h3`
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+`;
+
+const MobileModalText = styled.p`
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+`;
+
+const MobileModalClose = styled.button`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: #0f172a;
 `;
 
 const ThreatProtectionSection = styled.div`
@@ -230,14 +297,16 @@ const ThreatTitle = styled.h3`
 const ThreatDescription = styled.p`
   font-size: 1.1rem;
   margin-bottom: 20px;
-  opacity: 0.95;
+  opacity: 1;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
-    font-size: 1rem;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
   }
 `;
 
@@ -267,8 +336,8 @@ const ThreatGrid = styled.div`
   margin: 0 auto;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
 `;
 
@@ -285,12 +354,22 @@ const ThreatItem = styled.div`
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-5px);
   }
+
+  @media (max-width: 768px) {
+    padding: 12px 8px;
+    border-radius: 10px;
+  }
 `;
 
 const ThreatIcon = styled.div`
   font-size: 2.5rem;
   margin-bottom: 15px;
   color: #ffffff;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
 `;
 
 const ThreatLabel = styled.div`
@@ -299,7 +378,7 @@ const ThreatLabel = styled.div`
   color: #ffffff;
 
   @media (max-width: 768px) {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -310,16 +389,18 @@ const ThreatValue = styled.div`
   margin-top: 8px;
 
   @media (max-width: 768px) {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
+    margin-top: 4px;
   }
 `;
 
 
 const SecurityFeatures = () => {
+  const [mobileOpenFeature, setMobileOpenFeature] = useState(null);
   const features = [
     {
       icon: <FaShieldAlt />,
-      title: 'CRO Platform',
+      title: 'CRQ Platform',
       description: 'Cyber Risk Quantification prevention for informed decision making'
     },
     {
@@ -389,7 +470,13 @@ const SecurityFeatures = () => {
 
         <FeaturesGrid>
           {features.map((feature, index) => (
-            <FeatureCard key={index} index={index}>
+            <FeatureCard
+              key={index}
+              index={index}
+              onClick={() => {
+                if (window.innerWidth <= 768) setMobileOpenFeature(feature);
+              }}
+            >
               <IconWrapper index={index}>
                 {feature.icon}
               </IconWrapper>
@@ -398,6 +485,21 @@ const SecurityFeatures = () => {
             </FeatureCard>
           ))}
         </FeaturesGrid>
+
+        {/* Mobile-only modal */}
+        <MobileModalBackdrop
+          $open={!!mobileOpenFeature}
+          onClick={() => setMobileOpenFeature(null)}
+        />
+        <MobileModal $open={!!mobileOpenFeature}>
+          <MobileModalClose onClick={() => setMobileOpenFeature(null)}>Close</MobileModalClose>
+          {mobileOpenFeature && (
+            <>
+              <MobileModalTitle>{mobileOpenFeature.title}</MobileModalTitle>
+              <MobileModalText>{mobileOpenFeature.description}</MobileModalText>
+            </>
+          )}
+        </MobileModal>
 
         <ThreatProtectionSection>
           <ThreatContent>

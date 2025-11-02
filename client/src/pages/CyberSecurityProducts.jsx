@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaChevronDown, FaRocket, FaLeaf, FaSearch, FaSun, FaBolt, FaNetworkWired
+  FaChevronDown, FaRocket, FaLeaf, FaSearch, FaSun, FaBolt, FaNetworkWired, FaBars, FaTimes
 } from 'react-icons/fa';
 
 const rotate = keyframes`
@@ -278,7 +278,7 @@ const CTAButton = styled(motion.button)`
 
 const ProductsLayout = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 32px;
   max-width: 1400px;
   margin: 0 auto;
@@ -300,8 +300,7 @@ const Sidebar = styled.div`
   top: 100px;
 
   @media (max-width: 968px) {
-    position: static;
-    top: auto;
+    display: none;
   }
 `;
 
@@ -477,7 +476,8 @@ const MobileMenuButton = styled.button`
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
   transition: all 0.3s ease;
-  margin: 0 0 16px 0;
+  margin: 0 auto 20px 0;
+  width: 100%;
 
   &:hover {
     transform: translateY(-2px);
@@ -487,6 +487,7 @@ const MobileMenuButton = styled.button`
   @media (max-width: 968px) {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
   }
 `;
@@ -782,7 +783,31 @@ const CyberSecurityProducts = () => {
           Explore our cutting-edge cybersecurity solutions
         </SectionSubtitle>
 
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+          <FaBars /> Select Product
+        </MobileMenuButton>
+
         <ProductsLayout>
+          <Sidebar>
+            {products.map((product, index) => (
+              <ProductItem
+                key={index}
+                $active={selectedProduct === index}
+                onClick={() => {
+                  setSelectedProduct(index);
+                  setMobileMenuOpen(false);
+                }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <ProductIcon $active={selectedProduct === index}>
+                  {product.icon}
+                </ProductIcon>
+                <ProductTitleText>{product.title}</ProductTitleText>
+              </ProductItem>
+            ))}
+          </Sidebar>
           <ContentArea
             key={selectedProduct}
             initial={{ opacity: 0, y: 20 }}
@@ -793,6 +818,38 @@ const CyberSecurityProducts = () => {
             {renderProductContent(products[selectedProduct])}
           </ContentArea>
         </ProductsLayout>
+
+        <MobileOverlay
+          $open={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+        />
+        <MobileSidebar
+          initial={{ x: -320 }}
+          animate={{ x: mobileMenuOpen ? 0 : -320 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        >
+          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+            <FaTimes />
+          </MobileCloseButton>
+          {products.map((product, index) => (
+            <ProductItem
+              key={index}
+              $active={selectedProduct === index}
+              onClick={() => {
+                setSelectedProduct(index);
+                setMobileMenuOpen(false);
+              }}
+            >
+              <ProductIcon $active={selectedProduct === index}>
+                {product.icon}
+              </ProductIcon>
+              <ProductTitleText>{product.title}</ProductTitleText>
+            </ProductItem>
+          ))}
+        </MobileSidebar>
       </FAQSection>
     </PageContainer>
   );

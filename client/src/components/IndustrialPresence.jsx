@@ -91,6 +91,11 @@ const IndustryGrid = styled.div`
     gap: 24px;
   }
 
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
   @media (max-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -120,6 +125,11 @@ const IndustryCard = styled(motion.div)`
   @media (max-width: 768px) {
     padding: 24px 16px;
     gap: 12px;
+    
+    /* Show only first 8 (2 columns x 4 rows) on mobile */
+    &:nth-child(n+9) {
+      display: none;
+    }
   }
 `;
 

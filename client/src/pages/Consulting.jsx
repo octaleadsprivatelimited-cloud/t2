@@ -199,7 +199,7 @@ const SectionSubtitle = styled(motion.p)`
 
 const ServicesLayout = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 32px;
   max-width: 1400px;
   margin: 0 auto;
@@ -220,8 +220,7 @@ const Sidebar = styled.div`
   background: transparent;
 
   @media (max-width: 968px) {
-    flex: 1;
-    width: 100%;
+    display: none;
   }
 `;
 
@@ -390,10 +389,7 @@ const FeatureText = styled.span`
 
 const MobileMenuButton = styled.button`
   display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
+  position: static;
   background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   color: white;
   border: none;
@@ -404,6 +400,9 @@ const MobileMenuButton = styled.button`
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
   transition: all 0.3s ease;
+  margin: 0 auto 20px 0;
+  width: 100%;
+  max-width: 1400px;
 
   &:hover {
     transform: translateY(-2px);
@@ -411,8 +410,9 @@ const MobileMenuButton = styled.button`
   }
 
   @media (max-width: 968px) {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
   }
 `;
@@ -806,7 +806,28 @@ const Consulting = () => {
           </SectionSubtitle>
         </SectionHeader>
 
+        <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+          <FaBars /> Select Service
+        </MobileMenuButton>
+
         <ServicesLayout>
+          <Sidebar>
+            {services.map((service, index) => (
+              <ServiceItem
+                key={index}
+                $active={selectedService === index}
+                onClick={() => setSelectedService(index)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <ServiceIcon $active={selectedService === index}>
+                  {service.icon}
+                </ServiceIcon>
+                <ServiceTitle>{service.title}</ServiceTitle>
+              </ServiceItem>
+            ))}
+          </Sidebar>
           <ContentArea
             key={selectedService}
             initial={{ opacity: 0, y: 20 }}
@@ -831,6 +852,38 @@ const Consulting = () => {
             </FeaturesList>
           </ContentArea>
         </ServicesLayout>
+
+        <MobileOverlay
+          $open={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mobileMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+        />
+        <MobileSidebar
+          initial={{ x: -320 }}
+          animate={{ x: mobileMenuOpen ? 0 : -320 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        >
+          <MobileCloseButton onClick={() => setMobileMenuOpen(false)}>
+            <FaTimes />
+          </MobileCloseButton>
+          {services.map((service, index) => (
+            <ServiceItem
+              key={index}
+              $active={selectedService === index}
+              onClick={() => {
+                setSelectedService(index);
+                setMobileMenuOpen(false);
+              }}
+            >
+              <ServiceIcon $active={selectedService === index}>
+                {service.icon}
+              </ServiceIcon>
+              <ServiceTitle>{service.title}</ServiceTitle>
+            </ServiceItem>
+          ))}
+        </MobileSidebar>
       </ServicesSection>
 
 

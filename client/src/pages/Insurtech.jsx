@@ -176,7 +176,7 @@ const SectionSubtitle = styled(motion.p)`
 
 const ProductsLayout = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 32px;
   max-width: 1400px;
   margin: 0 auto;
@@ -864,6 +864,23 @@ const Insurtech = () => {
         </SectionSubtitle>
 
         <ProductsLayout>
+          <Sidebar>
+            {products.map((product, index) => (
+              <ProductItem
+                key={index}
+                $active={selectedProduct === index}
+                onClick={() => setSelectedProduct(index)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <ProductIcon $active={selectedProduct === index}>
+                  {product.icon}
+                </ProductIcon>
+                <ProductTitleText>{product.title}</ProductTitleText>
+              </ProductItem>
+            ))}
+          </Sidebar>
           <ContentArea
             key={selectedProduct}
             initial={{ opacity: 0, y: 20 }}

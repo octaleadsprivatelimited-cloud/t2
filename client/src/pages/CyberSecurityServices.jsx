@@ -881,7 +881,19 @@ const CyberSecurityServices = () => {
         </HeroContent>
       </HeroSection>
 
-      <ServicesLayout>
+      <TabsContainer>
+        <TabsHeader>
+          {services.map((service) => (
+            <Tab
+              key={service.id}
+              active={activeTab === service.id}
+              onClick={() => setActiveTab(service.id)}
+            >
+              {service.icon}
+              {service.title}
+            </Tab>
+          ))}
+        </TabsHeader>
 
         <ContentAreaWrapper>
           <AnimatePresence mode="wait">
@@ -957,7 +969,7 @@ const CyberSecurityServices = () => {
           )}
         </AnimatePresence>
         </ContentAreaWrapper>
-      </ServicesLayout>
+      </TabsContainer>
     </PageContainer>
   );
 };
