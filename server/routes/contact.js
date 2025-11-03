@@ -79,7 +79,7 @@ router.get('/info', async (req, res) => {
         zipCode: '94306',
         country: 'United States'
       },
-      phone: '+1 (555) 123-4567',
+      phone: '+91 044 4856 8436',
       email: 'contact@cybersecure.com',
       supportEmail: 'support@cybersecure.com',
       salesEmail: 'sales@cybersecure.com',

@@ -493,7 +493,7 @@ const Contact = () => {
                 <InfoDetails>
                   <InfoLabel>Phone</InfoLabel>
                   <InfoText>
-                    <a href="tel:+919876543210">+91 98765 43210</a>
+                    <a href="tel:+914448568436">+91 044 4856 8436</a>
                   </InfoText>
                 </InfoDetails>
               </InfoItem>

@@ -446,10 +446,10 @@ const TeamProfile = () => {
   const teamMembers = {
     'ananth': {
       id: 'ananth',
-      fullName: 'Ananth',
-      jobTitle: 'Founder & CEO',
-      department: 'Leadership',
-      image: '/insurtech/team/ananth.webp',
+      fullName: 'G Anand',
+      jobTitle: 'EVP Head of sales',
+      department: '',
+      image: '/insurtech/team/G Anand.jpeg',
       bio: 'Visionary leader with expertise in cybersecurity strategy and risk management. Driving innovation and excellence across the organization.',
       specialization: 'Strategic leadership, cybersecurity risk management, organizational growth',
       skills: [
@@ -464,7 +464,7 @@ const TeamProfile = () => {
       ],
       workRegion: 'Chennai, India',
       email: 'ananth@transasia.com',
-      phone: '+91 123 456 7890',
+      phone: '+91 044 4856 8436',
       linkedin: 'https://linkedin.com/in/ananth',
       education: [
         'MBA in Business Administration',
@@ -475,7 +475,7 @@ const TeamProfile = () => {
     },
     'coo': {
       id: 'coo',
-      fullName: 'Vijayanand Subramaniam',
+      fullName: 'Vijayanand Subramanyam',
       jobTitle: 'Chief Operating Officer',
       department: 'Operations',
       image: '/insurtech/team/coo.webp',
@@ -493,7 +493,7 @@ const TeamProfile = () => {
       ],
       workRegion: 'Chennai, India',
       email: 'vijayanand@transasia.com',
-      phone: '+91 123 456 7893',
+      phone: '+91 044 4856 8436',
       linkedin: 'https://linkedin.com/in/vijayanand-subramaniam',
       education: [
         'Advanced Banking Operations',

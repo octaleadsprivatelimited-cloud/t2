@@ -721,11 +721,11 @@ const Team = () => {
   const leadership = [
     {
       slug: 'ananth',
-      name: 'Ananth',
-      role: 'Leadership',
+      name: 'G Anand',
+      role: '',
       bio: 'Visionary leader with expertise in cybersecurity strategy and risk management. Driving innovation and excellence across the organization.',
-      image: '/insurtech/team/ananth.webp',
-      badge: 'Founder',
+      image: '/insurtech/team/G Anand.jpeg',
+      badge: 'EVP Head of sales',
       badgeIcon: <FaAward />,
       social: {
         linkedin: '#',
@@ -735,11 +735,11 @@ const Team = () => {
     },
     {
       slug: 'coo',
-      name: 'Chief Operating Officer',
-      role: 'COO',
+      name: 'Vijayanand Subramanyam',
+      role: '',
       bio: 'Operations excellence leader driving organizational growth and client success. Expert in scaling security service operations.',
       image: '/insurtech/team/coo.webp',
-      badge: 'Executive',
+      badge: 'COO',
       badgeIcon: <FaCode />,
       social: {
         linkedin: '#',
@@ -820,7 +820,7 @@ const Team = () => {
               </ImageWrapper>
               <TeamContent>
                 <TeamName>{member.name}</TeamName>
-                <TeamRole>{member.role}</TeamRole>
+                {member.role && <TeamRole>{member.role}</TeamRole>}
                 <TeamBio>{member.bio}</TeamBio>
                 <ViewProfileButton to={`/team/${member.slug}`}>
                   View Full Profile

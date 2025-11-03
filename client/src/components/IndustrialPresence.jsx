@@ -93,12 +93,17 @@ const IndustryGrid = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 8px;
   }
 
-  @media (max-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  @media (max-width: 360px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
   }
 `;
 
@@ -114,6 +119,9 @@ const IndustryCard = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
 
   &:hover {
     background: #ffffff;
@@ -123,13 +131,26 @@ const IndustryCard = styled(motion.div)`
   }
 
   @media (max-width: 768px) {
-    padding: 24px 16px;
-    gap: 12px;
+    padding: 12px 6px;
+    gap: 8px;
+    border-radius: 8px;
     
-    /* Show only first 8 (2 columns x 4 rows) on mobile */
+    /* Show only first 8 (4 columns x 2 rows) on mobile */
     &:nth-child(n+9) {
       display: none;
     }
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 4px;
+    gap: 6px;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 8px 3px;
+    gap: 5px;
+    border-radius: 6px;
   }
 `;
 
@@ -144,6 +165,7 @@ const IconContainer = styled.div`
   font-size: 2rem;
   color: white;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 
   ${IndustryCard}:hover & {
     transform: scale(1.1);
@@ -151,9 +173,21 @@ const IconContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 60px;
-    height: 60px;
-    font-size: 1.7rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 360px) {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
   }
 `;
 
@@ -164,9 +198,29 @@ const IndustryName = styled.h3`
   margin: 0;
   line-height: 1.3;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  width: 100%;
+  padding: 0 2px;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    padding: 0 1px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+    line-height: 1.35;
+    padding: 0 1px;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.65rem;
+    line-height: 1.4;
+    padding: 0 1px;
   }
 `;
 

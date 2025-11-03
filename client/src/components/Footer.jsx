@@ -415,7 +415,7 @@ const Footer = () => {
                 </ContactItem>
                 <ContactItem>
                   <FaPhone />
-                  <a href="tel:+911234567890">+91 123 456 7890</a>
+                  <a href="tel:+914448568436">+91 044 4856 8436</a>
                 </ContactItem>
               </ContactInfo>
               <SocialLinks>

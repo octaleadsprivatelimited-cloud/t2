@@ -59,15 +59,36 @@ const Container = styled.div`
   padding: 0 40px;
   position: relative;
   z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     padding: 0 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 15px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0 10px;
   }
 `;
 
 const SectionHeader = styled.div`
   text-align: center;
   margin-bottom: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 30px;
+  }
 `;
 
 const Title = styled.h2`
@@ -79,9 +100,28 @@ const Title = styled.h2`
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 1;
+  line-height: 1.2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  padding: 0 10px;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    padding: 0 15px;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    padding: 0 10px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 1.3rem;
+    padding: 0 8px;
+    line-height: 1.5;
   }
 `;
 
@@ -111,6 +151,16 @@ const FeaturesGrid = styled.div`
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  @media (max-width: 360px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
 `;
 
 const FeatureCard = styled.div`
@@ -131,6 +181,14 @@ const FeatureCard = styled.div`
   transition: all 0.3s ease;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
 
   &:hover {
     transform: translateY(-8px);
@@ -139,7 +197,21 @@ const FeatureCard = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 12px 8px;
+    padding: 12px 6px;
+    min-height: 120px;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 4px;
+    min-height: 110px;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 8px 3px;
+    min-height: 100px;
+    border-radius: 6px;
   }
 `;
 
@@ -161,6 +233,7 @@ const IconWrapper = styled.div`
     return blueCards.includes(props.index) ? '#1e3a8a' : 'white';
   }};
   transition: all 0.3s ease;
+  flex-shrink: 0;
 
   ${FeatureCard}:hover & {
     transform: scale(1.1) rotate(5deg);
@@ -168,10 +241,24 @@ const IconWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 480px) {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 360px) {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
   }
 `;
 
@@ -184,10 +271,36 @@ const FeatureTitle = styled.h3`
   }};
   margin-bottom: 12px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  width: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
-    font-size: 0.9rem;
-    margin-bottom: 6px;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    line-height: 1.3;
+    padding: 0 2px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+    line-height: 1.35;
+    padding: 0 1px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.65rem;
+    margin-bottom: 3px;
+    line-height: 1.4;
+    padding: 0 1px;
+    font-weight: 600;
   }
 `;
 
@@ -198,6 +311,10 @@ const FeatureDescription = styled.p`
     return blueCards.includes(props.index) ? 'rgba(255, 255, 255, 0.9)' : '#6c757d';
   }};
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     display: none; /* Hide on mobile; will be shown in modal */

@@ -792,7 +792,7 @@ const PressReleaseDetail = () => {
                 </ContactItem>
                 <ContactItem>
                   <FaPhone />
-                  <strong>+91 123 456 7890</strong>
+                  <strong>+91 044 4856 8436</strong>
                 </ContactItem>
               </ContactInfo>
             </SidebarWidget>

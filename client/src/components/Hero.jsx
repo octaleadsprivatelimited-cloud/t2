@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FaArrowRight, FaShieldAlt, FaLock, FaNetworkWired } from 'react-icons/fa';
 
 const float = keyframes`
@@ -200,7 +201,7 @@ const ButtonGroup = styled.div`
   }
 `;
 
-const PrimaryButton = styled.button`
+const PrimaryButton = styled(Link)`
   padding: 16px 32px;
   background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
   color: #ffffff;
@@ -216,6 +217,7 @@ const PrimaryButton = styled.button`
   font-family: 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 0.3px;
   box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4);
+  text-decoration: none;
 
   &:hover {
     background: #1e40af;
@@ -334,7 +336,7 @@ const Hero = () => {
           </Description>
 
           <ButtonGroup>
-            <PrimaryButton>
+            <PrimaryButton to="/services">
               Get Started <FaArrowRight />
             </PrimaryButton>
           </ButtonGroup>
