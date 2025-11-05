@@ -71,7 +71,7 @@ const Solutions = () => {
     },
     {
       title: "Services",
-      subtitle: "Professional security services tailored to your business needs",
+      subtitle: "Professional services tailored to your business needs",
       backgroundImage: "/insurtech/hero/worldmap.webp"
     }
   ];

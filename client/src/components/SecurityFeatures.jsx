@@ -533,7 +533,7 @@ const SecurityFeatures = () => {
     {
       icon: <FaServer />,
       title: 'OT Security',
-      description: 'Protecting Operational Technology environments'
+      description: 'SCADA, PLC, HMI'
     },
     {
       icon: <FaChartLine />,
@@ -548,12 +548,12 @@ const SecurityFeatures = () => {
     {
       icon: <FaCheckCircle />,
       title: 'Compliance',
-      description: 'Cyber insapllance with industry prizentorns'
+      description: 'DFIR - Digital Forensics & Incident Response'
     },
     {
       icon: <FaShieldAlt />,
       title: 'Risk Transfer',
-      description: 'Cyber insurance and financial proteciall'
+      description: 'Financial impact and enabling Insurance purchase'
     }
   ];
 
@@ -561,11 +561,11 @@ const SecurityFeatures = () => {
     {
       icon: <FaChartLine />,
       label: 'Industry Verticals',
-      value: '10+'
+      value: '12+'
     },
     {
       icon: <FaCheckCircle />,
-      label: 'Cyber Risk Quantifications completed',
+      label: 'Cyber Risk Quantifications',
       value: '100+'
     },
     {
@@ -579,7 +579,7 @@ const SecurityFeatures = () => {
     <FeaturesContainer>
       <Container>
         <SectionHeader>
-          <Title>Comprehensive Cybersecurity Solutions</Title>
+          <Title>Comprehensive Cybersecurity Services</Title>
           <Subtitle>
             Enterprise-grade security features designed to protect your business from evolving cyber threats
           </Subtitle>
@@ -620,7 +620,7 @@ const SecurityFeatures = () => {
 
         <ThreatProtectionSection>
           <ThreatContent>
-            <ThreatTitle>Real-Time Threat Intelligence</ThreatTitle>
+            <ThreatTitle>Threat Intelligence</ThreatTitle>
             <ThreatDescription>
               Our advanced security platform continuously monitors and protects your infrastructure against cyber threats
             </ThreatDescription>

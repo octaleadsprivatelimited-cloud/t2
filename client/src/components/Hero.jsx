@@ -332,9 +332,9 @@ const Hero = () => {
           </Title>
           
           <Description>
-            Pioneers with state-of-the-art cutting-edge research based, advanced, scientific Cyber Risk Quantification (CRQ) Modelling platform providing a Robust Risk Management Framework 
+            Pioneers with state-of-the-art cutting-edge research based, advanced, scientific Cyber Risk Quantification (CRQ) Modelling platform providing a Robust Risk Management Framework & Executive Dashboard 
             <br />
-            Executive Dashboard - Justifying Cyber Defense Investments
+            -Justifying Cyber Defense Investments
           </Description>
 
           <ButtonGroup>
@@ -365,8 +365,8 @@ const Hero = () => {
               <StatLabel>Years Experience</StatLabel>
             </StatItem>
             <StatItem>
-              <StatNumber>99.9%</StatNumber>
-              <StatLabel>Protection Rate</StatLabel>
+              <StatNumber>99.5%</StatNumber>
+              <StatLabel>V@R Estimation</StatLabel>
             </StatItem>
           </StatsContainer>
         </HeroContent>

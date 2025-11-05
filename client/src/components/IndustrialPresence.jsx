@@ -12,7 +12,8 @@ import {
   FaBuilding, 
   FaFlask, 
   FaOilCan, 
-  FaBroadcastTower 
+  FaBroadcastTower,
+  FaPills
 } from 'react-icons/fa';
 
 const PresenceContainer = styled.section`
@@ -235,10 +236,10 @@ const IndustrialPresence = () => {
     { name: 'LOGISTICS', icon: <FaTruck /> },
     { name: 'TECHNOLOGY', icon: <FaLaptop /> },
     { name: 'GAMING', icon: <FaGamepad /> },
-    { name: 'MANUFACTURING', icon: <FaCogs /> },
+    { name: 'MFG - AUTOMOBILE', icon: <FaCogs /> },
     { name: 'AVIATION', icon: <FaPlane /> },
     { name: 'REALTY & INFRA', icon: <FaBuilding /> },
-    { name: 'PETROCHEMICAL', icon: <FaFlask /> },
+    { name: 'pharma', icon: <FaPills /> },
     { name: 'OIL & GAS', icon: <FaOilCan /> },
     { name: 'TELECOM', icon: <FaBroadcastTower /> },
   ];
