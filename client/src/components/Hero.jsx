@@ -332,7 +332,10 @@ const Hero = () => {
           </Title>
           
           <Description>
-            World Leaders in Cyber Risk Quantification providing a Robust Risk Management Framework Executive Dashboard - Justifying Cyber Spend
+            Pioneers with state-of-the-art cutting-edge research based, advanced, scientific Cyber Risk Quantification (CRQ) Modelling platform providing a Robust Risk Management Framework 
+            <br />
+            <br />
+            Executive Dashboard - Justifying Cyber Defense Investments
           </Description>
 
           <ButtonGroup>
