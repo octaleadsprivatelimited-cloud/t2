@@ -485,9 +485,10 @@ const TeamProfile = () => {
     'ananth': {
       id: 'ananth',
       fullName: 'G Anand',
-      jobTitle: 'EVP Head of sales',
+      jobTitle: 'EVP Sales & GTM Strategy',
       department: '',
       image: '/insurtech/team/G Anand.jpeg',
+      qrImage: '/images/team/g-anand-qr.png',
       bio: 'Visionary leader with expertise in cybersecurity strategy and risk management. Driving innovation and excellence across the organization.',
       specialization: 'Strategic leadership, cybersecurity risk management, organizational growth',
       skills: [
@@ -721,9 +722,17 @@ const TeamProfile = () => {
             </SocialSection>
 
             <QRBox>
+            {member.qrImage ? (
+              <img
+                src={member.qrImage}
+                alt={`QR code to connect with ${member.fullName}`}
+                style={{ width: '140px', height: '140px', borderRadius: '10px', objectFit: 'cover', border: '2px solid #cbd5e1' }}
+              />
+            ) : (
               <QRPlaceholder>
                 <FaQrcode />
               </QRPlaceholder>
+            )}
               <p style={{ fontSize: '0.9rem', color: '#64748b', margin: 0 }}>
                 Scan to connect with {member.fullName}
               </p>

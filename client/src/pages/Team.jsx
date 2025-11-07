@@ -736,10 +736,10 @@ const Team = () => {
     {
       slug: 'ananth',
       name: 'G Anand',
-      role: '',
+      role: 'EVP Sales & GTM Strategy',
       bio: 'Visionary leader with expertise in cybersecurity strategy and risk management. Driving innovation and excellence across the organization.',
       image: '/insurtech/team/G Anand.jpeg',
-      badge: 'EVP Head of sales',
+      badge: 'EVP Sales & GTM Strategy',
       badgeIcon: <FaAward />,
       social: {
         linkedin: '#',
