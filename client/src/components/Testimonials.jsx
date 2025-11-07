@@ -5,48 +5,39 @@ import { FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const testimonials = [
   {
-    id: "testimonial-01",
-    quote: "Trans Asia Tech's cybersecurity solutions have transformed our risk management approach. Their executive dashboard provides clear insights that justify our cyber spend decisions.",
+    id: "feedback-01",
+    quote:
+      "We appreciate the voluntary contribution that each reviewer gives to the Journal. We thank you for your help and participation in the online peer review process and hope that we may call upon you again to review future manuscripts.",
     author: {
-      name: "Rajesh Kumar",
-      title: "Chief Information Security Officer, Tata Consultancy Services",
-      avatarUrl: "/insurtech/team/ananth.webp",
+      name: "Asia-Pacific Journal of Risk and Insurance",
+      title: "W. Jean Kwon",
     },
   },
   {
-    id: "testimonial-02",
-    quote: "The comprehensive risk quantification framework has been a game-changer for our organization. We can now make data-driven decisions about our cybersecurity investments.",
+    id: "feedback-02",
+    quote:
+      "I have used the CyberCat tool developed by Transasia in my personal capacity as a cyber-enthusiast. It is indeed helpful and provides a broad view into the risk framework of the client.",
     author: {
-      name: "Priya Patel",
-      title: "Head of IT Security, Infosys Technologies",
-      avatarUrl: "/insurtech/team/Abi.webp",
+      name: "A leading international Reinsurer",
+      title: "",
     },
   },
   {
-    id: "testimonial-03",
-    quote: "Trans Asia Tech's robust risk management framework has saved us thousands of hours in manual risk assessment. Their solutions are both powerful and user-friendly.",
+    id: "feedback-03",
+    quote:
+      "I would not hesitate in recommending TransAsia to anyone requiring Cyber Risk Assessment. Technology at its best, domain knowledge at work and finally quantifying cyber—we had our CyberCat report in rapid time.",
     author: {
-      name: "Dr. Amit Singh",
-      title: "Director of Cybersecurity, Wipro Limited",
-      avatarUrl: "/insurtech/team/Dr_ravindraa.webp",
+      name: "A leading Aviation player managing Intl Airports",
+      title: "",
     },
   },
   {
-    id: "testimonial-04",
-    quote: "The AI-powered threat detection capabilities have significantly enhanced our security posture. We've seen a 40% reduction in false positives.",
+    id: "feedback-04",
+    quote:
+      "I am really impressed by the quality of services I received from Transasia Tech. You have shown enormous skill and vast domain knowledge and your expertise is reliable and trustworthy. I would definitely recommend Cyber Risk and Value at Risk report from Transasia Tech.",
     author: {
-      name: "Kavitha Reddy",
-      title: "VP of Information Security, HCL Technologies",
-      avatarUrl: "/insurtech/team/coo.webp",
-    },
-  },
-  {
-    id: "testimonial-05",
-    quote: "Trans Asia Tech's third-party risk management solution has streamlined our vendor assessment process. Highly recommended for enterprise security.",
-    author: {
-      name: "Vikram Mehta",
-      title: "Chief Risk Officer, Tech Mahindra",
-      avatarUrl: "/insurtech/team/ananth.webp",
+      name: "Leading Insurance Broker",
+      title: "",
     },
   },
 ];
@@ -168,16 +159,7 @@ const AuthorDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-`;
-
-const Avatar = styled.img`
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #e2e8f0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  gap: 6px;
 `;
 
 const AuthorName = styled.p`
@@ -414,14 +396,10 @@ const Testimonials = () => {
               >
                 <AuthorInfo>
                   <AuthorDetails>
-                    <Avatar 
-                      src={testimonials[currentTestimonialIndex].author.avatarUrl} 
-                      alt={testimonials[currentTestimonialIndex].author.name} 
-                    />
-                    <div>
-                      <AuthorName>{testimonials[currentTestimonialIndex].author.name}</AuthorName>
+                    <AuthorName>{testimonials[currentTestimonialIndex].author.name}</AuthorName>
+                    {testimonials[currentTestimonialIndex].author.title && (
                       <AuthorTitle>{testimonials[currentTestimonialIndex].author.title}</AuthorTitle>
-                    </div>
+                    )}
                   </AuthorDetails>
                   
                   <StarRating>
