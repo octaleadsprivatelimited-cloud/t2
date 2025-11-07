@@ -472,7 +472,6 @@ const TeamProfile = () => {
         { number: '2018', text: 'Cyber Security Insurance Specialist Award' }
       ],
       workRegion: 'Chennai, India',
-      email: 'suresh@transasia.com',
       phone: '+91 044 4856 8436',
       linkedin: 'https://linkedin.com/in/suresh-balakrishnan',
       education: [
@@ -502,15 +501,8 @@ const TeamProfile = () => {
         { number: '100+', text: 'Team Members Led' }
       ],
       workRegion: 'Chennai, India',
-      email: 'ananth@transasia.com',
       phone: '+91 89258 34989',
-      linkedin: 'https://linkedin.com/in/ananth',
-      education: [
-        'MBA in Business Administration',
-        'B.Tech in Computer Science',
-        'Executive Program in Cybersecurity'
-      ],
-      languages: ['English', 'Tamil', 'Hindi']
+      linkedin: 'https://linkedin.com/in/ananth'
     },
     'coo': {
       id: 'coo',
@@ -531,7 +523,6 @@ const TeamProfile = () => {
         { number: 'Global', text: 'Recognition' }
       ],
       workRegion: 'Chennai, India',
-      email: 'vijayanand@transasia.com',
       phone: '+91 044 4856 8436',
       linkedin: 'https://linkedin.com/in/vijayanand-subramaniam',
       education: [
@@ -582,9 +573,6 @@ const TeamProfile = () => {
               <Name>{member.fullName}</Name>
               <JobTitle>{member.jobTitle}</JobTitle>
               <ContactButtons>
-                <ContactButton href={`mailto:${member.email}`}>
-                  <FaEnvelope /> Email
-                </ContactButton>
                 <ContactButton href={`tel:${member.phone}`}>
                   <FaPhone /> Call
                 </ContactButton>
@@ -624,33 +612,11 @@ const TeamProfile = () => {
               </InfoBox>
               <InfoBox>
                 <InfoIcon>
-                  <FaEnvelope />
-                </InfoIcon>
-                <InfoContent>
-                  <h4>Email</h4>
-                  <a href={`mailto:${member.email}`}>{member.email}</a>
-                </InfoContent>
-              </InfoBox>
-              <InfoBox>
-                <InfoIcon>
                   <FaPhone />
                 </InfoIcon>
                 <InfoContent>
                   <h4>Phone</h4>
                   <a href={`tel:${member.phone}`}>{member.phone}</a>
-                </InfoContent>
-              </InfoBox>
-              <InfoBox>
-                <InfoIcon>
-                  <FaGlobe />
-                </InfoIcon>
-                <InfoContent>
-                  <h4>Languages</h4>
-                  <LanguageTags>
-                    {member.languages.map((lang, idx) => (
-                      <LanguageTag key={idx}>{lang}</LanguageTag>
-                    ))}
-                  </LanguageTags>
                 </InfoContent>
               </InfoBox>
             </InfoRow>
