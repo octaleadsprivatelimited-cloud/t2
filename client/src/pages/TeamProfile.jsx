@@ -609,43 +609,6 @@ const TeamProfile = () => {
 
           <Section>
             <SectionTitle>
-              <FaShieldAlt />
-              Skills & Competencies
-            </SectionTitle>
-            <Grid>
-              {member.skills.map((skillGroup, index) => (
-                <Card key={index}>
-                  <CardTitle>{skillGroup.category}</CardTitle>
-                  <CardList>
-                    {skillGroup.items.map((item, idx) => (
-                      <li key={idx}>
-                        <FaCheckCircle />
-                        {item}
-                      </li>
-                    ))}
-                  </CardList>
-                </Card>
-              ))}
-            </Grid>
-          </Section>
-
-          <Section>
-            <SectionTitle>
-              <FaAward />
-              Achievements
-            </SectionTitle>
-            <AchievementRow>
-              {member.achievements.map((achievement, index) => (
-                <AchievementBox key={index}>
-                  <AchievementNumber>{achievement.number}</AchievementNumber>
-                  <AchievementText>{achievement.text}</AchievementText>
-                </AchievementBox>
-              ))}
-            </AchievementRow>
-          </Section>
-
-          <Section>
-            <SectionTitle>
               <FaMapMarkerAlt />
               Contact & Location
             </SectionTitle>
@@ -691,23 +654,6 @@ const TeamProfile = () => {
                 </InfoContent>
               </InfoBox>
             </InfoRow>
-          </Section>
-
-          <Section>
-            <SectionTitle>
-              <FaGraduationCap />
-              Education & Training
-            </SectionTitle>
-            <Grid>
-              {member.education.map((edu, index) => (
-                <Card key={index}>
-                  <CardTitle>
-                    <FaGraduationCap style={{ marginRight: '8px', color: '#2563eb' }} />
-                    {edu}
-                  </CardTitle>
-                </Card>
-              ))}
-            </Grid>
           </Section>
 
           <Section>
