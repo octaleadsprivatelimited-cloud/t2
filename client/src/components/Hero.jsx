@@ -345,7 +345,7 @@ const Hero = () => {
 
           {/* Cybercat Floating Image */}
           <CybercatImage 
-            src="/insurtech/cer/cybercat.webp" 
+            src="/images/cer/cybercat.webp" 
             alt="Cybercat" 
             size="400px"
             loading="eager"

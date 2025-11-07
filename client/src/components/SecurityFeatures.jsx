@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { 
   FaShieldAlt, 
@@ -10,6 +10,8 @@ import {
   FaCheckCircle,
   FaCloudUploadAlt
 } from 'react-icons/fa';
+
+const BLUE_CARD_INDICES = [0, 2, 5, 7];
 
 const FeaturesContainer = styled.section`
   padding: 24px 0 80px 0;
@@ -164,21 +166,16 @@ const FeaturesGrid = styled.div`
 `;
 
 const FeatureCard = styled.div`
-  background: ${props => {
-    const blueCards = [0, 2, 5, 7]; // CRQ Platform, GRC, Vulnerability Assessment, Risk Transfer
-    return blueCards.includes(props.index) ? '#1e3a8a' : '#ffffff';
-  }};
-  color: ${props => {
-    const blueCards = [0, 2, 5, 7];
-    return blueCards.includes(props.index) ? '#ffffff' : '#212529';
-  }};
+  background: ${props => (BLUE_CARD_INDICES.includes(props.index) ? '#1e3a8a' : '#ffffff')};
+  color: ${props => (BLUE_CARD_INDICES.includes(props.index) ? '#ffffff' : '#212529')};
   border-radius: 12px;
   padding: 35px 25px;
-  border: 1px solid ${props => {
-    const blueCards = [0, 2, 5, 7];
-    return blueCards.includes(props.index) ? '#1e3a8a' : '#e5e7eb';
-  }};
-  transition: all 0.3s ease;
+  border: 1px solid ${props => (BLUE_CARD_INDICES.includes(props.index) ? '#1e3a8a' : '#e5e7eb')};
+  opacity: ${props => (props.$visible ? 1 : 0)};
+  transform: ${props => (props.$visible ? 'translateY(0)' : 'translateY(40px)')};
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition-delay: ${props => (props.$visible ? `${props.index * 0.05}s` : '0s')};
+  will-change: transform, opacity;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   min-height: 180px;
@@ -220,18 +217,12 @@ const IconWrapper = styled.div`
   height: 70px;
   margin: 0 auto 20px;
   border-radius: 50%;
-  background: ${props => {
-    const blueCards = [0, 2, 5, 7];
-    return blueCards.includes(props.index) ? 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)' : 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%)';
-  }};
+  background: ${props => (BLUE_CARD_INDICES.includes(props.index) ? 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)' : 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%)')};
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: ${props => {
-    const blueCards = [0, 2, 5, 7];
-    return blueCards.includes(props.index) ? '#1e3a8a' : 'white';
-  }};
+  color: ${props => (BLUE_CARD_INDICES.includes(props.index) ? '#1e3a8a' : 'white')};
   transition: all 0.3s ease;
   flex-shrink: 0;
 
@@ -265,10 +256,7 @@ const IconWrapper = styled.div`
 const FeatureTitle = styled.h3`
   font-size: 1.2rem;
   font-weight: 600;
-  color: ${props => {
-    const blueCards = [0, 2, 5, 7];
-    return blueCards.includes(props.index) ? '#ffffff' : '#212529';
-  }};
+  color: ${props => (BLUE_CARD_INDICES.includes(props.index) ? '#ffffff' : '#212529')};
   margin-bottom: 12px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.3;
@@ -306,10 +294,7 @@ const FeatureTitle = styled.h3`
 
 const FeatureDescription = styled.p`
   font-size: 0.95rem;
-  color: ${props => {
-    const blueCards = [0, 2, 5, 7];
-    return blueCards.includes(props.index) ? 'rgba(255, 255, 255, 0.9)' : '#6c757d';
-  }};
+  color: ${props => (BLUE_CARD_INDICES.includes(props.index) ? 'rgba(255, 255, 255, 0.9)' : '#6c757d')};
   line-height: 1.6;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -465,7 +450,11 @@ const ThreatItem = styled.div`
   border-radius: 12px;
   padding: 30px 20px;
   text-align: center;
-  transition: all 0.3s ease;
+  opacity: ${props => (props.$visible ? 1 : 0)};
+  transform: ${props => (props.$visible ? 'translateY(0)' : 'translateY(40px)')};
+  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s ease;
+  transition-delay: ${props => (props.$visible ? `${props.index * 0.05 + 0.2}s` : '0s')};
+  will-change: transform, opacity;
 
   &:hover {
     background: rgba(255, 255, 255, 0.15);
@@ -512,68 +501,135 @@ const ThreatValue = styled.div`
 `;
 
 
+const featuresData = [
+  {
+    icon: <FaShieldAlt />,
+    title: 'CRQ Platform',
+    description: 'Cyber Risk Quantification prevention for informed decision making'
+  },
+  {
+    icon: <FaLock />,
+    title: 'vCISO',
+    description: 'Virtual CISO leadership and guidance'
+  },
+  {
+    icon: <FaUserShield />,
+    title: 'GRC',
+    description: 'Governance, Risk & Compliance frameworks'
+  },
+  {
+    icon: <FaServer />,
+    title: 'OT Security',
+    description: 'SCADA, PLC, HMI'
+  },
+  {
+    icon: <FaChartLine />,
+    title: 'Risk Management',
+    description: 'Identify assess, and mitigate cyber risks'
+  },
+  {
+    icon: <FaExclamationTriangle />,
+    title: 'Vulnerability Assessment',
+    description: 'Identify assess, and mitigate cyber risks'
+  },
+  {
+    icon: <FaCheckCircle />,
+    title: 'Compliance',
+    description: 'DFIR - Digital Forensics & Incident Response'
+  },
+  {
+    icon: <FaShieldAlt />,
+    title: 'Risk Transfer',
+    description: 'Financial impact and enabling Insurance purchase'
+  }
+];
+
+const threatsData = [
+  {
+    icon: <FaChartLine />,
+    label: 'Industry Verticals',
+    value: '12+'
+  },
+  {
+    icon: <FaCheckCircle />,
+    label: 'Cyber Risk Quantifications',
+    value: '100+'
+  },
+  {
+    icon: <FaShieldAlt />,
+    label: 'REDTEAM Hours',
+    value: '3000+'
+  }
+];
+
 const SecurityFeatures = () => {
   const [mobileOpenFeature, setMobileOpenFeature] = useState(null);
-  const features = [
-    {
-      icon: <FaShieldAlt />,
-      title: 'CRQ Platform',
-      description: 'Cyber Risk Quantification prevention for informed decision making'
-    },
-    {
-      icon: <FaLock />,
-      title: 'vCISO',
-      description: 'Virtual CISO leadership and guidance'
-    },
-    {
-      icon: <FaUserShield />,
-      title: 'GRC',
-      description: 'Governance, Risk & Compliance frameworks'
-    },
-    {
-      icon: <FaServer />,
-      title: 'OT Security',
-      description: 'SCADA, PLC, HMI'
-    },
-    {
-      icon: <FaChartLine />,
-      title: 'Risk Management',
-      description: 'Identify assess, and mitigate cyber risks'
-    },
-    {
-      icon: <FaExclamationTriangle />,
-      title: 'Vulnerability Assessment',
-      description: 'Identify assess, and mitigate cyber risks'
-    },
-    {
-      icon: <FaCheckCircle />,
-      title: 'Compliance',
-      description: 'DFIR - Digital Forensics & Incident Response'
-    },
-    {
-      icon: <FaShieldAlt />,
-      title: 'Risk Transfer',
-      description: 'Financial impact and enabling Insurance purchase'
-    }
-  ];
+  const featureRefs = useRef([]);
+  const threatRefs = useRef([]);
+  const [visibleCards, setVisibleCards] = useState(() => Array(featuresData.length).fill(false));
+  const [visibleThreats, setVisibleThreats] = useState(() => Array(threatsData.length).fill(false));
 
-  const threats = [
-    {
-      icon: <FaChartLine />,
-      label: 'Industry Verticals',
-      value: '12+'
-    },
-    {
-      icon: <FaCheckCircle />,
-      label: 'Cyber Risk Quantifications',
-      value: '100+'
-    },
-    {
-      icon: <FaShieldAlt />,
-      label: 'REDTEAM Hours',
-      value: '3000+'
-    }
-  ];
+  useEffect(() => {
+    featureRefs.current = featureRefs.current.slice(0, featuresData.length);
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisibleCards(prev => {
+              if (prev[index]) return prev;
+              const next = [...prev];
+              next[index] = true;
+              return next;
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px'
+      }
+    );
+
+    featureRefs.current.forEach(card => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    threatRefs.current = threatRefs.current.slice(0, threatsData.length);
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisibleThreats(prev => {
+              if (prev[index]) return prev;
+              const next = [...prev];
+              next[index] = true;
+              return next;
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px'
+      }
+    );
+
+    threatRefs.current.forEach(item => {
+      if (item) observer.observe(item);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <FeaturesContainer>
@@ -586,10 +642,15 @@ const SecurityFeatures = () => {
         </SectionHeader>
 
         <FeaturesGrid>
-          {features.map((feature, index) => (
+          {featuresData.map((feature, index) => (
             <FeatureCard
               key={index}
               index={index}
+              $visible={visibleCards[index]}
+              ref={el => {
+                featureRefs.current[index] = el;
+              }}
+              data-index={index}
               onClick={() => {
                 if (window.innerWidth <= 768) setMobileOpenFeature(feature);
               }}
@@ -629,8 +690,16 @@ const SecurityFeatures = () => {
             </ThreatHighlight>
 
             <ThreatGrid>
-              {threats.map((threat, index) => (
-                <ThreatItem key={index}>
+              {threatsData.map((threat, index) => (
+                <ThreatItem
+                  key={index}
+                  index={index}
+                  $visible={visibleThreats[index]}
+                  ref={el => {
+                    threatRefs.current[index] = el;
+                  }}
+                  data-index={index}
+                >
                   <ThreatIcon>{threat.icon}</ThreatIcon>
                   <ThreatLabel>{threat.label}</ThreatLabel>
                   <ThreatValue>{threat.value}</ThreatValue>
