@@ -763,12 +763,6 @@ const Insurtech = () => {
       description: 'To manage Retail Cyber Insurance operations from Risk Assessment, Mobile Forensics, Claim Settlements.',
       gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
     },
-    {
-      icon: <FaLock />,
-      title: 'Sunshine Retail Anti Ransomware',
-      description: 'Purchase of Sunshine Retail Anti Ransomware solution license to protect your Mobile from Ransomware.',
-      gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)'
-    }
   ];
 
   return (

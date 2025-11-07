@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaChevronDown, FaRocket, FaLeaf, FaSearch, FaSun, FaBolt, FaNetworkWired, FaBars, FaTimes
+  FaChevronDown, FaRocket, FaLeaf, FaSearch, FaBolt, FaNetworkWired, FaBars, FaTimes
 } from 'react-icons/fa';
 
 const rotate = keyframes`
@@ -544,21 +544,6 @@ const CyberSecurityProducts = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const products = [
-    {
-      id: 'sunshine',
-      icon: <FaSun />,
-      title: 'Sunshine',
-      gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-      description: 'Comprehensive security awareness and training platform. Sunshine illuminates your organization\'s security culture through engaging training modules, phishing simulations, and continuous security education programs.',
-      features: [
-        'Interactive Security Training Modules',
-        'Phishing Simulation Campaigns',
-        'Compliance Training & Certification',
-        'Real-time Progress Tracking & Analytics'
-      ],
-      highlight: 'Transform your employees from security risks to security champions with gamified learning',
-      cta: 'Brighten your security posture with Sunshine!'
-    },
     {
       id: 'transgrc',
       icon: <FaLeaf />,
