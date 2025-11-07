@@ -566,7 +566,7 @@ const CyberSecurityProducts = () => {
       gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
       description: 'TransGRC: Your All-in-One Compliance Dashboard. Ensure peace of mind with TransGRC, a comprehensive compliance management solution designed to streamline your security posture. Automate tasks, centralize data, and gain complete visibility into your compliance efforts, all within a user-friendly platform.',
       features: [
-        'Effortless Compliance Management',
+        'Efficient Compliance Management',
         'Complete Control Over Your Compliance Program',
         'Simplified Policy Creation',
         'Vendor Management Made Easy'

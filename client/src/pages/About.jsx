@@ -783,7 +783,7 @@ const About = () => {
   ];
 
   const whyUs = [
-    { icon: <FaBullseye />, title: 'Unified Dashboard of Entire Business Risk' },
+    { icon: <FaBullseye />, title: 'CRQ for Boardroom Decisions' },
     { icon: <FaCheckCircle />, title: 'Complete Control of Vulnerability Lifecycle' },
     { icon: <FaLock />, title: 'Advanced Algorithm to prevent Zero-Day Ransomware Attack' },
     { icon: <FaSearch />, title: 'Find Organizations List Posture from Industrial Data Leaks' },
@@ -899,6 +899,24 @@ const About = () => {
           <StoryImage>
             <img src="/insurtech/team/coo.webp" alt="Vijayanand Subramaniam - Chief Operating Officer" />
           </StoryImage>
+        </StorySection>
+
+        <StorySection>
+          <StoryImage>
+            <img src="/images/team/Suresh Balakrishnan.jpeg" alt="Suresh Balakrishnan - Founder and Mentor" />
+          </StoryImage>
+          <StoryContent>
+            <StoryTitle>Founder &amp; Mentor</StoryTitle>
+            <StoryText>
+              <strong>Insurance Consultant / Risk Advisor</strong>
+            </StoryText>
+            <StoryText>
+              Over 30 years of insurance industry experience, implementation expertise, and global knowledge of financial lines products enable Suresh to make significant contributions to our cyber and allied verticals.
+            </StoryText>
+            <StoryText>
+              Recipient of the <strong>Cyber Security Insurance Specialist Award (2018)</strong>, he mentors enterprises on aligning risk transfer programs with emerging cyber threats.
+            </StoryText>
+          </StoryContent>
         </StorySection>
 
         {/* Stats */}

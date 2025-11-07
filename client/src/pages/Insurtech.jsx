@@ -798,7 +798,7 @@ const Insurtech = () => {
             transition={{ duration: 0.6 }}
           >
             Insurtech Solutions
-            <span>Risk Monitoring & Cyber Risk Transfer</span>
+            <span>Risk Monitoring & Risk Transfer</span>
           </HeroTitle>
           <HeroSubtitle
             initial={{ opacity: 0, y: 30 }}

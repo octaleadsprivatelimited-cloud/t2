@@ -444,6 +444,44 @@ const TeamProfile = () => {
   const [showVideo, setShowVideo] = useState(false);
 
   const teamMembers = {
+    'suresh-balakrishnan': {
+      id: 'suresh-balakrishnan',
+      fullName: 'Suresh Balakrishnan',
+      jobTitle: 'Founder, Mentor',
+      department: 'Advisory',
+      image: '/images/team/Suresh Balakrishnan.jpeg',
+      bio: 'Insurance Consultant and Risk Advisor with over 30 years of insurance industry leadership, implementation expertise, and financial lines knowledge across global markets. Makes significant contributions to cyber and allied verticals while bridging underwriting and technology teams. Achieved the Cyber Security Insurance Specialist Award in 2018.',
+      specialization: 'Insurance consulting, risk advisory, financial lines, cyber risk transfer, strategic mentorship',
+      skills: [
+        {
+          category: 'Expertise Highlights',
+          items: ['Insurance Consulting', 'Risk Advisory', 'Financial Lines Strategy', 'Cyber Insurance Programs']
+        },
+        {
+          category: 'Key Contributions',
+          items: ['Mentoring Cyber & Insurance Teams', 'Designing Risk Transfer Frameworks', 'Board-level Risk Reporting', 'Global Implementation Leadership']
+        },
+        {
+          category: 'Recognition',
+          items: ['Cyber Security Insurance Specialist Award (2018)', '30+ Years of Industry Impact']
+        }
+      ],
+      achievements: [
+        { number: '30+', text: 'Years in Insurance & Risk Advisory' },
+        { number: 'Global', text: 'Financial Lines Implementations' },
+        { number: '2018', text: 'Cyber Security Insurance Specialist Award' }
+      ],
+      workRegion: 'Chennai, India',
+      email: 'suresh@transasia.com',
+      phone: '+91 044 4856 8436',
+      linkedin: 'https://linkedin.com/in/suresh-balakrishnan',
+      education: [
+        'Fellowship in Insurance and Risk Management',
+        'Advanced Programs in Financial Lines Insurance',
+        'Continuous Professional Development in Cyber Insurance'
+      ],
+      languages: ['English', 'Tamil']
+    },
     'ananth': {
       id: 'ananth',
       fullName: 'G Anand',

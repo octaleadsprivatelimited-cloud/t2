@@ -463,7 +463,7 @@ const PressRelease = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Latest news, announcements, and media coverage from TransAsia Technologies
+            Latest news, announcements, and media coverage from TransAsia SoftTech
           </Subtitle>
         </HeroContent>
       </HeroSection>

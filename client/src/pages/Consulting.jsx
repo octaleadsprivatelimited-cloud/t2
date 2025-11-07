@@ -674,10 +674,10 @@ const Consulting = () => {
       height: '500px',
       items: [
         'Security Architecture Review',
-        'Compliance Strategy Development',
+        'BCP Review, Framework',
         'Risk Assessment & Analysis',
         'Security Program Development',
-        'Executive Advisory Services'
+        'Risk Advisory'
       ]
     },
     {
@@ -698,7 +698,7 @@ const Consulting = () => {
     {
       icon: <FaGraduationCap />,
       title: 'Training',
-      description: 'Comprehensive cybersecurity training programs for all skill levels. Transform your team into security champions with hands-on, practical training.',
+      description: 'Comprehensive cybersecurity training programs for all skill levels. Transform your team into security champions with our tailored training modules to suit our customers needs',
       gradient: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%)',
       span: 'span 6',
       height: '500px',
@@ -706,8 +706,7 @@ const Consulting = () => {
         'Security Awareness Training',
         'Phishing Simulation Campaigns',
         'Technical Security Training',
-        'Compliance Training Programs',
-        'Custom Training Development'
+        'Custom Training Program'
       ]
     },
     {
@@ -735,9 +734,7 @@ const Consulting = () => {
       items: [
         'Cyber Insurance Policy Review',
         'Coverage Gap Analysis',
-        'Risk Quantification for Insurance',
-        'Claims Support & Management',
-        'Insurance Broker Coordination'
+        'Risk Quantification for Insurance'
       ]
     }
   ];
@@ -781,8 +778,7 @@ const Consulting = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            Expert consulting across ESG, Enterprise Risk Management, Cyber Insurance, 
-            and Incident Response. Protect your business and accelerate growth with proven strategies.
+            Expert consulting, Enterprise Risk Management, Risk Transfer, and Incident Response. Protect your business and accelerate growth with proven strategies.
           </HeroDescription>
         </HeroContent>
       </HeroSection>

@@ -720,6 +720,20 @@ const Team = () => {
 
   const leadership = [
     {
+      slug: 'suresh-balakrishnan',
+      name: 'Suresh Balakrishnan',
+      role: 'Founder, Mentor',
+      bio: 'Insurance consultant and risk advisor with over three decades of experience guiding cyber and financial lines initiatives worldwide.',
+      image: '/images/team/Suresh Balakrishnan.jpeg',
+      badge: 'Founder & Mentor',
+      badgeIcon: <FaShieldAlt />,
+      social: {
+        linkedin: '#',
+        twitter: '#',
+        email: 'suresh@transasia.com'
+      }
+    },
+    {
       slug: 'ananth',
       name: 'G Anand',
       role: '',

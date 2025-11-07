@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaUserShield, FaRocket, FaLaptopCode, FaServer, FaSearch, FaCheckCircle, FaArrowRight, FaShieldAlt, FaLock, FaNetworkWired, FaBars, FaTimes
+  FaUserShield, FaRocket, FaLaptopCode, FaServer, FaSearch, FaCheckCircle, FaArrowRight, FaShieldAlt, FaLock, FaNetworkWired, FaBars, FaTimes, FaCog
 } from 'react-icons/fa';
 
 const float = keyframes`
@@ -783,7 +783,7 @@ const CyberSecurityServices = () => {
       fullTitle: 'Application Security Assessment',
       description: 'An Application Security Assessment (ASA) is a systematic process of identifying, evaluating, and documenting vulnerabilities in software applications. It plays a crucial role in protecting applications from cyberattacks and data breaches. This assessment uses the Open Web Application Security Project (OWASP) Testing Guide methodology to ensure comprehensive coverage of potential security issues.',
       methodology: {
-        title: 'OWASP 2023 Methodology',
+        title: 'OWASP 2021 Methodology',
         subtitle: 'Phases of an OWASP-based Application Security Assessment:',
         items: [
           { title: 'Preparation', desc: 'Define scope, gather requirements, and establish testing parameters' },
@@ -829,8 +829,8 @@ const CyberSecurityServices = () => {
       id: 'cyber-forensic',
       icon: <FaSearch />,
       title: 'Forensics',
-      fullTitle: 'Cyber Forensic Assessment',
-      description: 'A Cyber forensic assessment is a systematic investigation conducted to identify, collect, analyze, and preserve digital evidence in the aftermath of a cyber security incident. This process is crucial for legal proceedings, determining the root cause of the incident, and implementing effective mitigation strategies. The National Institute of Standards and Technology (NIST) CyberSecurity Framework provides a methodology that can be effectively applied to cyber forensic assessments.',
+      fullTitle: 'Cyber Incident Forensics',
+      description: 'Cyber forensics Incident is a systematic investigation conducted to identify, collect, analyze, and preserve digital evidence in the aftermath of a cyber security incident. This process is crucial for legal proceedings, determining the root cause of the incident, and implementing effective mitigation strategies. The National Institute of Standards and Technology (NIST) CyberSecurity Framework provides a methodology that can be effectively applied to cyber forensic assessments.',
       methodology: {
         title: 'NIST Framework Core Functions',
         subtitle: 'The NIST Cybersecurity Framework outlines five core functions:',
@@ -847,6 +847,30 @@ const CyberSecurityServices = () => {
         { title: 'Focus on Threats', desc: 'Concentrate on actual security events and their impact' },
         { title: 'Flexibility', desc: 'Adapt methodology to different types of incidents' },
         { title: 'Community Resources', desc: 'Leverage industry best practices and tools' }
+      ]
+    },
+    {
+      id: 'ot-iot',
+      icon: <FaCog />,
+      title: 'OT & IOT',
+      fullTitle: 'OT & IoT Security Assessment',
+      description: 'Operational Technology (OT) and Internet of Things (IoT) security assessment is a specialized evaluation focused on protecting industrial control systems, SCADA systems, PLCs, and connected devices. These systems are critical to industrial operations and require specialized security approaches different from traditional IT security. Our assessment identifies vulnerabilities in OT/IoT environments and provides recommendations to secure these critical assets.',
+      methodology: {
+        title: 'OT/IoT Security Assessment Methodology',
+        subtitle: 'A comprehensive approach to securing operational technology and IoT devices:',
+        items: [
+          { title: 'Asset Discovery & Inventory', desc: 'Identify all OT/IoT devices, systems, and network connections' },
+          { title: 'Risk Assessment', desc: 'Evaluate security risks specific to industrial and IoT environments' },
+          { title: 'Vulnerability Assessment', desc: 'Identify security weaknesses in devices, protocols, and configurations' },
+          { title: 'Network Segmentation Review', desc: 'Assess isolation between IT and OT networks' },
+          { title: 'Compliance & Standards Review', desc: 'Evaluate adherence to industry standards like IEC 62443' }
+        ]
+      },
+      benefits: [
+        { title: 'Protect Critical Infrastructure', desc: 'Secure industrial systems that are essential to operations' },
+        { title: 'Reduce Operational Risk', desc: 'Minimize risk of production disruption from cyber attacks' },
+        { title: 'Compliance Alignment', desc: 'Meet industry standards and regulatory requirements' },
+        { title: 'Specialized Expertise', desc: 'Leverage deep knowledge of OT/IoT security challenges' }
       ]
     }
   ];
