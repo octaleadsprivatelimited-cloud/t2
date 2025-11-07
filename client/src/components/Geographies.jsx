@@ -40,32 +40,28 @@ const SectionHeader = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #1e3a8a;
-  margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
 
   @media (max-width: 768px) {
-    font-size: 1.8rem;
-    white-space: nowrap;
-    overflow: visible;
-    text-overflow: unset;
+    font-size: 2rem;
+    margin-bottom: 30px;
   }
 
   @media (max-width: 480px) {
     font-size: 1.5rem;
-    white-space: nowrap;
-    overflow: visible;
-    text-overflow: unset;
   }
 
   @media (max-width: 360px) {
     font-size: 1.3rem;
-    white-space: nowrap;
   }
 `;
 
@@ -306,12 +302,12 @@ const Geographies = () => {
       flag: 'https://flagcdn.com/w640/bd.png'
     },
     {
-      name: 'UAE',
-      flag: 'https://flagcdn.com/w640/ae.png'
-    },
-    {
       name: 'Sri Lanka',
       flag: 'https://flagcdn.com/w640/lk.png'
+    },
+    {
+      name: 'UAE',
+      flag: 'https://flagcdn.com/w640/ae.png'
     },
     {
       name: 'KSA',
@@ -326,9 +322,6 @@ const Geographies = () => {
           <Title>
             Expanding Geographies
           </Title>
-          <Subtitle>
-            Our global presence continues to grow across key markets
-          </Subtitle>
         </SectionHeader>
 
         <GeographyGrid>
