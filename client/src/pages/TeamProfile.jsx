@@ -503,7 +503,7 @@ const TeamProfile = () => {
       ],
       workRegion: 'Chennai, India',
       email: 'ananth@transasia.com',
-      phone: '+91 044 4856 8436',
+      phone: '+91 89258 34989',
       linkedin: 'https://linkedin.com/in/ananth',
       education: [
         'MBA in Business Administration',
