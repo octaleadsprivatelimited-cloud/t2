@@ -749,7 +749,7 @@ const Team = () => {
     },
     {
       slug: 'coo',
-      name: 'Vijayanand Subramanyam',
+      name: 'Vijay Anand Subramanyam',
       role: '',
       bio: 'Operations excellence leader driving organizational growth and client success. Expert in scaling security service operations.',
       image: '/insurtech/team/coo.webp',

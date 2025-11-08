@@ -503,14 +503,14 @@ const Footer = () => {
             
             <ContactInfo>
               <ChennaiOffice>
-                <AddressTitle>Chennai Office</AddressTitle>
+                <AddressTitle>Chennai (Reg)</AddressTitle>
                 <ContactItem>
                   <span>93, 49 Harrington Road, Chennai, Tamil Nadu 600030</span>
                 </ContactItem>
               </ChennaiOffice>
 
               <HyderabadOffice>
-                <AddressTitle>Hyderabad Office</AddressTitle>
+                <AddressTitle>Hyderabad</AddressTitle>
                 <ContactItem>
                   <span>T-hub Phase-2, Hyderabad, Telangana 500081</span>
                 </ContactItem>

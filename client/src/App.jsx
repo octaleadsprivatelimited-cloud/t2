@@ -1,8 +1,9 @@
-import { Suspense, lazy } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Suspense, lazy, useMemo } from 'react'
+import { Routes, Route, useLocation, matchPath } from 'react-router-dom'
 import styled from 'styled-components'
 import ErrorBoundary from './components/ErrorBoundary'
 import SEO from './components/SEO'
+import { seoConfig, defaultSeo, seoBaseUrl } from './seo/config'
 
 // Lazy load components for better performance
 const Header = lazy(() => import('./components/Header'))
@@ -57,10 +58,31 @@ const AppContainer = styled.div`
 `
 
 const App = () => {
+  const SEOManager = () => {
+    const location = useLocation()
+    const pathname = location.pathname || '/'
+
+    const matchedConfig = useMemo(() => {
+      return (
+        seoConfig.find((entry) =>
+          matchPath({ path: entry.path, end: true }, pathname)
+        ) || defaultSeo
+      )
+    }, [pathname])
+
+    return (
+      <SEO
+        {...matchedConfig}
+        url={`${seoBaseUrl}${pathname}`}
+        canonicalUrl={`${seoBaseUrl}${pathname}`}
+      />
+    )
+  }
+
   return (
     <ErrorBoundary>
       <AppContainer>
-        <SEO />
+        <SEOManager />
         
         <Suspense fallback={<LoadingSpinner />}>
           <BackgroundAnimation />
