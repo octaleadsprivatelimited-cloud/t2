@@ -1,10 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
-const SEO = ({ 
-  title = 'Trans Asia Tech - Advanced Cybersecurity Platform',
-  description = 'Revolutionary AI-powered cybersecurity platform for autonomous threat protection, risk management, and next-gen security solutions.',
-  keywords = 'cybersecurity, threat protection, risk management, AI security, cyber risk quantification, third-party risk management, security platform',
+const SEO = ({
+  title = 'Trans Asia Tech | Cyber Risk Quantification & OT Security',
+  description = 'Trans Asia Tech quantifies cyber risk and delivers vCISO, OT security, GRC, and incident response programs for regulated enterprises across India, the Middle East, APAC, Europe, and North America.',
+  keywords = 'cyber risk quantification, virtual CISO services, OT cybersecurity, GRC consulting, cyber insurance readiness, incident response retainer, Trans Asia Tech',
   image = '/og-image.jpg',
   imageAlt = 'Trans Asia Tech - Advanced Cybersecurity Platform',
   url = 'https://transasia.tech',

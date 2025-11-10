@@ -1,12 +1,30 @@
 const BASE_URL = 'https://transasia.tech'
 
 const GLOBAL_AREA_SERVED = [
+  'Global',
   'Worldwide',
+  'India',
+  'United Arab Emirates',
+  'Saudi Arabia',
+  'Qatar',
+  'Kuwait',
+  'Oman',
+  'Bahrain',
+  'Singapore',
+  'Malaysia',
+  'Indonesia',
+  'Philippines',
+  'Thailand',
+  'Vietnam',
+  'Hong Kong',
+  'Japan',
+  'South Korea',
+  'Australia',
+  'New Zealand',
   'United States',
   'Canada',
   'Mexico',
   'Brazil',
-  'Argentina',
   'United Kingdom',
   'Ireland',
   'Germany',
@@ -17,24 +35,9 @@ const GLOBAL_AREA_SERVED = [
   'Sweden',
   'Norway',
   'Finland',
-  'Denmark',
-  'United Arab Emirates',
-  'Saudi Arabia',
-  'Qatar',
-  'Oman',
-  'India',
-  'Bangladesh',
-  'Sri Lanka',
-  'Singapore',
-  'Malaysia',
-  'Hong Kong',
-  'Japan',
-  'South Korea',
-  'Australia',
-  'New Zealand',
   'South Africa',
-  'Nigeria',
-  'Kenya'
+  'Kenya',
+  'Nigeria'
 ]
 
 const defaultImage = `${BASE_URL}/og-image.jpg`
@@ -51,11 +54,11 @@ const ALTERNATE_LOCALES = ['en_US', 'en_GB', 'en_IN', 'en_AE']
 export const seoConfig = [
   {
     path: '/',
-    title: 'Trans Asia Tech - Quantifying Cyber Risk for the Board',
+    title: 'Trans Asia Tech - Cyber Risk Quantification & Managed Security',
     description:
-      'Trans Asia Tech delivers research-backed Cyber Risk Quantification (CRQ), board-ready dashboards, and end-to-end cybersecurity services across India, UAE, Bangladesh, Sri Lanka, KSA, and the globe.',
+      'Trans Asia Tech delivers cyber risk quantification, vCISO leadership, OT security, and compliance programs for enterprises across India, the GCC, APAC, the UK, and North America.',
     keywords:
-      'Trans Asia Tech, Cyber Risk Quantification, CRQ, cyber insurance analytics, cybersecurity services, global cyber resilience, value at risk, cyber dashboards',
+      'cyber risk quantification platform, vCISO services India, OT cybersecurity GCC, GRC consulting APAC, cyber insurance analytics, managed detection and response Middle East, Trans Asia Tech',
     image: defaultImage,
     imageAlt: defaultImageAlt,
     alternateLocales: ALTERNATE_LOCALES,
@@ -67,10 +70,10 @@ export const seoConfig = [
       {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        name: 'Trans Asia Tech - Quantifying Cyber Risk for the Board',
+        name: 'Trans Asia Tech - Cyber Risk Quantification & Managed Security',
         url: BASE_URL,
         description:
-          'Enterprise-ready cyber risk quantification, cyber insurance analytics, and cybersecurity services for board-level decision making.',
+          'Board-ready cyber risk quantification, cyber insurance analytics, and managed cybersecurity services for regulated industries across global markets.',
         inLanguage: 'en-US',
         hasPart: [
           {
@@ -94,13 +97,13 @@ export const seoConfig = [
   },
   {
     path: '/insurtech',
-    title: 'Trans Asia Tech Insurtech Solutions',
+    title: 'Insurtech Platforms CYBERCAT & CASUALTYCAT | Trans Asia Tech',
     description:
-      'Discover Trans Asia Tech’s insurtech platforms including CYBERCAT™ and CASUALTYCAT™ for underwriting, cyber insurance analytics, casualty modelling, and value-at-risk reporting used across the globe.',
+      'Trans Asia Tech’s CYBERCAT and CASUALTYCAT platforms power cyber insurance underwriting, exposure modelling, and actuarial reporting for carriers across India, the Middle East, APAC, the UK, and North America.',
     keywords:
-      'insurtech, CYBERCAT, CASUALTYCAT, cyber underwriting, cyber insurance analytics, actuarial modelling, value at risk, Trans Asia Tech insurtech',
+      'CYBERCAT underwriting analytics, CASUALTYCAT actuarial modelling, cyber insurance analytics GCC, insurtech platform APAC, cyber exposure modelling, Trans Asia Tech insurtech',
     image: defaultImage,
-    imageAlt: 'Trans Asia Tech Insurtech Solutions',
+    imageAlt: 'Trans Asia Tech Insurtech Platforms',
     alternateLocales: ALTERNATE_LOCALES,
     hreflangs: DEFAULT_HREFLANGS,
     coverage: 'worldwide',
@@ -114,6 +117,8 @@ export const seoConfig = [
         applicationCategory: 'Cybersecurity',
         operatingSystem: 'Cloud',
         url: `${BASE_URL}/insurtech`,
+        description:
+          'CYBERCAT delivers cyber insurance underwriting analytics, loss modelling, and value-at-risk reporting for global carriers.',
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: '4.8',
@@ -131,6 +136,8 @@ export const seoConfig = [
         name: 'CASUALTYCAT™',
         applicationCategory: 'InsuranceApplication',
         operatingSystem: 'Cloud',
+        description:
+          'CASUALTYCAT equips casualty underwriters with actuarial models and portfolio insights across global markets.',
         areaServed: GLOBAL_AREA_SERVED,
         offers: {
           '@type': 'Offer',
@@ -143,9 +150,9 @@ export const seoConfig = [
     path: '/consulting',
     title: 'Cybersecurity Consulting Services | Trans Asia Tech',
     description:
-      'Expert cybersecurity consulting, cyber maturity assessments, and board-ready advisory across all global regions with Trans Asia Tech consultants.',
+      'Expert cybersecurity consulting, cyber maturity assessments, and board advisory delivered across India, the GCC, APAC hubs, the UK, and North America by Trans Asia Tech consultants.',
     keywords:
-      'cybersecurity consulting, global cyber advisory, cyber maturity assessments, board advisory, resilience consulting, Trans Asia Tech services worldwide',
+      'cybersecurity consulting India, cyber maturity assessment GCC, board cyber advisory APAC, resilience consulting Middle East, Trans Asia Tech services',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Consulting',
     alternateLocales: ALTERNATE_LOCALES,
@@ -171,9 +178,9 @@ export const seoConfig = [
     path: '/products',
     title: 'Cybersecurity Products Portfolio | Trans Asia Tech',
     description:
-      'Explore Trans Asia Tech’s cybersecurity product suite—TransGRC, VRMA, HunterCat, and BlackNet—designed for global enterprises needing compliance, remediation, and threat intelligence.',
+      'Explore Trans Asia Tech’s cybersecurity product suite—TransGRC, VRMA, HunterCat, and BlackNet—built for enterprises in India, the Middle East, APAC, Europe, and North America that require compliance, remediation, and threat intelligence.',
     keywords:
-      'TransGRC, VRMA, HunterCat, BlackNet, cybersecurity products, compliance automation, vulnerability remediation, threat intelligence',
+      'TransGRC compliance automation, VRMA vulnerability remediation, HunterCat application security, BlackNet threat intelligence, cybersecurity products Middle East, Trans Asia Tech',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Products',
     alternateLocales: ALTERNATE_LOCALES,
@@ -214,9 +221,9 @@ export const seoConfig = [
     path: '/services',
     title: 'Cybersecurity Services | Trans Asia Tech',
     description:
-      'Full-stack cybersecurity services covering vCISO, managed detection and response, OT security, red teaming, compliance, and cyber risk quantification delivered globally by Trans Asia Tech.',
+      'Full-stack cybersecurity services covering vCISO leadership, managed detection, OT security, red teaming, compliance, and cyber risk quantification for enterprises in India, the GCC, APAC, Europe, and North America.',
     keywords:
-      'global cybersecurity services, vCISO, managed detection, MDR, OT security, red team, compliance services, cyber risk quantification, Trans Asia Tech worldwide',
+      'vCISO services Middle East, managed detection and response APAC, OT security India, red team assessment GCC, compliance readiness Europe, cyber risk quantification North America, Trans Asia Tech',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Services',
     alternateLocales: ALTERNATE_LOCALES,
@@ -242,9 +249,9 @@ export const seoConfig = [
     path: '/services-test',
     title: 'Cybersecurity Services Preview | Trans Asia Tech',
     description:
-      'Preview Trans Asia Tech’s cybersecurity services including risk quantification, managed detection, OT security, and governance solutions available worldwide.',
+      'Preview Trans Asia Tech’s cybersecurity services—including risk quantification, managed detection, OT security, and governance solutions—delivered across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'cybersecurity services preview, Trans Asia Tech capabilities, global cyber services',
+      'cybersecurity services preview, Trans Asia Tech capabilities, global cyber services, OT security preview, vCISO preview',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Services Overview',
     alternateLocales: ALTERNATE_LOCALES,
@@ -257,9 +264,9 @@ export const seoConfig = [
     path: '/press',
     title: 'Press Releases | Trans Asia Tech',
     description:
-      'Stay informed with Trans Asia Tech press releases, global partnerships, cybersecurity accolades, and product launch announcements.',
+      'Stay informed with Trans Asia Tech press releases covering global partnerships, cybersecurity accolades, and product launches across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'Trans Asia Tech press, cybersecurity news, product launches, global partnerships',
+      'Trans Asia Tech press, cybersecurity news India, product launches Middle East, global cyber partnerships, insurtech announcements',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Press',
     alternateLocales: ALTERNATE_LOCALES,
@@ -272,9 +279,9 @@ export const seoConfig = [
     path: '/press/:id',
     title: 'Press Release Detail | Trans Asia Tech',
     description:
-      'Read the latest Trans Asia Tech press release covering cybersecurity innovations, global partnerships, and customer successes.',
+      'Read the latest Trans Asia Tech press release covering cybersecurity innovations, global partnerships, and customer successes across India, the GCC, APAC, Europe, and North America.',
     keywords:
-      'cybersecurity press release, Trans Asia Tech news, global cyber partnerships',
+      'cybersecurity press release, Trans Asia Tech news, global cyber partnerships, cyber insurance announcement, OT security update',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Press Detail',
     alternateLocales: ALTERNATE_LOCALES,
@@ -299,9 +306,9 @@ export const seoConfig = [
     path: '/gallery',
     title: 'Cybersecurity Events & Media Gallery | Trans Asia Tech',
     description:
-      'Browse the Trans Asia Tech media gallery featuring global cybersecurity events, awards, and industry participation.',
+      'Browse the Trans Asia Tech media gallery featuring cybersecurity events, awards, and industry participation across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'Trans Asia Tech gallery, cybersecurity events, global cybersecurity awards, media highlights',
+      'Trans Asia Tech gallery, cybersecurity events India, global cybersecurity awards, media highlights Middle East, insurtech events',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Gallery',
     alternateLocales: ALTERNATE_LOCALES,
@@ -314,9 +321,9 @@ export const seoConfig = [
     path: '/careers',
     title: 'Careers at Trans Asia Tech',
     description:
-      'Join Trans Asia Tech’s global cybersecurity experts. Explore career opportunities in CRQ modelling, consulting, engineering, and customer success.',
+      'Join Trans Asia Tech’s global cybersecurity experts. Explore remote and hybrid roles in CRQ modelling, consulting, engineering, and customer success across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'Trans Asia Tech careers, global cybersecurity jobs, cyber consulting roles, cyber risk hiring worldwide',
+      'Trans Asia Tech careers, global cybersecurity jobs, cyber consulting roles, cyber risk hiring India, insurtech jobs Middle East',
     image: defaultImage,
     imageAlt: 'Careers at Trans Asia Tech',
     alternateLocales: ALTERNATE_LOCALES,
@@ -346,9 +353,9 @@ export const seoConfig = [
     path: '/about',
     title: 'About Trans Asia Tech',
     description:
-      'Learn about Trans Asia Tech’s mission, leadership, and journey in delivering cutting-edge cybersecurity and insurtech solutions across every continent.',
+      'Learn about Trans Asia Tech’s mission, leadership, and journey in delivering cyber risk quantification, insurtech, and managed security programs across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'about Trans Asia Tech, global cybersecurity leadership, insurtech solutions, Trans Asia mission',
+      'about Trans Asia Tech, global cybersecurity leadership, insurtech solutions India, cyber risk mission Middle East, OT security leadership',
     image: defaultImage,
     imageAlt: 'About Trans Asia Tech',
     alternateLocales: ALTERNATE_LOCALES,
@@ -361,9 +368,9 @@ export const seoConfig = [
     path: '/team',
     title: 'Leadership Team | Trans Asia Tech',
     description:
-      'Meet the global Trans Asia Tech leadership team driving innovation in cyber risk quantification, insurtech, and enterprise resilience.',
+      'Meet the Trans Asia Tech leadership team driving cyber risk quantification, insurtech, and resilience initiatives for clients across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'Trans Asia Tech leadership, cyber risk executives, global cybersecurity leaders',
+      'Trans Asia Tech leadership, cyber risk executives India, global cybersecurity leaders, insurtech leadership Middle East',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Team',
     alternateLocales: ALTERNATE_LOCALES,
@@ -376,9 +383,9 @@ export const seoConfig = [
     path: '/team/:slug',
     title: 'Team Profile | Trans Asia Tech',
     description:
-      'Explore the profiles of Trans Asia Tech leaders, their global cybersecurity experience, and contributions to enterprise resilience.',
+      'Explore the profiles of Trans Asia Tech leaders, their cybersecurity experience, and contributions to enterprise resilience programs across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'Trans Asia Tech team profile, cybersecurity leader, global cyber expertise',
+      'Trans Asia Tech team profile, cybersecurity leader India, global cyber expertise, insurtech leadership GCC',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Team Profile',
     alternateLocales: ALTERNATE_LOCALES,
@@ -392,9 +399,9 @@ export const seoConfig = [
     path: '/blog',
     title: 'Cybersecurity Blog | Trans Asia Tech',
     description:
-      'Insights, thought leadership, and cybersecurity best practices for global enterprises from Trans Asia Tech experts.',
+      'Insights, thought leadership, and cybersecurity best practices for enterprises in India, the Middle East, APAC, Europe, and North America from Trans Asia Tech experts.',
     keywords:
-      'cybersecurity blog, Trans Asia Tech insights, cyber risk articles, global cyber trends',
+      'cybersecurity blog, Trans Asia Tech insights, cyber risk articles India, global cyber trends, OT security thought leadership',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Blog',
     alternateLocales: ALTERNATE_LOCALES,
@@ -407,9 +414,9 @@ export const seoConfig = [
     path: '/insights',
     title: 'Cybersecurity Insights & Resources | Trans Asia Tech',
     description:
-      'Explore cybersecurity resources, whitepapers, and board-level insights for global organizations from Trans Asia Tech.',
+      'Explore cybersecurity resources, whitepapers, and board-level insights for organizations across India, the Middle East, APAC, Europe, and North America from Trans Asia Tech.',
     keywords:
-      'cybersecurity insights, risk resources, Trans Asia Tech whitepapers, global cyber guidance',
+      'cybersecurity insights, risk resources India, Trans Asia Tech whitepapers, global cyber guidance, board-ready cyber reports',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Insights',
     alternateLocales: ALTERNATE_LOCALES,
@@ -422,9 +429,9 @@ export const seoConfig = [
     path: '/insights/:id',
     title: 'Insight Article | Trans Asia Tech',
     description:
-      'Read the latest global cybersecurity insight from Trans Asia Tech covering trends, risk management, and cyber resilience.',
+      'Read the latest cybersecurity insight from Trans Asia Tech covering trends, risk management, and resilience programs across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'Trans Asia Tech insight, cybersecurity article, global cyber trends, risk intelligence',
+      'Trans Asia Tech insight, cybersecurity article India, global cyber trends, risk intelligence Middle East, board-ready cyber guidance',
     image: defaultImage,
     imageAlt: 'Trans Asia Tech Insight Detail',
     alternateLocales: ALTERNATE_LOCALES,
@@ -438,9 +445,9 @@ export const seoConfig = [
     path: '/contact',
     title: 'Contact Trans Asia Tech',
     description:
-      'Contact Trans Asia Tech for cybersecurity consulting, cyber risk quantification, insurtech platforms, and managed services available worldwide.',
+      'Contact Trans Asia Tech for cybersecurity consulting, cyber risk quantification, insurtech platforms, and managed services across India, the Middle East, APAC, Europe, and North America.',
     keywords:
-      'contact Trans Asia Tech, cybersecurity consultation, global cyber risk enquiry, insurtech contact',
+      'contact Trans Asia Tech, cybersecurity consultation India, cyber risk enquiry Middle East, insurtech contact APAC, OT security enquiry',
     image: defaultImage,
     imageAlt: 'Contact Trans Asia Tech',
     alternateLocales: ALTERNATE_LOCALES,
