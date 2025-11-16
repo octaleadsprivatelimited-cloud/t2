@@ -7,6 +7,15 @@ const testimonials = [
   {
     id: "feedback-01",
     quote:
+      "I have used the CyberCat tool developed by Transasia. In my personal capacity as a cyber-enthusiast. It is indeed helpful and provides a broad view into the risk framework of the client.",
+    author: {
+      name: "A leading international Reinsurer",
+      title: "",
+    },
+  },
+  {
+    id: "feedback-02",
+    quote:
       "We appreciate the voluntary contribution that each reviewer gives to the Journal. We thank you for your help and participation in the online peer review process and hope that we may call upon you again to review future manuscripts.",
     author: {
       name: "Asia-Pacific Journal of Risk and Insurance",
@@ -14,18 +23,9 @@ const testimonials = [
     },
   },
   {
-    id: "feedback-02",
-    quote:
-      "I have used the CyberCat tool developed by Transasia in my personal capacity as a cyber-enthusiast. It is indeed helpful and provides a broad view into the risk framework of the client.",
-    author: {
-      name: "A leading international Reinsurer",
-      title: "",
-    },
-  },
-  {
     id: "feedback-03",
     quote:
-      "I would not hesitate in recommending TransAsia to anyone requiring Cyber Risk Assessment. Technology at its best, domain knowledge at work and finally quantifying cyber—we had our CyberCat report in rapid time.",
+      "I would not hesitate in recommending TransAsia to anyone requiring Cyber Risk Assessment. Technology at its best, domain knowledge at work and finally\n\nQuantifying Cyber, We had our Cybercat Report in rapid time.",
     author: {
       name: "A leading Aviation player managing Intl Airports",
       title: "",
@@ -34,7 +34,7 @@ const testimonials = [
   {
     id: "feedback-04",
     quote:
-      "I am really impressed by the quality of services I received from Transasia Tech. You have shown enormous skill and vast domain knowledge and your expertise is reliable and trustworthy. I would definitely recommend Cyber Risk and Value at Risk report from Transasia Tech.",
+      "I am really impressed by the quality of services I received from Transasia Tech. You have shown enormous skill and vast domain knowledge and your expertise is reliable and trustworthy. I would definitely recommend Cyber risk and Value at risk report from Transasia Tech.",
     author: {
       name: "Leading Insurance Broker",
       title: "",
