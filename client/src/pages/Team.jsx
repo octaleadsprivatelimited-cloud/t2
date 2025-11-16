@@ -723,7 +723,7 @@ const Team = () => {
       slug: 'suresh-balakrishnan',
       name: 'Suresh Balakrishnan',
       role: 'Founder, Mentor',
-      bio: 'Insurance consultant and risk advisor with over three decades of experience guiding cyber and financial lines initiatives worldwide.',
+      bio: 'Insurance Consultant / Risk Advisor at TransAsia Soft Tech. Over 30+ years of insurance industry experience with deep implementation knowledge on Financial Lines globally; makes significant contributions to Cyber and other verticals. Achieved Cyber Security Insurance Specialist Award (2018).',
       image: '/images/team/Suresh Balakrishnan.jpeg',
       badge: 'Founder & Mentor',
       badgeIcon: <FaShieldAlt />,
