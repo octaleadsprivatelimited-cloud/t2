@@ -129,12 +129,8 @@ const CompanyDescription = styled.p`
 const ContactInfo = styled.div`
   margin-bottom: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
-
-  @media (max-width: 968px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -153,7 +149,13 @@ const AddressSection = styled.div`
   }
 `;
 
-const ChennaiOffice = styled(AddressSection)``;
+const ChennaiOffice = styled(AddressSection)`
+  grid-column: 1 / -1;
+
+  @media (max-width: 768px) {
+    grid-column: 1;
+  }
+`;
 
 const HyderabadOffice = styled(AddressSection)``;
 
