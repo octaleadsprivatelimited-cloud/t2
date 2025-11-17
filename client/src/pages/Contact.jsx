@@ -464,11 +464,26 @@ const Contact = () => {
                   <FaMapMarkerAlt />
                 </InfoIcon>
                 <InfoDetails>
-                  <InfoLabel>Office Address</InfoLabel>
+                  <InfoLabel>Chennai Office</InfoLabel>
                   <InfoText>
                     93, 49 Harrington Road<br />
                     Shenoy Nagar<br />
                     Chennai, Tamil Nadu 600030<br />
+                    India
+                  </InfoText>
+                </InfoDetails>
+              </InfoItem>
+
+              <InfoItem>
+                <InfoIcon>
+                  <FaMapMarkerAlt />
+                </InfoIcon>
+                <InfoDetails>
+                  <InfoLabel>Mumbai Office</InfoLabel>
+                  <InfoText>
+                    C1503 Kailas Business Park<br />
+                    Veer Sawarkar Marg<br />
+                    Vikhroli (W), Mumbai 400079<br />
                     India
                   </InfoText>
                 </InfoDetails>

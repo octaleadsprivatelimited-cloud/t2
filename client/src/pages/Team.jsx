@@ -771,7 +771,7 @@ const Team = () => {
     {
       slug: 'coo',
       name: 'Vijay Anand Subramanyam',
-      role: '',
+      role: 'Chief Operating Officer',
       bio: 'Operations excellence leader driving organizational growth and client success. Expert in scaling security service operations.',
       image: '/insurtech/team/coo.webp',
       badge: 'COO',
@@ -856,10 +856,6 @@ const Team = () => {
                     member.name === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' : ''
                   }
                 />
-                <TeamBadge>
-                  {member.badgeIcon}
-                  {member.badge}
-                </TeamBadge>
               </ImageWrapper>
               <TeamContent>
                 <TeamName>{member.name}</TeamName>

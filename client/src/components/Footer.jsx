@@ -129,8 +129,12 @@ const CompanyDescription = styled.p`
 const ContactInfo = styled.div`
   margin-bottom: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
+  @media (max-width: 968px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -152,6 +156,8 @@ const AddressSection = styled.div`
 const ChennaiOffice = styled(AddressSection)``;
 
 const HyderabadOffice = styled(AddressSection)``;
+
+const MumbaiOffice = styled(AddressSection)``;
 
 const AddressTitle = styled.h5`
   font-size: 1rem;
@@ -508,6 +514,13 @@ const Footer = () => {
                   <span>93, 49 Harrington Road, Chennai, Tamil Nadu 600030</span>
                 </ContactItem>
               </ChennaiOffice>
+
+              <MumbaiOffice>
+                <AddressTitle>Mumbai</AddressTitle>
+                <ContactItem>
+                  <span>C1503 Kailas Business Park, Veer Sawarkar Marg, Vikhroli (W), Mumbai 400079</span>
+                </ContactItem>
+              </MumbaiOffice>
 
               <HyderabadOffice>
                 <AddressTitle>Hyderabad</AddressTitle>
