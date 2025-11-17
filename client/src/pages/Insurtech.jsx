@@ -791,7 +791,7 @@ const Insurtech = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Insurtech Solutions
+            Insurtech Solutions{' '}
             <span>Risk Monitoring & Risk Transfer</span>
           </HeroTitle>
           <HeroSubtitle

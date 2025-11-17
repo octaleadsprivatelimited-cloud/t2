@@ -118,6 +118,27 @@ const ProfileImage = styled.img`
   @media (max-width: 768px) {
     margin: 0 auto;
   }
+
+  /* G Anand image positioning for mobile */
+  &.g-anand-image {
+    @media (max-width: 768px) {
+      object-position: center 30%;
+    }
+  }
+
+  /* Vijay Anand Subramanyam image positioning for mobile */
+  &.vijay-anand-image {
+    @media (max-width: 768px) {
+      object-position: center 30%;
+    }
+  }
+
+  /* Suresh Balakrishnan image positioning for mobile */
+  &.suresh-balakrishnan-image {
+    @media (max-width: 768px) {
+      object-position: center 30%;
+    }
+  }
 `;
 
 const ProfileInfo = styled.div``;
@@ -568,7 +589,15 @@ const TeamProfile = () => {
       <ProfileHero>
         <Container>
           <ProfileGrid>
-            <ProfileImage src={member.image} alt={member.fullName} />
+            <ProfileImage 
+              src={member.image} 
+              alt={member.fullName}
+              className={
+                member.fullName === 'G Anand' ? 'g-anand-image' :
+                member.fullName === 'Vijay Anand Subramanyam' ? 'vijay-anand-image' :
+                member.fullName === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' : ''
+              }
+            />
             <ProfileInfo>
               <Name>{member.fullName}</Name>
               <JobTitle>{member.jobTitle}</JobTitle>

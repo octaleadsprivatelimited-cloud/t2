@@ -312,6 +312,27 @@ const TeamImage = styled.img`
   ${TeamCard}:hover & {
     transform: scale(1.15);
   }
+
+  /* G Anand image positioning for mobile */
+  &.g-anand-image {
+    @media (max-width: 768px) {
+      object-position: center 30%;
+    }
+  }
+
+  /* Vijay Anand Subramanyam image positioning for mobile */
+  &.vijay-anand-image {
+    @media (max-width: 768px) {
+      object-position: center 30%;
+    }
+  }
+
+  /* Suresh Balakrishnan image positioning for mobile */
+  &.suresh-balakrishnan-image {
+    @media (max-width: 768px) {
+      object-position: center 30%;
+    }
+  }
 `;
 
 const TeamBadge = styled.div`
@@ -826,7 +847,15 @@ const Team = () => {
               viewport={{ once: true }}
             >
               <ImageWrapper>
-                <TeamImage src={member.image} alt={member.name} />
+                <TeamImage 
+                  src={member.image} 
+                  alt={member.name}
+                  className={
+                    member.name === 'G Anand' ? 'g-anand-image' :
+                    member.name === 'Vijay Anand Subramanyam' ? 'vijay-anand-image' :
+                    member.name === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' : ''
+                  }
+                />
                 <TeamBadge>
                   {member.badgeIcon}
                   {member.badge}
