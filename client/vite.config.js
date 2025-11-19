@@ -22,10 +22,10 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3000,
+    port: 3012,
     open: true
   },
   preview: {
-    port: 3000
+    port: 3012
   }
 })

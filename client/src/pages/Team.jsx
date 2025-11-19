@@ -333,6 +333,13 @@ const TeamImage = styled.img`
       object-position: center 30%;
     }
   }
+
+  /* Dr. Raveendran image positioning for mobile */
+  &.dr-raveendran-image {
+    @media (max-width: 768px) {
+      object-position: center 30%;
+    }
+  }
 `;
 
 const TeamBadge = styled.div`
@@ -781,6 +788,20 @@ const Team = () => {
         twitter: '#',
         email: 'coo@transasia.com'
       }
+    },
+    {
+      slug: 'dr-raveendran',
+      name: 'Dr. Raveendran',
+      role: 'Principal Advisor & Architect - Risk Modeling',
+      bio: 'Over three decades of experience spanning various industries, holds a Management Graduate degree from the UK, a Ph.D.',
+      image: '/insurtech/team/dr-raveendran.jpeg',
+      badge: 'Principal Advisor & Architect - Risk Modeling',
+      badgeIcon: <FaAward />,
+      social: {
+        linkedin: '#',
+        twitter: '#',
+        email: 'raveendran@transasia.com'
+      }
     }
   ];
 
@@ -853,7 +874,8 @@ const Team = () => {
                   className={
                     member.name === 'G Anand' ? 'g-anand-image' :
                     member.name === 'Vijay Anand Subramanyam' ? 'vijay-anand-image' :
-                    member.name === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' : ''
+                    member.name === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' :
+                    member.name === 'Dr. Raveendran' ? 'dr-raveendran-image' : ''
                   }
                 />
               </ImageWrapper>

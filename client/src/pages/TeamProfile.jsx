@@ -139,6 +139,13 @@ const ProfileImage = styled.img`
       object-position: center 30%;
     }
   }
+
+  /* Dr. Raveendran image positioning for mobile */
+  &.dr-raveendran-image {
+    @media (max-width: 768px) {
+      object-position: center 30%;
+    }
+  }
 `;
 
 const ProfileInfo = styled.div``;
@@ -554,6 +561,35 @@ const TeamProfile = () => {
         'Data Privacy Compliance'
       ],
       languages: ['English', 'Tamil', 'Hindi']
+    },
+    'dr-raveendran': {
+      id: 'dr-raveendran',
+      fullName: 'Dr. Raveendran',
+      jobTitle: 'Principal Advisor & Architect - Risk Modeling',
+      department: 'Research',
+      image: '/insurtech/team/dr-raveendran.jpeg',
+      bio: 'Dr. Raveendran, with over three decades of experience spanning various industries, holds a Management Graduate degree from the UK, a Ph.D. in Risk, and certifications in Risk Management and Business Continuity Planning. He has notable expertise in Cyber Risk, having published key works in this area and being among the few to design Scientific Derivations of Risk with a focus on Cyber events\' financial impacts. His research extends to Enterprise Risk, ESG exposures, and non-linear modeling of risk using fractals. Currently, Dr. Raveendran is engaged in advanced research on insurer insured interaction using epistemic game theory and cyber risk modeling, particularly focusing on Cyber Risk posture. He is an independent research associate at the National Insurance Academy and a core member of its Center of Excellence for Cyber Risk. His earlier contributions include designing assessment tools for Micro Insurance interventions and innovative frameworks like CRMS for contract risk management and ReSys for recall systems in insurance.',
+      specialization: 'Cyber Risk Research, Enterprise Risk Management, ESG Exposures, Non-linear Risk Modeling, Epistemic Game Theory',
+      skills: [
+        { category: 'Research Expertise', items: ['Cyber Risk Modeling', 'Scientific Derivations of Risk', 'Non-linear Risk Modeling using Fractals', 'Epistemic Game Theory', 'Insurer-Insured Interaction Research'] },
+        { category: 'Key Contributions', items: ['Published Key Works in Cyber Risk', 'Designed Scientific Derivations of Risk', 'CRMS Framework for Contract Risk Management', 'ReSys Framework for Recall Systems', 'Micro Insurance Assessment Tools'] },
+        { category: 'Affiliations', items: ['Independent Research Associate - National Insurance Academy', 'Core Member - Center of Excellence for Cyber Risk'] }
+      ],
+      achievements: [
+        { number: '30+', text: 'Years of Experience' },
+        { number: 'Ph.D.', text: 'in Risk' },
+        { number: 'NIA', text: 'Research Associate' }
+      ],
+      workRegion: 'Chennai, India',
+      phone: '+91 044 4856 8436',
+      linkedin: 'https://linkedin.com/in/dr-raveendran',
+      education: [
+        'Ph.D. in Risk',
+        'Management Graduate Degree (UK)',
+        'Certifications in Risk Management',
+        'Business Continuity Planning Certification'
+      ],
+      languages: ['English', 'Tamil']
     }
   };
 
@@ -595,7 +631,8 @@ const TeamProfile = () => {
               className={
                 member.fullName === 'G Anand' ? 'g-anand-image' :
                 member.fullName === 'Vijay Anand Subramanyam' ? 'vijay-anand-image' :
-                member.fullName === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' : ''
+                member.fullName === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' :
+                member.fullName === 'Dr. Raveendran' ? 'dr-raveendran-image' : ''
               }
             />
             <ProfileInfo>

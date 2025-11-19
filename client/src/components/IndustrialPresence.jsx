@@ -239,7 +239,7 @@ const IndustrialPresence = () => {
     { name: 'MFG - AUTOMOBILE', icon: <FaCogs /> },
     { name: 'AVIATION', icon: <FaPlane /> },
     { name: 'REALTY & INFRA', icon: <FaBuilding /> },
-    { name: 'pharma', icon: <FaPills /> },
+    { name: 'Pharma', icon: <FaPills /> },
     { name: 'OIL & GAS', icon: <FaOilCan /> },
     { name: 'TELECOM', icon: <FaBroadcastTower /> },
   ];
