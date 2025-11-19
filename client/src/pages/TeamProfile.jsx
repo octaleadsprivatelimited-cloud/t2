@@ -126,7 +126,7 @@ const ProfileImage = styled.img`
     }
   }
 
-  /* Vijay Anand Subramanyam image positioning for mobile */
+  /* Vijayanand Subramaniam image positioning for mobile */
   &.vijay-anand-image {
     @media (max-width: 768px) {
       object-position: center 30%;
@@ -534,11 +534,11 @@ const TeamProfile = () => {
     },
     'coo': {
       id: 'coo',
-      fullName: 'Vijay Anand Subramanyam',
+      fullName: 'Vijayanand Subramaniam',
       jobTitle: 'Chief Operating Officer',
       department: 'Operations',
       image: '/insurtech/team/coo.webp',
-      bio: '27 years of rich cross-functional expertise in Banking Operations, Core Banking technology, Risk Management, Cyber Security, Product Development, and Data Privacy. Leading a Cyber Security & Insurtech firm focused on risk management and building organizational cyber resilience. Pioneering Insurtech & Cybersecurity Solutions: Developed innovative products to address ransomware, catastrophic cyber risks, and their financial impact. Providing visibility to Board of Directors and C-level executives. CYBERCAT™ a globally recognized non-linear model for cyber risk quantification in 2017 and CASUALTYCAT™ for quantifying management level risk has been one of the major contributions in the digital space. Proven track record in building cyber maturity levels and enabling risk transfer across diverse industries. He has also contributed towards large scale cyber assessments of critical infrastructure. Vijay Anand has successfully delivered major IT projects for leading public sector undertakings, foreign banks, and IT giants (Infosys, Oracle Financial services, Scope Inti, Bahraini Saudi Bank, First International Merchant Bank, Bank of India & BOB Mauritius).',
+      bio: '27 years of rich cross-functional expertise in Banking Operations, Core Banking technology, Risk Management, Cyber Security, Product Development, and Data Privacy. Leading a Cyber Security & Insurtech firm focused on risk management and building organizational cyber resilience. Pioneering Insurtech & Cybersecurity Solutions: Developed innovative products to address ransomware, catastrophic cyber risks, and their financial impact. Providing visibility to Board of Directors and C-level executives. CYBERCAT™ a globally recognized non-linear model for cyber risk quantification in 2017 and CASUALTYCAT™ for quantifying management level risk has been one of the major contributions in the digital space. Proven track record in building cyber maturity levels and enabling risk transfer across diverse industries. He has also contributed towards large scale cyber assessments of critical infrastructure. Vijayanand has successfully delivered major IT projects for leading public sector undertakings, foreign banks, and IT giants (Infosys, Oracle Financial services, Scope Inti, Bahraini Saudi Bank, First International Merchant Bank, Bank of India & BOB Mauritius).',
       specialization: 'Banking Operations, Core Banking Technology, Risk Management, Cyber Security, Product Development, Data Privacy',
       skills: [
         { category: 'Technical Skills', items: ['Banking Operations', 'Core Banking Technology', 'Risk Management', 'Cyber Security', 'Product Development', 'Data Privacy'] },
@@ -630,7 +630,7 @@ const TeamProfile = () => {
               alt={member.fullName}
               className={
                 member.fullName === 'G Anand' ? 'g-anand-image' :
-                member.fullName === 'Vijay Anand Subramanyam' ? 'vijay-anand-image' :
+                member.fullName === 'Vijayanand Subramaniam' ? 'vijay-anand-image' :
                 member.fullName === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' :
                 member.fullName === 'Dr. Raveendran' ? 'dr-raveendran-image' : ''
               }

@@ -884,7 +884,7 @@ const About = () => {
           <StoryContent>
             <StoryTitle>Chief Operating Officer</StoryTitle>
             <StoryText>
-              <strong>Vijay Anand Subramanyam</strong>
+              <strong>Vijayanand Subramaniam</strong>
             </StoryText>
             <StoryText>
               27 years of rich cross-functional expertise in Banking Operations, Core Banking technology, Risk Management, Cyber Security, Product Development, and Data Privacy. Leading a Cyber Security & Insurtech firm focused on risk management and building organizational cyber resilience.
@@ -893,11 +893,11 @@ const About = () => {
               Pioneering Insurtech & Cybersecurity Solutions: Developed innovative products to address ransomware, catastrophic cyber risks, and their financial impact. Providing visibility to Board of Directors and C-level executives. CYBERCAT™ a globally recognized non-linear model for cyber risk quantification in 2017 and CASUALTYCAT™ for quantifying management level risk has been one of the major contributions in the digital space.
             </StoryText>
             <StoryText>
-              Proven track record in building cyber maturity levels and enabling risk transfer across diverse industries. He has also contributed towards large scale cyber assessments of Critical infrastructure. Vijay Anand has successfully delivered major IT projects for leading public sector undertakings, foreign banks, and IT giants (Infosys, Oracle Financial services, Scope Inti, Bahraini Saudi Bank, First International Merchant Bank, Bank of India & BOB Mauritius).
+              Proven track record in building cyber maturity levels and enabling risk transfer across diverse industries. He has also contributed towards large scale cyber assessments of Critical infrastructure. Vijayanand has successfully delivered major IT projects for leading public sector undertakings, foreign banks, and IT giants (Infosys, Oracle Financial services, Scope Inti, Bahraini Saudi Bank, First International Merchant Bank, Bank of India & BOB Mauritius).
             </StoryText>
           </StoryContent>
           <StoryImage>
-            <img src="/insurtech/team/coo.webp" alt="Vijay Anand Subramanyam - Chief Operating Officer" />
+            <img src="/insurtech/team/coo.webp" alt="Vijayanand Subramaniam - Chief Operating Officer" />
           </StoryImage>
         </StorySection>
 

@@ -320,7 +320,7 @@ const TeamImage = styled.img`
     }
   }
 
-  /* Vijay Anand Subramanyam image positioning for mobile */
+  /* Vijayanand Subramaniam image positioning for mobile */
   &.vijay-anand-image {
     @media (max-width: 768px) {
       object-position: center 30%;
@@ -777,7 +777,7 @@ const Team = () => {
     },
     {
       slug: 'coo',
-      name: 'Vijay Anand Subramanyam',
+      name: 'Vijayanand Subramaniam',
       role: 'Chief Operating Officer',
       bio: 'Operations excellence leader driving organizational growth and client success. Expert in scaling security service operations.',
       image: '/insurtech/team/coo.webp',
@@ -873,7 +873,7 @@ const Team = () => {
                   alt={member.name}
                   className={
                     member.name === 'G Anand' ? 'g-anand-image' :
-                    member.name === 'Vijay Anand Subramanyam' ? 'vijay-anand-image' :
+                    member.name === 'Vijayanand Subramaniam' ? 'vijay-anand-image' :
                     member.name === 'Suresh Balakrishnan' ? 'suresh-balakrishnan-image' :
                     member.name === 'Dr. Raveendran' ? 'dr-raveendran-image' : ''
                   }
