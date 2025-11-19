@@ -57,22 +57,26 @@ const Solutions = () => {
     {
       title: "Insurtech",
       subtitle: "Revolutionary insurance technology solutions for the digital age",
-      backgroundImage: "/insurtech/hero/hero_1.webp"
+      backgroundImage: "/insurtech/hero/hero_1.webp",
+      link: "/insurtech"
     },
     {
       title: "Products",
       subtitle: "Advanced cybersecurity products to protect your digital assets",
-      backgroundImage: "/insurtech/hero/women_cyber.webp"
+      backgroundImage: "/insurtech/hero/women_cyber.webp",
+      link: "/products"
     },
     {
       title: "Consulting",
       subtitle: "Expert consulting services for comprehensive security strategies",
-      backgroundImage: "/insurtech/hero/industries_globle.webp"
+      backgroundImage: "/insurtech/hero/industries_globle.webp",
+      link: "/consulting"
     },
     {
       title: "Services",
       subtitle: "Professional services tailored to your business needs",
-      backgroundImage: "/insurtech/hero/worldmap.webp"
+      backgroundImage: "/insurtech/hero/worldmap.webp",
+      link: "/services"
     }
   ];
 

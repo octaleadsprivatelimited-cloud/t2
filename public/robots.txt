@@ -1,0 +1,58 @@
+# Robots.txt for Trans Asia Tech
+# Allow all search engines and AI crawlers
+
+# Standard search engines
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Google AI (Gemini)
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 1
+
+# OpenAI GPTBot
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 1
+
+# Anthropic Claude
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: BingPreview
+Allow: /
+Crawl-delay: 1
+
+# Other AI Crawlers
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://transasia.tech/sitemap.xml
+

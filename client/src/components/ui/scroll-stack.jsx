@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ScrollStackContainer = styled.div`
@@ -26,6 +27,14 @@ const Card = styled.div`
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   }
+`;
+
+const CardLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
 `;
 
 const CardImage = styled.div`
@@ -86,15 +95,31 @@ const ScrollStack = ({ cards = [] }) => {
     <ScrollStackContainer>
       {cards.map((card, index) => (
         <Card key={index}>
-          {card.backgroundImage && (
-            <CardImage $backgroundImage={card.backgroundImage} />
+          {card.link ? (
+            <CardLink to={card.link}>
+              {card.backgroundImage && (
+                <CardImage $backgroundImage={card.backgroundImage} />
+              )}
+              <CardContent>
+                {card.badge && <CardBadge>{card.badge}</CardBadge>}
+                {card.title && <CardTitle>{card.title}</CardTitle>}
+                {card.subtitle && <CardSubtitle>{card.subtitle}</CardSubtitle>}
+                {card.content && card.content}
+              </CardContent>
+            </CardLink>
+          ) : (
+            <>
+              {card.backgroundImage && (
+                <CardImage $backgroundImage={card.backgroundImage} />
+              )}
+              <CardContent>
+                {card.badge && <CardBadge>{card.badge}</CardBadge>}
+                {card.title && <CardTitle>{card.title}</CardTitle>}
+                {card.subtitle && <CardSubtitle>{card.subtitle}</CardSubtitle>}
+                {card.content && card.content}
+              </CardContent>
+            </>
           )}
-          <CardContent>
-            {card.badge && <CardBadge>{card.badge}</CardBadge>}
-            {card.title && <CardTitle>{card.title}</CardTitle>}
-            {card.subtitle && <CardSubtitle>{card.subtitle}</CardSubtitle>}
-            {card.content && card.content}
-          </CardContent>
         </Card>
       ))}
     </ScrollStackContainer>

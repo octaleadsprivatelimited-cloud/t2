@@ -123,10 +123,21 @@ const SEO = ({
       <meta name="yandex" content={robotsDirectives} />
       <meta name="duckduckbot" content={robotsDirectives} />
       <meta name="baiduspider" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+      {/* AI Crawler Meta Tags */}
       <meta name="google-extended" content={aiDirectives} />
       <meta name="gptbot" content={aiDirectives} />
       <meta name="anthropic-ai" content={aiDirectives} />
       <meta name="perplexity-ai" content={aiDirectives} />
+      <meta name="claude-ai" content={aiDirectives} />
+      <meta name="cohere-ai" content={aiDirectives} />
+      <meta name="you-com" content={aiDirectives} />
+      <meta name="character-ai" content={aiDirectives} />
+      <meta name="meta-ai" content={aiDirectives} />
+      <meta name="bing-ai" content={aiDirectives} />
+      <meta name="yandex-gpt" content={aiDirectives} />
+      <meta name="ai-search" content={aiDirectives} />
+      <meta name="allow-ai" content="true" />
+      <meta name="ai-indexing" content="enabled" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="coverage" content={coverage} />
       <meta name="distribution" content={distribution} />
