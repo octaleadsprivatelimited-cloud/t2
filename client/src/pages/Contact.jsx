@@ -346,11 +346,23 @@ const MapSection = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 
   iframe {
     width: 100%;
-    height: 400px;
+    height: 300px;
     border: none;
+  }
+
+  @media (max-width: 768px) {
+    height: 250px;
+    margin-top: 60px;
+
+    iframe {
+      height: 250px;
+    }
   }
 `;
 

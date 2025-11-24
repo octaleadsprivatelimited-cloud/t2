@@ -794,33 +794,58 @@ const About = () => {
   const timeline = [
     {
       year: '2015',
-      title: 'Company Founded',
-      description: 'TransAsia Technologies was established with a vision to revolutionize cybersecurity in the Asia-Pacific region'
+      title: '2015',
+      description: 'Transasia Soft Tech was founded in Chennai, Tamil Nadu, focusing on Risk Management, IT services and technology-driven enterprise solutions.'
+    },
+    {
+      year: '2016',
+      title: '2016',
+      description: 'The company began its research in Cyber to address financial impact of Cyber attack, the first CRQ platform in the making'
     },
     {
       year: '2017',
-      title: 'First Major Client',
-      description: 'Secured partnership with Fortune 500 financial institution, marking our entry into enterprise security'
+      title: '2017',
+      description: 'Transasia shifted its strategic focus to Cyber Risk Management and Insurance Technology (InsurTech), marking its entry into the cyber domain'
+    },
+    {
+      year: '2018',
+      title: '2018',
+      description: 'TransAsia launched its first proprietary platform CYBERCAT for cyber risk assessment and Quantification, aimed at corporates and insurance carriers, enters BFSI'
     },
     {
       year: '2019',
-      title: 'Regional Expansion',
-      description: 'Opened offices across India, Bangladesh, UAE, and Sri Lanka to better serve our growing client base'
+      title: '2019',
+      description: 'The company expanded into Cyber security services and cyber forensics'
+    },
+    {
+      year: '2020',
+      title: '2020',
+      description: 'Amid rising ransomware threats, Transasia introduced advanced quantitative cyber risk modeling , aligning with global CRQ (Cyber Risk Quantification) practices'
     },
     {
       year: '2021',
-      title: 'AI Platform Launch',
-      description: 'Launched our revolutionary AI-powered threat detection platform, setting new industry standards'
+      title: '2021',
+      description: 'Its theoretical work on Cyber Risk Quantification was presented and peer-reviewed at the World Risk Insurance Economics Congress in California, USA.'
+    },
+    {
+      year: '2022',
+      title: '2022',
+      description: 'Transasia Soft Tech broadened its footprint across Asia, positioning itself as a pioneer in cyber resilience and risk quantification innovation.'
     },
     {
       year: '2023',
-      title: 'ISO 27001 Certified',
-      description: 'Achieved ISO 27001 and SOC 2 Type II certifications, demonstrating our commitment to security excellence'
+      title: '2023',
+      description: 'Introduced CASUALTYCAT , quantifying management risk for D&O, PI, CRIME etc…The company strengthened its leadership, with executives bringing expertise from cybersecurity and Big Tech'
+    },
+    {
+      year: '2024',
+      title: '2024',
+      description: 'Transasia Soft Tech spread across 10+ verticals extending Cyber security sevices, Specialized Red Team, Dark web Reports, Operational Technology assessment , Cyber security Training..etc begins intitial AI screening'
     },
     {
       year: '2025',
-      title: 'Industry Leader',
-      description: 'Named Cybersecurity Company of the Year, serving enterprises across multiple industries'
+      title: '2025',
+      description: 'TransAsia adopts AI in CYBERCAT platform,'
     }
   ];
 
@@ -1035,7 +1060,6 @@ const About = () => {
               <div></div>
               <TimelineContent>
                 <TimelineYear>{item.year}</TimelineYear>
-                <TimelineTitle>{item.title}</TimelineTitle>
                 <TimelineText>{item.description}</TimelineText>
               </TimelineContent>
             </TimelineItem>
