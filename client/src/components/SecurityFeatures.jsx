@@ -8,7 +8,7 @@ import {
   FaChartLine,
   FaExclamationTriangle,
   FaCheckCircle,
-  FaCloudUploadAlt
+  FaUsers
 } from 'react-icons/fa';
 
 const BLUE_CARD_INDICES = [0, 2, 5, 7];
@@ -503,44 +503,44 @@ const ThreatValue = styled.div`
 
 const featuresData = [
   {
+    icon: <FaChartLine />,
+    title: 'Risk Modelling',
+    description: 'Scientific Derivation of Risk'
+  },
+  {
     icon: <FaShieldAlt />,
-    title: 'CRQ Platform',
-    description: 'Cyber Risk Quantification prevention for informed decision making'
-  },
-  {
-    icon: <FaLock />,
-    title: 'vCISO',
-    description: 'Virtual CISO leadership and guidance'
-  },
-  {
-    icon: <FaUserShield />,
-    title: 'GRC',
-    description: 'Governance, Risk & Compliance frameworks'
+    title: 'Cyber Immunity',
+    description: 'Interactive Threat Simulation'
   },
   {
     icon: <FaServer />,
-    title: 'OT Security',
-    description: 'SCADA, PLC, HMI'
+    title: 'Breach Attack Simulation',
+    description: 'On Prem Simulation'
   },
   {
-    icon: <FaChartLine />,
-    title: 'Risk Management',
-    description: 'Identify assess, and mitigate cyber risks'
+    icon: <FaUserShield />,
+    title: 'Strategic Cyber',
+    description: 'Board Level Security Risk'
+  },
+  {
+    icon: <FaUsers />,
+    title: 'Cyber Crisis Management Plan',
+    description: 'Stakeholder Engagement'
   },
   {
     icon: <FaExclamationTriangle />,
     title: 'Vulnerability Assessment',
-    description: 'Identify assess, and mitigate cyber risks'
+    description: 'Remediate Security Gaps'
   },
   {
     icon: <FaCheckCircle />,
-    title: 'Compliance',
-    description: 'DFIR - Digital Forensics & Incident Response'
+    title: 'Compliance Management',
+    description: 'OK'
   },
   {
-    icon: <FaShieldAlt />,
-    title: 'Risk Transfer',
-    description: 'Financial impact and enabling Insurance purchase'
+    icon: <FaLock />,
+    title: 'Privacy Framework Adoption',
+    description: ''
   }
 ];
 
