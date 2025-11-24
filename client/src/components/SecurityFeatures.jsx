@@ -8,8 +8,7 @@ import {
   FaChartLine,
   FaExclamationTriangle,
   FaCheckCircle,
-  FaCloudUploadAlt,
-  FaGithub
+  FaCloudUploadAlt
 } from 'react-icons/fa';
 
 const BLUE_CARD_INDICES = [0, 2, 5, 7];
@@ -136,48 +135,6 @@ const Subtitle = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
-  }
-`;
-
-const GithubLink = styled.a`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: #111827;
-  color: #ffffff;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.2);
-  position: relative;
-  z-index: 1;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(17, 24, 39, 0.25);
-    background: #0b1220;
-  }
-
-  &:active {
-    transform: translateY(0);
-    box-shadow: 0 8px 16px rgba(17, 24, 39, 0.2);
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 16px;
-    padding: 10px 18px;
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 480px) {
-    margin-top: 12px;
-    padding: 8px 16px;
-    font-size: 0.85rem;
   }
 `;
 
@@ -678,17 +635,10 @@ const SecurityFeatures = () => {
     <FeaturesContainer>
       <Container>
         <SectionHeader>
-          <Title>Comprehensive Cybersecurity Services</Title>
+          <Title>Comprehensive Cyber Risk Management</Title>
           <Subtitle>
             Enterprise-grade security features designed to protect your business from evolving cyber threats
           </Subtitle>
-          <GithubLink
-            href="https://github.com/octaleadsprivatelimited-cloud/t2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub /> View on GitHub
-          </GithubLink>
         </SectionHeader>
 
         <FeaturesGrid>
@@ -733,7 +683,7 @@ const SecurityFeatures = () => {
           <ThreatContent>
             <ThreatTitle>Threat Intelligence</ThreatTitle>
             <ThreatDescription>
-              Our advanced security platform continuously monitors and protects your infrastructure against cyber threats
+              Our SAAS platform continuously interacts and provides insights on near real time
             </ThreatDescription>
             <ThreatHighlight>
               Optimized risk transfer solutions
