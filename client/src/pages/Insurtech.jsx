@@ -907,7 +907,7 @@ const Insurtech = () => {
         </SectionSubtitle>
 
         <StakeholdersWrapper>
-          {/* Top Row - 3 stakeholders */}
+          {/* Row 1: BOARD OF DIRECTORS | CFO | CRO (RISK) */}
           <StakeholderBox
             $side="left"
             initial={{ opacity: 0, x: -30 }}
@@ -915,8 +915,8 @@ const Insurtech = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <StakeholderIcon><FaUsers /></StakeholderIcon>
-            <StakeholderName>PEOPLE</StakeholderName>
+            <StakeholderIcon><FaBuilding /></StakeholderIcon>
+            <StakeholderName>BOARD OF DIRECTORS</StakeholderName>
           </StakeholderBox>
 
           <StakeholderBox
@@ -926,8 +926,8 @@ const Insurtech = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <StakeholderIcon><FaCogs /></StakeholderIcon>
-            <StakeholderName>OPERATIONS</StakeholderName>
+            <StakeholderIcon><FaChartLine /></StakeholderIcon>
+            <StakeholderName>CFO</StakeholderName>
           </StakeholderBox>
 
           <StakeholderBox
@@ -938,10 +938,10 @@ const Insurtech = () => {
             transition={{ delay: 0.3 }}
           >
             <StakeholderIcon><FaShieldAlt /></StakeholderIcon>
-            <StakeholderName>CISO</StakeholderName>
+            <StakeholderName>CRO (RISK)</StakeholderName>
           </StakeholderBox>
 
-          {/* Left Column - 2 stakeholders */}
+          {/* Row 2: CISO | Center Image | CLO (LEGAL) */}
           <StakeholderBox
             $side="left"
             initial={{ opacity: 0, x: -30 }}
@@ -949,19 +949,8 @@ const Insurtech = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <StakeholderIcon><FaBalanceScale /></StakeholderIcon>
-            <StakeholderName>LEGAL</StakeholderName>
-          </StakeholderBox>
-
-          <StakeholderBox
-            $side="left"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-          >
-            <StakeholderIcon><FaNetworkWired /></StakeholderIcon>
-            <StakeholderName>SUPPLY CHAIN</StakeholderName>
+            <StakeholderIcon><FaShieldAlt /></StakeholderIcon>
+            <StakeholderName>CISO</StakeholderName>
           </StakeholderBox>
 
           {/* Center Image Space */}
@@ -972,13 +961,24 @@ const Insurtech = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
           />
 
-          {/* Right Column - 2 stakeholders */}
           <StakeholderBox
             $side="right"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.5 }}
+          >
+            <StakeholderIcon><FaBalanceScale /></StakeholderIcon>
+            <StakeholderName>CLO (LEGAL)</StakeholderName>
+          </StakeholderBox>
+
+          {/* Row 3: CTO | Center Image | COO (OPERATIONS) */}
+          <StakeholderBox
+            $side="left"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7 }}
           >
             <StakeholderIcon><FaUserTie /></StakeholderIcon>
             <StakeholderName>CTO</StakeholderName>
@@ -989,22 +989,22 @@ const Insurtech = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.8 }}
           >
-            <StakeholderIcon><FaBuilding /></StakeholderIcon>
-            <StakeholderName>BOARD OF DIRECTORS</StakeholderName>
+            <StakeholderIcon><FaCogs /></StakeholderIcon>
+            <StakeholderName>COO (OPERATIONS)</StakeholderName>
           </StakeholderBox>
 
-          {/* Bottom Row - 3 stakeholders */}
+          {/* Row 4: CHRO | COMPLIANCE | SUPPLYCHAIN */}
           <StakeholderBox
             $side="left"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.7 }}
+            transition={{ delay: 0.9 }}
           >
-            <StakeholderIcon><FaChartLine /></StakeholderIcon>
-            <StakeholderName>FINANCE</StakeholderName>
+            <StakeholderIcon><FaUsers /></StakeholderIcon>
+            <StakeholderName>CHRO</StakeholderName>
           </StakeholderBox>
 
           <StakeholderBox
@@ -1012,7 +1012,7 @@ const Insurtech = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 1.0 }}
           >
             <StakeholderIcon><FaClipboardCheck /></StakeholderIcon>
             <StakeholderName>COMPLIANCE</StakeholderName>
@@ -1023,10 +1023,10 @@ const Insurtech = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.9 }}
+            transition={{ delay: 1.1 }}
           >
-            <StakeholderIcon><FaShieldAlt /></StakeholderIcon>
-            <StakeholderName>CRO</StakeholderName>
+            <StakeholderIcon><FaNetworkWired /></StakeholderIcon>
+            <StakeholderName>SUPPLYCHAIN</StakeholderName>
           </StakeholderBox>
         </StakeholdersWrapper>
       </StakeholdersSection>

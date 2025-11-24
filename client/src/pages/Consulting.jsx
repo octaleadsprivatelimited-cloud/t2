@@ -164,6 +164,10 @@ const SectionHeader = styled.div`
   text-align: center;
   max-width: 800px;
   margin: 0 auto 80px;
+
+  @media (max-width: 768px) {
+    margin: 0 auto 50px;
+  }
 `;
 
 const SectionBadge = styled(motion.span)`
@@ -572,8 +576,161 @@ const BentoListItem = styled.li`
 `;
 
 
+const HowWeWorkSection = styled.section`
+  padding: 80px 40px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+
+  /* Cybersecurity grid pattern background */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(30, 58, 138, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 58, 138, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* Gradient overlay */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.95) 100%);
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+
+  ${SectionHeader} {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+  }
+`;
+
+const HowWeWorkGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+`;
+
+const HowWeWorkCard = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 32px 28px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.12);
+    border-color: #cbd5e1;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 28px 24px;
+  }
+`;
+
+const HowWeWorkNumber = styled.div`
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
+
+  @media (max-width: 768px) {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+  }
+`;
+
+const HowWeWorkTitle = styled.h3`
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.3px;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+`;
+
+const HowWeWorkDescription = styled.p`
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+`;
+
 const TestimonialsSection = styled.section`
-  padding: 120px 40px;
+  padding: 80px 40px;
   background: #1a202c;
   position: relative;
   overflow: hidden;
@@ -589,17 +746,39 @@ const TestimonialsSection = styled.section`
       radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 50%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
   }
+
+  ${SectionHeader} {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
 `;
 
 const TestimonialsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1400px;
-  margin: 60px auto 0;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  position: relative;
+  z-index: 1;
 
-  @media (max-width: 968px) {
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 `;
 
@@ -607,34 +786,50 @@ const TestimonialCard = styled(motion.div)`
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 40px;
+  border-radius: 16px;
+  padding: 32px 28px;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    padding: 28px 24px;
   }
 `;
 
 const TestimonialQuote = styled.p`
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.8;
-  margin-bottom: 30px;
+  line-height: 1.7;
+  margin-bottom: 24px;
   font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
 `;
 
 const TestimonialAuthor = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
 `;
 
 const AuthorAvatar = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
@@ -642,21 +837,45 @@ const AuthorAvatar = styled.div`
   justify-content: center;
   color: white;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
 `;
 
-const AuthorInfo = styled.div``;
+const AuthorInfo = styled.div`
+  flex: 1;
+  min-width: 0;
+`;
 
 const AuthorName = styled.div`
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: white;
   margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const AuthorRole = styled.div`
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 
@@ -882,6 +1101,83 @@ const Consulting = () => {
         </MobileSidebar>
       </ServicesSection>
 
+      <HowWeWorkSection>
+        {/* Cybersecurity Background Elements */}
+        <SecurityIcon size="4rem" duration="8s" delay="0s">
+          <FaShieldAlt />
+        </SecurityIcon>
+        <SecurityIcon size="3rem" duration="7s" delay="1s">
+          <FaLock />
+        </SecurityIcon>
+        <SecurityIcon size="3.5rem" duration="9s" delay="2s">
+          <FaNetworkWired />
+        </SecurityIcon>
+        <AccentLine />
+
+        <SectionHeader>
+          <SectionTitle
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            How we work
+          </SectionTitle>
+        </SectionHeader>
+
+        <HowWeWorkGrid>
+          <HowWeWorkCard
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <HowWeWorkNumber>1</HowWeWorkNumber>
+            <HowWeWorkTitle>Assess</HowWeWorkTitle>
+            <HowWeWorkDescription>
+              Identify and prioritize potential cyber threats.
+            </HowWeWorkDescription>
+          </HowWeWorkCard>
+
+          <HowWeWorkCard
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <HowWeWorkNumber>2</HowWeWorkNumber>
+            <HowWeWorkTitle>Quantify</HowWeWorkTitle>
+            <HowWeWorkDescription>
+              Measure the financial impact of risks.
+            </HowWeWorkDescription>
+          </HowWeWorkCard>
+
+          <HowWeWorkCard
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <HowWeWorkNumber>3</HowWeWorkNumber>
+            <HowWeWorkTitle>Mitigate</HowWeWorkTitle>
+            <HowWeWorkDescription>
+              Implement controls to reduce risk likelihood or impact.
+            </HowWeWorkDescription>
+          </HowWeWorkCard>
+
+          <HowWeWorkCard
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <HowWeWorkNumber>4</HowWeWorkNumber>
+            <HowWeWorkTitle>Consult</HowWeWorkTitle>
+            <HowWeWorkDescription>
+              Seek expert advice to take an informed decision on your risks.
+            </HowWeWorkDescription>
+          </HowWeWorkCard>
+        </HowWeWorkGrid>
+      </HowWeWorkSection>
 
       <TestimonialsSection>
         <SectionHeader>
