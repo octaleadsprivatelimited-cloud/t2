@@ -119,11 +119,9 @@ const ProfileImage = styled.img`
     margin: 0 auto;
   }
 
-  /* G Anand image positioning for mobile */
+  /* G Anand image - normal format */
   &.g-anand-image {
-    @media (max-width: 768px) {
-      object-position: center 30%;
-    }
+    /* No special transformations - normal image display */
   }
 
   /* Vijayanand Subramaniam image positioning for mobile */
@@ -514,7 +512,7 @@ const TeamProfile = () => {
       fullName: 'G Anand',
       jobTitle: 'EVP Sales & GTM Strategy',
       department: '',
-      image: '/insurtech/team/G Anand.jpeg',
+      image: '/insurtech/team/G Anand.png',
       qrImage: '/images/team/g-anand-qr.png',
       bio: 'Visionary leader with expertise in cybersecurity strategy and risk management. Driving innovation and excellence across the organization.',
       specialization: 'Strategic leadership, cybersecurity risk management, organizational growth',
