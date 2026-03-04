@@ -5,7 +5,7 @@ const SEO = ({
   title = 'Trans Asia Tech | Cyber Risk Quantification & OT Security',
   description = 'Trans Asia Tech quantifies cyber risk and delivers vCISO, OT security, GRC, and incident response programs for regulated enterprises across India, the Middle East, APAC, Europe, and North America.',
   keywords = 'cyber risk quantification, virtual CISO services, OT cybersecurity, GRC consulting, cyber insurance readiness, incident response retainer, Trans Asia Tech',
-  image = '/og-image.jpg',
+  image = '/images/logo.png',
   imageAlt = 'Trans Asia Tech - Advanced Cybersecurity Platform',
   url = 'https://transasia.tech',
   canonicalUrl,
@@ -30,7 +30,7 @@ const SEO = ({
   const fullTitle = title.includes('Trans Asia Tech') ? title : `${title} | Trans Asia Tech`
   const canonical = canonicalUrl || url
   const normalizedBaseUrl = canonical.replace(/\/$/, '')
-  const logoUrl = `${normalizedBaseUrl}/insurtech/logo.png`
+  const logoUrl = `${normalizedBaseUrl}/images/logo.png`
   const areaServedList = areaServed.length ? areaServed : ['Worldwide', 'Global']
 
   const robotsDirectives = [

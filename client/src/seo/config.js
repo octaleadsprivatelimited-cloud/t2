@@ -40,7 +40,7 @@ const GLOBAL_AREA_SERVED = [
   'Nigeria'
 ]
 
-const defaultImage = `${BASE_URL}/og-image.jpg`
+const defaultImage = `${BASE_URL}/images/logo.png`
 const defaultImageAlt = 'Trans Asia Tech - Advanced Cybersecurity Platform'
 
 const DEFAULT_HREFLANGS = [
