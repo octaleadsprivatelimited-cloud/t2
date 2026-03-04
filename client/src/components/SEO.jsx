@@ -50,7 +50,24 @@ const SEO = ({
       name: siteName,
       legalName: 'Trans Asia Tech Private Limited',
       url,
-      logo: logoUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: logoUrl,
+        width: 512,
+        height: 512
+      },
+      image: logoUrl,
+      description: 'Trans Asia Tech delivers cyber risk quantification, vCISO leadership, OT security, and compliance programs for enterprises globally.',
+      foundingDate: '2018',
+      numberOfEmployees: {
+        '@type': 'QuantitativeValue',
+        value: '50-200'
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'IN',
+        addressLocality: 'India'
+      },
       sameAs: [
         'https://www.linkedin.com/company/transasia-tech/',
         'https://twitter.com/transasia_tech'
@@ -61,20 +78,63 @@ const SEO = ({
           telephone: '+91-89258-34989',
           contactType: 'sales',
           areaServed: areaServedList.slice(0, 10),
+          availableLanguage: ['en'],
+          email: 'info@transasia.tech'
+        },
+        {
+          '@type': 'ContactPoint',
+          telephone: '+91-89258-34989',
+          contactType: 'customer support',
+          areaServed: areaServedList.slice(0, 10),
           availableLanguage: ['en']
         }
       ],
-      areaServed: areaServedList
+      areaServed: areaServedList,
+      knowsAbout: [
+        'Cybersecurity',
+        'Cyber Risk Quantification',
+        'Insurtech',
+        'OT Security',
+        'GRC Consulting',
+        'vCISO Services',
+        'Managed Detection and Response'
+      ],
+      makesOffer: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Cyber Risk Quantification',
+            description: 'Board-ready cyber risk quantification services'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'vCISO Services',
+            description: 'Virtual Chief Information Security Officer services'
+          }
+        }
+      ]
     },
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: siteName,
       url,
+      inLanguage: locale,
       potentialAction: {
         '@type': 'SearchAction',
-        target: `${normalizedBaseUrl}/?s={search_term_string}`,
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${normalizedBaseUrl}/?s={search_term_string}`
+        },
         'query-input': 'required name=search_term_string'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: siteName
       }
     }
   ]
@@ -123,7 +183,7 @@ const SEO = ({
       <meta name="yandex" content={robotsDirectives} />
       <meta name="duckduckbot" content={robotsDirectives} />
       <meta name="baiduspider" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
-      {/* AI Crawler Meta Tags */}
+      {/* AI Crawler Meta Tags - Enhanced for 2024+ */}
       <meta name="google-extended" content={aiDirectives} />
       <meta name="gptbot" content={aiDirectives} />
       <meta name="anthropic-ai" content={aiDirectives} />
@@ -138,6 +198,18 @@ const SEO = ({
       <meta name="ai-search" content={aiDirectives} />
       <meta name="allow-ai" content="true" />
       <meta name="ai-indexing" content="enabled" />
+      
+      {/* Additional AI-friendly meta tags */}
+      <meta name="AI-Content-Type" content="text/html; charset=utf-8" />
+      <meta name="AI-Language" content={locale.split('_')[0]} />
+      <meta name="AI-Context" content="cybersecurity, risk management, insurtech" />
+      <meta name="AI-Access" content="public" />
+      
+      {/* Rich snippets and AI understanding */}
+      <meta name="content-type" content="text/html; charset=UTF-8" />
+      <meta name="content-language" content={locale.split('_')[0]} />
+      <meta name="audience" content="enterprise, cybersecurity professionals, insurance carriers" />
+      <meta name="topic" content="cybersecurity, cyber risk quantification, insurtech" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="coverage" content={coverage} />
       <meta name="distribution" content={distribution} />

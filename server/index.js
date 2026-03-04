@@ -80,160 +80,232 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Import sitemap generator
+const { generateSitemap } = require('./utils/sitemapGenerator');
+
 // SEO and sitemap endpoints
 app.get('/robots.txt', (req, res) => {
   res.type('text/plain');
   const baseUrl = `${req.protocol}://${req.get('host')}`;
   res.send(`# Robots.txt for Trans Asia Tech
-# Allow all search engines and AI crawlers
+# Comprehensive robots.txt optimized for search engines and AI crawlers
+# Last updated: ${new Date().toISOString().split('T')[0]}
 
-# Standard search engines
+# ============================================
+# Standard Search Engines
+# ============================================
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*utm_*
 Crawl-delay: 1
 
-# Google
+# ============================================
+# Google Search & AI
+# ============================================
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Google AI (Gemini)
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /insurtech/
+Disallow: /api/
+Crawl-delay: 1
+
+# Google AI (Gemini) - Allow for AI training
 User-agent: Google-Extended
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# OpenAI GPTBot
+# ============================================
+# OpenAI (ChatGPT, GPT-4, etc.)
+# ============================================
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Anthropic Claude
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# ============================================
+# Anthropic (Claude)
+# ============================================
 User-agent: anthropic-ai
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Perplexity
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# ============================================
+# Perplexity AI
+# ============================================
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Bing
+User-agent: Perplexity-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# ============================================
+# Microsoft / Bing
+# ============================================
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
 User-agent: BingPreview
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Other AI Crawlers
-User-agent: CCBot
+# Bing AI (Copilot)
+User-agent: msnbot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Sitemap
+# ============================================
+# Other AI Crawlers
+# ============================================
+# Applebot (Siri)
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Meta AI
+User-agent: facebookexternalhit
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# You.com AI
+User-agent: YouBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Character.AI
+User-agent: Character-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+User-agent: YandexGPT
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 2
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# ============================================
+# Sitemaps
+# ============================================
 Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${baseUrl}/sitemap-index.xml
+
+# ============================================
+# Host Information
+# ============================================
+Host: ${baseUrl.replace(/^https?:\/\//, '')}
 `);
 });
 
 app.get('/sitemap.xml', (req, res) => {
   const baseUrl = `${req.protocol}://${req.get('host')}`;
-  const lastmod = new Date().toISOString().split('T')[0];
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
-    <loc>${baseUrl}/</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/insurtech</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/products</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/consulting</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/services</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/about</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/team</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/insights</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/blog</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/press</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/gallery</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/careers</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/contact</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-</urlset>`;
+  const sitemap = generateSitemap(baseUrl);
   
   res.type('application/xml');
+  res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
   res.send(sitemap);
+});
+
+// Sitemap index (for future expansion)
+app.get('/sitemap-index.xml', (req, res) => {
+  const baseUrl = `${req.protocol}://${req.get('host')}`;
+  const lastmod = new Date().toISOString().split('T')[0];
+  
+  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${baseUrl}/sitemap.xml</loc>
+    <lastmod>${lastmod}</lastmod>
+  </sitemap>
+</sitemapindex>`;
+  
+  res.type('application/xml');
+  res.set('Cache-Control', 'public, max-age=3600');
+  res.send(sitemapIndex);
 });
 
 // API 404 handler

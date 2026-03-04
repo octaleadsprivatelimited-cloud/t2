@@ -1,58 +1,191 @@
 # Robots.txt for Trans Asia Tech
-# Allow all search engines and AI crawlers
+# Comprehensive robots.txt optimized for search engines and AI crawlers
+# Last updated: 2024-12-19
 
-# Standard search engines
+# ============================================
+# Standard Search Engines
+# ============================================
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*utm_*
 Crawl-delay: 1
 
-# Google
+# ============================================
+# Google Search & AI
+# ============================================
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Google AI (Gemini)
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /insurtech/
+Disallow: /api/
+Crawl-delay: 1
+
+# Google AI (Gemini) - Allow for AI training
 User-agent: Google-Extended
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# OpenAI GPTBot
+# ============================================
+# OpenAI (ChatGPT, GPT-4, etc.)
+# ============================================
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Anthropic Claude
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# ============================================
+# Anthropic (Claude)
+# ============================================
 User-agent: anthropic-ai
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Perplexity
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# ============================================
+# Perplexity AI
+# ============================================
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Bing
+User-agent: Perplexity-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# ============================================
+# Microsoft / Bing
+# ============================================
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
 User-agent: BingPreview
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Other AI Crawlers
-User-agent: CCBot
+# Bing AI (Copilot)
+User-agent: msnbot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 Crawl-delay: 1
 
-# Sitemap
-Sitemap: https://transasia.tech/sitemap.xml
+# ============================================
+# Other AI Crawlers
+# ============================================
+# Applebot (Siri)
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
 
+# Meta AI
+User-agent: facebookexternalhit
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# You.com AI
+User-agent: YouBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Character.AI
+User-agent: Character-ai
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+User-agent: YandexGPT
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 2
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# ============================================
+# Sitemaps
+# ============================================
+Sitemap: https://transasia.tech/sitemap.xml
+Sitemap: https://transasia.tech/sitemap-index.xml
+
+# ============================================
+# Host Information
+# ============================================
+Host: transasia.tech
