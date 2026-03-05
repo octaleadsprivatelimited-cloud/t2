@@ -182,10 +182,10 @@ Crawl-delay: 1
 # ============================================
 # Sitemaps
 # ============================================
-Sitemap: https://transasia.tech/sitemap.xml
-Sitemap: https://transasia.tech/sitemap-index.xml
+Sitemap: https://transasiatec.com/sitemap.xml
+Sitemap: https://transasiatec.com/sitemap-index.xml
 
 # ============================================
 # Host Information
 # ============================================
-Host: transasia.tech
+Host: transasiatec.com

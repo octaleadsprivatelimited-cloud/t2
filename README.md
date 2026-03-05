@@ -148,7 +148,7 @@ This project is licensed under the MIT License.
 ## 🆘 Support
 
 For support and questions:
-- Email: contact@transasia.tech
+- Email: contact@transasiatec.com
 - LinkedIn: [Trans Asia Tech](https://linkedin.com/company/transasia-tech)
 - Twitter: [@transasia_tech](https://twitter.com/transasia_tech)
 

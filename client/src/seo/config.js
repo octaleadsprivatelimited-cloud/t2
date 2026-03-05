@@ -1,4 +1,4 @@
-const BASE_URL = 'https://transasia.tech'
+const BASE_URL = 'https://transasiatec.com'
 
 const GLOBAL_AREA_SERVED = [
   'Global',

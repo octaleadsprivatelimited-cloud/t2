@@ -1,5 +1,5 @@
 // API Configuration
-export const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.transasia.tech'
+export const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.transasiatec.com'
 
 // Animation Durations
 export const ANIMATION_DURATION = {
@@ -31,7 +31,7 @@ export const SOCIAL_LINKS = {
   LINKEDIN: 'https://linkedin.com/company/transasia-tech',
   TWITTER: 'https://twitter.com/transasia_tech',
   GITHUB: 'https://github.com/transasia-tech',
-  EMAIL: 'contact@transasia.tech'
+  EMAIL: 'contact@transasiatec.com'
 }
 
 // Navigation Items

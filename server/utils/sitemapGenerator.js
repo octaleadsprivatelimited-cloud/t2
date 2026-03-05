@@ -3,7 +3,7 @@
  * Generates XML sitemap with all routes including dynamic routes
  */
 
-const BASE_URL = process.env.BASE_URL || 'https://transasia.tech';
+const BASE_URL = process.env.BASE_URL || 'https://transasiatec.com';
 
 // All static routes
 const staticRoutes = [

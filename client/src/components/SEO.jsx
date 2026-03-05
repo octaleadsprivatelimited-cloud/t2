@@ -7,7 +7,7 @@ const SEO = ({
   keywords = 'cyber risk quantification, virtual CISO services, OT cybersecurity, GRC consulting, cyber insurance readiness, incident response retainer, Trans Asia Tech',
   image = '/images/logo.png',
   imageAlt = 'Trans Asia Tech - Advanced Cybersecurity Platform',
-  url = 'https://transasia.tech',
+  url = 'https://transasiatec.com',
   canonicalUrl,
   type = 'website',
   author = 'Trans Asia Tech',
@@ -79,7 +79,7 @@ const SEO = ({
           contactType: 'sales',
           areaServed: areaServedList.slice(0, 10),
           availableLanguage: ['en'],
-          email: 'info@transasia.tech'
+          email: 'info@transasiatec.com'
         },
         {
           '@type': 'ContactPoint',
